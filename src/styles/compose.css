@@ -1,0 +1,3 @@
+.force-disabled {
+  @apply opacity-25 pointer-events-none;
+}

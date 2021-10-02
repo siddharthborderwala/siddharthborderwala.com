@@ -6,8 +6,7 @@ import StandardLayout from '../../layouts/standard';
 const BlogPage = ({ data }) => {
   return (
     <StandardLayout>
-      <header></header>
-      <main>
+      <main className="w-constraint">
         {data.allMdx.nodes.map(node => (
           <article key={node.id}>
             <h2>

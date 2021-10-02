@@ -12,13 +12,13 @@ import { Link } from 'gatsby';
 
 const Footer = () => {
   return (
-    <footer className="bg-red-400 mt-20">
-      <div className="flex items-start justify-between py-12 w-constraint">
-        <div>
+    <footer className="bg-red-400">
+      <div className="flex items-start justify-between flex-col-reverse sm:flex-row py-12 w-constraint">
+        <div className="mt-12 sm:mt-none">
           <Link to="/">
             <Name width="250" />
           </Link>
-          <div className="mt-20 flex items-center">
+          <div className="mt-8 sm:mt-20 flex items-center">
             <Copyright />
             <p className="ml-2">
               {new Date().getFullYear()} Siddharth Borderwala
@@ -50,7 +50,7 @@ const Footer = () => {
           >
             <LinkedinLogo weight="regular" size="24" />
           </a>
-          <a title="RSS Feed" href="/rss.xml">
+          <a className="force-disabled" title="RSS Feed" href="/rss.xml">
             <Rss weight="regular" size="24" />
           </a>
         </nav>

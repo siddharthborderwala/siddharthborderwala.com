@@ -3,10 +3,53 @@
   color: white !important;
 }
 
+.mark {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.mark:hover .mark::after {
+  height: 75%;
+}
+
+.mark::after {
+  display: block;
+  content: '';
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #ffb1b1;
+  z-index: -1;
+}
+
 .w-constraint {
   margin: 0 auto;
   padding-right: 1rem;
   padding-left: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .w-constraint {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .w-constraint {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .w-constraint {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {

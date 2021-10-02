@@ -16,8 +16,6 @@ const BlogPost = ({
         date,
         createdAt,
         hero_image_alt,
-        hero_image_credit_link,
-        hero_image_credit_text,
         hero_image,
       },
       body,
@@ -48,16 +46,6 @@ const BlogPost = ({
           <p>{category}</p>
         </div>
         <GatsbyImage image={image} alt={hero_image_alt} />
-        <p className="w-constraint">
-          Photo Credit:{' '}
-          <a
-            href={hero_image_credit_link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {hero_image_credit_text}
-          </a>
-        </p>
       </header>
       <main className="w-constraint">
         <RenderMDX>{body}</RenderMDX>
@@ -76,9 +64,11 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         createdAt: date(formatString: "YYYY-MM-DDTHH:mm:ssZ")
         hero_image_alt
-        hero_image_credit_link
-        hero_image_credit_text
-        hero_image
+        hero_image {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
+          }
+        }
       }
       body
     }
