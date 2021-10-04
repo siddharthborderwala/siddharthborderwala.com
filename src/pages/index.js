@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { PaperPlaneTilt } from 'phosphor-react';
 
@@ -29,12 +28,12 @@ const IndexPage = () => {
               am a Computer Science student and I love theoretical computer
               science.
             </h2>
-            <Link
-              to="emailto:siddharthborderwala@gmail.com"
+            <a
+              href="emailto:siddharthborderwala@gmail.com"
               className="bg-red-400 text-white text-lg py-2 px-4 mt-8 inline-flex items-center"
             >
               Contact Now <PaperPlaneTilt className="ml-4" weight="bold" />
-            </Link>
+            </a>
           </div>
           <div className="sm:pl-16">
             <StaticImage

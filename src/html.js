@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './styles/tailwind.css';
+import './styles/global.css';
+import './styles/compose.css';
+
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>

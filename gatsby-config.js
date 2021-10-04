@@ -9,10 +9,10 @@ module.exports = {
     title: 'Siddharth Borderwala',
   },
   plugins: [
-    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-gatsby-cloud',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -37,57 +37,57 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-feed',
-      query: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-            }
-          }
-        }
-      `,
-      feeds: [
-        {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
-              return Object.assign({}, edge.node.frontmatter, {
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-              });
-            });
-          },
-          query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-          output: '/rss.xml',
-          title: "Siddharth Borderwala's Blog's RSS Feed",
-          match: '^/blog/',
-        },
-      ],
-    },
+    // {
+    //   resolve: 'gatsby-plugin-feed',
+    //   query: `
+    //     {
+    //       site {
+    //         siteMetadata {
+    //           title
+    //           description
+    //           siteUrl
+    //         }
+    //       }
+    //     }
+    //   `,
+    //   feeds: [
+    //     {
+    //       serialize: ({ query: { site, allMarkdownRemark } }) => {
+    //         return allMarkdownRemark.edges.map(edge => {
+    //           return Object.assign({}, edge.node.frontmatter, {
+    //             description: edge.node.excerpt,
+    //             date: edge.node.frontmatter.date,
+    //             url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+    //             guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+    //             custom_elements: [{ 'content:encoded': edge.node.html }],
+    //           });
+    //         });
+    //       },
+    //       query: `
+    //           {
+    //             allMarkdownRemark(
+    //               sort: { order: DESC, fields: [frontmatter___date] },
+    //             ) {
+    //               edges {
+    //                 node {
+    //                   excerpt
+    //                   html
+    //                   fields { slug }
+    //                   frontmatter {
+    //                     title
+    //                     date
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //       output: '/rss.xml',
+    //       title: "Siddharth Borderwala's Blog's RSS Feed",
+    //       match: '^/blog/',
+    //     },
+    //   ],
+    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
