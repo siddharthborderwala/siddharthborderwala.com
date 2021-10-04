@@ -1,54 +1,36 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+
 import StandardLayout from '../layouts/standard';
+import { Meta } from '../components/seo';
 
-// styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
+const siteTitle = 'Siddharth Borderwala | Not Found';
+const description =
+  "Checkout Siddharth Borderwala's profile and get to know more about him.";
+const imgSrc = 'https://www.codexsid.com/social.png';
 
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-};
-
-// markup
 const NotFoundPage = () => {
   return (
     <StandardLayout>
-      <main style={pageStyles}>
-        <title>Not found</title>
-        <h1 style={headingStyles}>Page not found</h1>
-        <p style={paragraphStyles}>
+      <Meta title={siteTitle} description={description} image={imgSrc} />
+      <main
+        className="w-constraint py-8"
+        style={{ minHeight: 'calc(100vh - 23rem)' }}
+      >
+        <h1 className="text-4xl font-bold mt-8">Page not found 💥</h1>
+        <p className="mt-8">
           Sorry{' '}
           <span role="img" aria-label="Pensive emoji">
             😔
           </span>{' '}
           we couldn’t find what you were looking for.
           <br />
-          {process.env.NODE_ENV === 'development' ? (
-            <>
-              <br />
-              Try creating a page in <code style={codeStyles}>src/pages/</code>.
-              <br />
-            </>
-          ) : null}
-          <br />
-          <Link to="/">Go home</Link>.
         </p>
+        <h2 className="mt-4 text-2xl">
+          <Link to="/" className="link mt-4 font-semibold">
+            Go home 🏠
+          </Link>
+        </h2>
       </main>
     </StandardLayout>
   );

@@ -24,6 +24,7 @@ const BlogPost = ({
       siteMetadata: { siteUrl },
     },
   },
+  location,
 }) => {
   const image = getImage(hero_image);
   const imgSrc = `${siteUrl}${
@@ -33,7 +34,12 @@ const BlogPost = ({
 
   return (
     <StandardLayout>
-      <Meta title={siteTitle} description={description} image={imgSrc} />
+      <Meta
+        title={siteTitle}
+        description={description}
+        image={imgSrc}
+        path={location.pathname}
+      />
       <PostStructuredData
         createdAt={createdAt}
         title={siteTitle}

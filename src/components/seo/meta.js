@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import useSiteMetadata from '../../hooks/use-site-metadata';
+
 const siteTwitterHandle = 'sidborderwala';
 
 const Meta = ({
@@ -10,10 +12,12 @@ const Meta = ({
   image,
   imageAlt,
   authorTwitterHandle,
-  url,
+  path,
 }) => {
   const img = image || '';
   const imgAlt = imageAlt || '';
+  const { siteUrl } = useSiteMetadata();
+  const url = `${siteUrl}${path}`;
 
   return (
     <Helmet>

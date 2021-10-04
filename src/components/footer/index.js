@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-red-400">
       <div className="flex items-start justify-between flex-col-reverse sm:flex-row py-12 w-constraint">
-        <div className="mt-12 sm:mt-none">
+        <div className="mt-12 sm:mt-0">
           <Link to="/">
             <Name width="250" />
           </Link>

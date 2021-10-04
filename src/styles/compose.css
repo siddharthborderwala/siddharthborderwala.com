@@ -1,3 +1,7 @@
 .force-disabled {
   @apply opacity-25 pointer-events-none;
 }
+
+.link {
+  @apply underline text-red-400;
+}

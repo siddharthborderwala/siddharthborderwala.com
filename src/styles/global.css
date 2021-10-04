@@ -27,11 +27,11 @@
 
 .w-constraint {
   margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .w-constraint {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -49,6 +49,13 @@
   .w-constraint {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+} */
+
+@media screen and (min-width: 640px) {
+  .w-constraint {
+    padding-left: 2rem;
+    padding-left: 2rem;
   }
 }
 
