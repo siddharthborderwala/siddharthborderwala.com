@@ -1,6 +1,6 @@
 const siteUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://siddharthborderwala.com'
+    ? 'https://new.codexsid.com'
     : 'http://localhost:8000';
 
 module.exports = {
