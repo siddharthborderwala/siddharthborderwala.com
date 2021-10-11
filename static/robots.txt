@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /404
+Disallow: /404.html
+
+Sitemap: https://www.siddharthborderwala.com/sitemap.xml

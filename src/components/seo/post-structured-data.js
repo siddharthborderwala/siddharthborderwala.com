@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-const PostStructuredData = ({
-  title,
-  image,
-  createdAt,
-  authorName,
-  authorURL,
-}) => {
+const PostStructuredData = ({ title, image, createdAt, authorName }) => {
   return (
     <Helmet>
       <script type="application/ld+json">
@@ -21,7 +15,6 @@ const PostStructuredData = ({
           author: {
             '@type': 'Person',
             name: authorName,
-            url: authorURL,
           },
         })}
       </script>
@@ -29,12 +22,15 @@ const PostStructuredData = ({
   );
 };
 
+PostStructuredData.defaultProps = {
+  authorName: 'Siddharth Borderwala',
+};
+
 PostStructuredData.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
-  authorURL: PropTypes.string.isRequired,
+  authorName: PropTypes.string,
 };
 
 export default PostStructuredData;

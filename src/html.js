@@ -7,7 +7,7 @@ import './styles/compose.css';
 
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes}>
+    <html lang="en" dir="ltr" {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

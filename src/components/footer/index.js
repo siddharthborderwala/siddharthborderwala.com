@@ -17,6 +17,7 @@ const Footer = () => {
         <div className="mt-12 sm:mt-0">
           <Link to="/">
             <Name width="250" />
+            <p className="sr-only">Siddharth Borderwala</p>
           </Link>
           <div className="mt-8 sm:mt-20 flex items-center">
             <Copyright />

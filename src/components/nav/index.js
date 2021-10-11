@@ -12,6 +12,7 @@ const Nav = () => {
     <nav className="flex items-center py-4 space-x-12 w-constraint">
       <Link className="mr-auto border rounded-full" to="/">
         <Logo className="h-12 w-12 inline-block" />
+        <p className="sr-only">Siddharth Borderwala</p>
       </Link>
       <nav className="flex space-x-6">
         <a

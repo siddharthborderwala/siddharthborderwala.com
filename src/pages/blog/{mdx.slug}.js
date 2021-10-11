@@ -17,6 +17,7 @@ const BlogPost = ({
         createdAt,
         hero_image_alt,
         hero_image,
+        social_preview,
       },
       body,
     },
@@ -27,9 +28,8 @@ const BlogPost = ({
   location,
 }) => {
   const image = getImage(hero_image);
-  const imgSrc = `${siteUrl}${
-    image.images.sources[0].srcSet.split(', ').pop().split(' ')[0]
-  }`;
+  const social = getImage(social_preview);
+  const imgSrc = `${siteUrl}${social.images.fallback.src}`;
   const siteTitle = `${title} | Blog - Siddharth Borderwala`;
 
   return (
@@ -73,6 +73,11 @@ export const query = graphql`
         hero_image {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
+          }
+        }
+        social_preview {
+          childImageSharp {
+            gatsbyImageData(formats: PNG)
           }
         }
       }

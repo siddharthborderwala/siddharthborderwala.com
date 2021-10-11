@@ -25,7 +25,7 @@ const IndexPage = ({ location }) => {
           backgroundRepeat: 'repeat',
         }}
       >
-        <header className="w-constraint flex justify-between items-center py-20 flex-col md:flex-row md:py-32">
+        <header className="w-constraint flex justify-between items-center py-12 sm:py-16 flex-col md:flex-row md:py-32">
           <div>
             <h1 className="text-3xl sm:text-5xl font-bold">
               Hi, I am Siddharth
@@ -45,7 +45,7 @@ const IndexPage = ({ location }) => {
           <div className="sm:pl-16">
             <StaticImage
               alt="Siddharth Borderwala"
-              src="../images/siddharth.jpg"
+              src="../images/siddharth.png"
               className="border-none rounded-full w-56 md:w-auto mt-16 md:mt-auto"
             />
           </div>
@@ -56,7 +56,7 @@ const IndexPage = ({ location }) => {
             <p className="text-base sm:text-xl text-gray-700 font-light tracking-wide mt-6">
               I am a Computer Science undergraduate studying at{' '}
               <a
-                href="https://snu.edu.in"
+                href="https://snu.edu.in/home"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link"
