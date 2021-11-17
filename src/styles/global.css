@@ -3,6 +3,10 @@
   color: white !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .mark {
   position: relative;
   z-index: 1;

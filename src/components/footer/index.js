@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import {
   GithubLogo,
   LinkedinLogo,
@@ -8,7 +9,6 @@ import {
 } from 'phosphor-react';
 
 import Name from '../../assets/name.svg';
-import { Link } from 'gatsby';
 
 const Footer = () => {
   return (
@@ -51,9 +51,9 @@ const Footer = () => {
           >
             <LinkedinLogo weight="regular" size="24" />
           </a>
-          <a className="force-disabled" title="RSS Feed" href="/rss.xml">
+          <Link title="RSS Feed" href="/rss.xml">
             <Rss weight="regular" size="24" />
-          </a>
+          </Link>
         </nav>
       </div>
     </footer>

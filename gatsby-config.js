@@ -1,11 +1,12 @@
-const siteUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://new.codexsid.com'
-    : 'http://localhost:8000';
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const siteUrl = process.env.ORIGIN;
 
 module.exports = {
   siteMetadata: {
-    siteUrl: siteUrl,
+    siteUrl,
     title: 'Siddharth Borderwala',
   },
   plugins: [
@@ -37,57 +38,59 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sharp',
-    // {
-    //   resolve: 'gatsby-plugin-feed',
-    //   query: `
-    //     {
-    //       site {
-    //         siteMetadata {
-    //           title
-    //           description
-    //           siteUrl
-    //         }
-    //       }
-    //     }
-    //   `,
-    //   feeds: [
-    //     {
-    //       serialize: ({ query: { site, allMarkdownRemark } }) => {
-    //         return allMarkdownRemark.edges.map(edge => {
-    //           return Object.assign({}, edge.node.frontmatter, {
-    //             description: edge.node.excerpt,
-    //             date: edge.node.frontmatter.date,
-    //             url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //             guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //             custom_elements: [{ 'content:encoded': edge.node.html }],
-    //           });
-    //         });
-    //       },
-    //       query: `
-    //           {
-    //             allMarkdownRemark(
-    //               sort: { order: DESC, fields: [frontmatter___date] },
-    //             ) {
-    //               edges {
-    //                 node {
-    //                   excerpt
-    //                   html
-    //                   fields { slug }
-    //                   frontmatter {
-    //                     title
-    //                     date
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         `,
-    //       output: '/rss.xml',
-    //       title: "Siddharth Borderwala's Blog's RSS Feed",
-    //       match: '^/blog/',
-    //     },
-    //   ],
-    // },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.nodes.map(node => ({
+                url: site.siteMetadata.siteUrl + '/blog/' + node.slug,
+                guid: site.siteMetadata.siteUrl + '/blog/' + node.slug,
+                title: node.frontmatter.title,
+                description: node.frontmatter.description,
+                date: node.frontmatter.date,
+              })),
+            query: `
+              {
+                allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+                  nodes {
+                    id
+                    slug
+                    frontmatter {
+                      date(formatString: "MMM DD, YY")
+                      title
+                      description
+                      hero_image {
+                        childImageSharp {
+                          gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
+                        }
+                      }
+                      hero_image_alt
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'RSS Feed - Blog | Siddharth Borderwala',
+            description: `Siddharth Borderwala's blog.`,
+            link: `${siteUrl}/blog`,
+            match: '^/blog/',
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
