@@ -71,7 +71,8 @@ const IndexPage = ({ location }) => {
               <ExternalLink href={twitterLink}>twitter</ExternalLink>. I love
               the JavaScript ecosystem and{' '}
               <ExternalLink href="https://rust-lang.org">Rustlang</ExternalLink>
-              .
+              . Also, I am currently learning{' '}
+              <ExternalLink href="https://golang.org">Golang</ExternalLink>
             </Text>
             <Text>
               I have been reading The 4-Hour Work Week by Timothy Ferris and
@@ -90,17 +91,16 @@ const IndexPage = ({ location }) => {
             <Text>
               I am a Full-Stack JavaScript/TypeScript developer specializing in
               Reactjs, Nodejs, and the JAMStack ecosystem. I have worked on
-              project solo, as well as led teams of upto 6 developers to design,
-              build and deploy production-grade web applications.
+              projects solo, as well as led teams of upto 6 developers to
+              design, build and deploy production-grade web applications.
             </Text>
             <Text>
               I am an open source contributor and have contributed to libraries
               like{' '}
               <ExternalLink href="https://github.com/validatorjs/validator.js">
                 validatorjs
-              </ExternalLink>{' '}
-              and <ExternalLink href="swc.rs">swc</ExternalLink>. I have created
-              and am maintaining reactjs libraries such as{' '}
+              </ExternalLink>
+              . I have created and am maintaining reactjs libraries such as{' '}
               <ExternalLink href="https://github.com/siddharthborderwala/teaful-logger">
                 teaful-logger
               </ExternalLink>{' '}
@@ -114,7 +114,7 @@ const IndexPage = ({ location }) => {
             <Text>
               I also work with local businesses to design, build and maintain
               their website and/or web applications. I also provide services
-              like SEO/SMO opimzation, technical advise/consultation, and
+              like SEO/SMO opimzation, technical advise, and consultation for
               building an online presence for businesses.
             </Text>
             <h4 className="font-semibold text-2xl mt-6">

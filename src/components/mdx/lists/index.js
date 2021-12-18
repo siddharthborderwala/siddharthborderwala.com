@@ -7,5 +7,5 @@ export const OrderedList = ({ children }) => (
 );
 
 export const UnorderedList = ({ children }) => (
-  <ul className="list-disc">{children}</ul>
+  <ul className="list-disc ml-4">{children}</ul>
 );

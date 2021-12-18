@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import RenderMDX from '../../components/mdx';
 import { Meta, PostStructuredData } from '../../components/seo';
 import StandardLayout from '../../layouts/standard';
+import Badge from '../../components/badge';
 
 const BlogPost = ({
   data: {
@@ -45,15 +46,21 @@ const BlogPost = ({
         title={siteTitle}
         image={imgSrc}
       />
-      <header>
+      <header className="mt-8 md:mt-12 space-y-6">
         <div className="w-constraint">
-          <h1 className="text-3xl font-bold">{title}</h1>
-          <p>{date}</p>
-          <p>{category}</p>
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-700">
+            {title}
+          </h1>
+          <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
+            <p className="md:text-xl text-gray-600 mr-0 md:mr-5 mb-2 md:mb-0">
+              {date}
+            </p>
+            <Badge label={category} />
+          </div>
         </div>
         <GatsbyImage image={image} alt={hero_image_alt} />
       </header>
-      <main className="w-constraint">
+      <main className="w-constraint text-gray-700 mt-4">
         <RenderMDX>{body}</RenderMDX>
       </main>
     </StandardLayout>

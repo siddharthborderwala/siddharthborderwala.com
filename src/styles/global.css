@@ -7,6 +7,11 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  min-height: calc(100vh - 24.95rem);
+  padding-bottom: 4rem;
+}
+
 .mark {
   position: relative;
   z-index: 1;
@@ -33,6 +38,22 @@ html {
   margin: 0 auto;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+}
+
+.anchor.before {
+  display: inline-block;
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
 }
 
 /* @media screen and (max-width: 768px) {

@@ -1,40 +1,24 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import StandardLayout from '../../layouts/standard';
+import FeaturedArticle from '../../components/featured-article';
 
 const BlogPage = ({
   data: {
     allMdx: { posts },
   },
 }) => {
-  const featuredPost = posts.splice(0, 1)[0];
-  const featuredPostImage = getImage(featuredPost.info.hero_image);
+  const featuredArticle = posts.splice(0, 1)[0];
 
   return (
     <StandardLayout>
       <main className="w-constraint">
-        <h1 className="text-2xl font-bold">
-          My Blog{' '}
-          <span role="img" title="Writing">
-            ✍️
-          </span>
-        </h1>
-        <article>
-          <GatsbyImage
-            image={featuredPostImage}
-            alt={featuredPost.info.hero_image_alt}
-            className="w-constraint"
-          />
-          <h2>
-            <Link to={`/blog/${featuredPost.slug}`}>
-              {featuredPost.info.title}
-            </Link>
-          </h2>
-          <p>Posted: {featuredPost.info.date}</p>
-          <p>{featuredPost.info.description}</p>
-        </article>
+        <h1 className="text-4xl font-bold mt-8">My Blog</h1>
+        <FeaturedArticle
+          slug={featuredArticle.slug}
+          info={featuredArticle.info}
+        />
         {posts.map(({ info, id, slug }) => (
           <article key={id}>
             <h2>
@@ -58,6 +42,7 @@ export const query = graphql`
           date(formatString: "MMM DD, YY")
           title
           description
+          category
           hero_image {
             childImageSharp {
               gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])

@@ -27,9 +27,11 @@ const components = {
 
 const RenderMDX = ({ children }) => {
   return (
-    <MDXProvider components={components}>
-      <MDXRenderer>{children}</MDXRenderer>
-    </MDXProvider>
+    <div className="text-lg leading-8 font-sans">
+      <MDXProvider components={components}>
+        <MDXRenderer>{children}</MDXRenderer>
+      </MDXProvider>
+    </div>
   );
 };
 
