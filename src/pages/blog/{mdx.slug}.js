@@ -46,21 +46,24 @@ const BlogPost = ({
         title={siteTitle}
         image={imgSrc}
       />
-      <header className="mt-8 md:mt-12 space-y-6">
-        <div className="w-constraint">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-700">
-            {title}
-          </h1>
-          <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
-            <p className="md:text-xl text-gray-600 mr-0 md:mr-5 mb-2 md:mb-0">
-              {date}
-            </p>
-            <Badge label={category} />
-          </div>
+      <header className="mt-8 md:mt-10 w-constraint">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-700">
+          {title}
+        </h1>
+        <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
+          <p className="md:text-xl text-gray-600 mr-0 md:mr-5 mb-2 md:mb-0">
+            {date}
+          </p>
+          <Badge label={category} />
         </div>
-        <GatsbyImage image={image} alt={hero_image_alt} />
+        <GatsbyImage
+          image={image}
+          alt={hero_image_alt}
+          className="mt-6 rounded-md shadow-md"
+        />
+        <p className="text-xl md:text-2xl text-gray-700 mt-6">{description}</p>
       </header>
-      <main className="w-constraint text-gray-700 mt-4">
+      <main className="w-constraint text-gray-700 mt-8">
         <RenderMDX>{body}</RenderMDX>
       </main>
     </StandardLayout>

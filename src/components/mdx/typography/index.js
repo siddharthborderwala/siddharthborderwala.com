@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const Paragraph = ({ children }) => <p>{children}</p>;
+export const Paragraph = ({ children }) => (
+  <p className="font-para">{children}</p>
+);
 
 export const Emphasis = ({ children }) => <i className="italic">{children}</i>;
 

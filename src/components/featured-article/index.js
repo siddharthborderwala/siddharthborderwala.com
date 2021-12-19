@@ -14,10 +14,9 @@ const FeaturedArticle = ({ slug, info }) => {
           <GatsbyImage
             image={image}
             alt={info.hero_image_alt}
-            className="rounded shadow-md"
-            style={{ minHeight: '40vh' }}
+            className="rounded shadow-md w-full md:w-auto md:min-h-[40vh]"
           />
-          <div className="max-w-[1/4] md:pl-4 mt-4 md:mt-0">
+          <div className="md:ml-8 mt-4 md:mt-0">
             <p className="uppercase font-bold text-gray-500 tracking-wider ml-1">
               featured article
             </p>

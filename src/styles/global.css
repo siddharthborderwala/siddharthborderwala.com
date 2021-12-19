@@ -35,7 +35,8 @@ main {
 }
 
 .w-constraint {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
 }
