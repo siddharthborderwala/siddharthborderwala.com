@@ -1,7 +1,7 @@
 ---
 title: 'How I built my first blog with gatsby?'
 description: 'How I built my blog using the powers of JAMStack, with features like image optimizations, SEO and RSS feed and why I chose Gatsby over Nextjs?'
-date: '2021-10-02'
+date: '2022-01-01'
 social_preview: './social-preview.png'
 hero_image: './poster.jpg'
 hero_image_alt: 'Gatsby 4 poster.'
@@ -9,6 +9,56 @@ tags: ['react', 'gatsby']
 category: 'web development'
 ---
 
+First of all, as a developer, I believe it is important for one to build a blog of their own, and so I set out to do exactly that. I am a reactjs developer, and there are tons of tools and frameworks out there to build a blog, often it is overwhelming and confusing to choose from such amazing tools like create-react-app, nextjs and gatsby. Each of these has its own pros and cons, so deciding which one to use takes some deliberating.
+
+## Deciding which framework to use
+
+I have noticed, a lot of articles comparing tools and frameworks end with a conclusion saying "It depends on your use case". So, I had the following checklist for my site -
+
+- SEO/SMO
+- MDX Support
+- RSS Feed
+- Fast and Performant
+- Image Optimization
+
+Now, creat-react-app was out of the window because of poor SEO/SMO support. The next two contenders were nextjs and gatsbyjs. Both have really good tooling and support for all the 5 points in my checklist, but gatsby had the edge for me thanks to its amazing plugin system! It would save me a lot of time and effort to be able to use plugins like RSS feed generator, image optimisation using sharp, mdx support, auto-linking headers, and site map generator. Moreover, these plugins have rich documentation, which makes it even easier to use them. And so, gatsbyjs was the winner for me!
+
 ## Planning
 
-I knew what I wanted from my blog, good SEO, image optimizations and RSS feeds. Doing all this manually would have been very effort-hogging, so the best option for me was using Gatsby.
+It may not seem like creating your own blog and publishing your first article isn’t difficult, but it has its own challenges. For me, the problem was I had lined up too many features for the blog and that caused me to think, there is just too much to do and so I kept on procrastinating, but I knew I had to complete the blog and publish it, so I changed my strategy.
+
+The new strategy was incremental releases, meaning with each release, I add one or more features to the blog. This strategy turned out to be very successful. The benefits of using this strategy were that
+
+1. After each iteration, there were visible results
+2. If something is broken or need improvement can be fixed in the next release
+
+The concept behind this was basically, break down big tasks into small ones and addressing them one by one, completing the whole problem. In fact, this blogfolio is still not complete, there are quite a few features like having a dark mode and some other content like the projects I have worked on still have to be worked on. But, I believe that incremental releases is going to help me through the journey!
+
+## How was my experience with Gatsby?
+
+It was my first time using gatsby for a production site. I started with the [gatsby tutorial](https://www.gatsbyjs.com/docs/tutorial/) and it was easy to follow. What I had difficulty with was - the gatsby config files and the data flow. The data flow in gatsby, is done completely using GraphQL, and initially it was quite confusing and I had to google a lot of stuff, but as I used the api more and more, it became more natural to me.
+
+There are some areas where I think gatsby can get better like speed of the development server and a more seamless live reloading. I don't have a lot of pages in my gatsby app, but it still take about 65 seconds to generate the development bundle, which I think is a lot, especially considering the dev server speeds of vite and nextjs.
+
+## Some amazing libraries I am using
+
+Apart from the libraries and plugins from gatsby, I am using tailwindcss for styling, and flexsearch as a search engine for my blog. I refrained from using SASS or CSS modules and went ahead with tailwind due to countless benefits, which you can read on the tailwind [site](https://tailwindcss.com/). I also wanted a search interface on my blog so I explored a few solutions but ended up selecting [flexsearch](https://www.npmjs.com/package/flexsearch) as it is claimed to be the fastest full-text search library with zero dependencies!
+
+## How am I managing my content?
+
+A very important decision to make was where to keep my content? There are a lot of CMS options out there, with rich features and markdown support but I did not use any of them. Also, I wanted MDX support, and I currently know any CMSes having the same. So, I chose to have all my content on my file system itself, inside my project backed by git.
+
+I like to write the articles themselves in [Notion](https://www.notion.so/) and export them as markdown, and then go on and add the react components as needed, and save it in my repository. Then, I find an appropriate hero image for my article, create a social preview image for the post using a template I created, so it does not take very long. And bam, there's my latest blog post, ready to be published.
+
+## Plans for the future
+
+As I mentioned earlier, I am still working on this blogfolio and improving it, iterations after iterations, adding new features and more content, week by week. The roadmap looks something like this -
+
+- Complete Blog Search and Sort
+- Related Articles
+- Dark Mode
+- Contact Page
+- Add a Page for My Projects
+- Search and Sort for My Projects
+
+Hope you had a good time reading my first article, and that it helped you have an insight on how and why you make different choices based on your needs and how strategically working on your tasks reduces friction and helps you accomplish them!
