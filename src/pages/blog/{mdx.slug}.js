@@ -6,6 +6,7 @@ import RenderMDX from '../../components/mdx';
 import { Meta, PostStructuredData } from '../../components/seo';
 import StandardLayout from '../../layouts/standard';
 import Badge from '../../components/badge';
+import ShareCard from '../../components/share-card';
 
 const BlogPost = ({
   data: {
@@ -56,15 +57,20 @@ const BlogPost = ({
           </p>
           <Badge label={category} />
         </div>
+        <p className="text-xl md:text-2xl text-gray-700 mt-6">{description}</p>
         <GatsbyImage
           image={image}
           alt={hero_image_alt}
-          className="mt-6 rounded-md shadow-md"
+          className="mt-6 rounded-md shadow-lg"
         />
-        <p className="text-xl md:text-2xl text-gray-700 mt-6">{description}</p>
       </header>
       <main className="w-constraint text-gray-700 mt-8">
         <RenderMDX>{body}</RenderMDX>
+        <ShareCard
+          title={title}
+          author="Siddharth Borderwala"
+          url={siteUrl + location.pathname}
+        />
       </main>
     </StandardLayout>
   );

@@ -72,7 +72,7 @@ const IndexPage = ({ location }) => {
               the JavaScript ecosystem and{' '}
               <ExternalLink href="https://rust-lang.org">Rustlang</ExternalLink>
               . Also, I am currently learning{' '}
-              <ExternalLink href="https://golang.org">Golang</ExternalLink>
+              <ExternalLink href="https://golang.org">Golang</ExternalLink>.
             </Text>
             <Text>
               I have been reading The 4-Hour Work Week by Timothy Ferris and
