@@ -27,7 +27,7 @@ const components = {
 
 const RenderMDX = ({ children }) => {
   return (
-    <div className="text-lg leading-8 font-sans">
+    <div className="text-lg leading-8 font-para">
       <MDXProvider components={components}>
         <MDXRenderer>{children}</MDXRenderer>
       </MDXProvider>

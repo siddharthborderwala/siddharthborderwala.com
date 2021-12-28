@@ -15,7 +15,7 @@ const CodeBlock = ({ children, className }) => {
   const copyCode = useCallback(() => copy(code), [code]);
 
   return (
-    <div className="my-4">
+    <div className="mt-6">
       <LanguageLabel language={language} />
       <div className="relative">
         <Highlight
