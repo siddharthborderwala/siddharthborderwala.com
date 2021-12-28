@@ -7,6 +7,7 @@ import { Meta, PostStructuredData } from '../../components/seo';
 import StandardLayout from '../../layouts/standard';
 import Badge from '../../components/badge';
 import ShareCard from '../../components/share-card';
+import ExternalLink from '../../components/external-link';
 
 const BlogPost = ({
   data: {
@@ -17,8 +18,10 @@ const BlogPost = ({
         category,
         date,
         createdAt,
-        hero_image_alt,
         hero_image,
+        hero_image_alt,
+        hero_image_credit_url,
+        hero_image_credit_name,
         social_preview,
       },
       body,
@@ -61,8 +64,14 @@ const BlogPost = ({
         <GatsbyImage
           image={image}
           alt={hero_image_alt}
-          className="mt-6 rounded-md shadow-lg"
+          className="mt-6 rounded-md shadow-lg max-h-[50vh]"
         />
+        <p className="mt-4 text-gray-500">
+          Photo by{' '}
+          <ExternalLink href={hero_image_credit_url}>
+            {hero_image_credit_name}
+          </ExternalLink>
+        </p>
       </header>
       <main className="w-constraint text-gray-700 mt-8">
         <RenderMDX>{body}</RenderMDX>
@@ -85,12 +94,14 @@ export const query = graphql`
         category
         date(formatString: "MMMM DD, YYYY")
         createdAt: date(formatString: "YYYY-MM-DDTHH:mm:ssZ")
-        hero_image_alt
         hero_image {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
           }
         }
+        hero_image_alt
+        hero_image_credit_url
+        hero_image_credit_name
         social_preview {
           childImageSharp {
             gatsbyImageData(formats: PNG)
