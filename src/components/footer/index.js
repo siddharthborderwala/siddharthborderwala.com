@@ -51,7 +51,7 @@ const Footer = () => {
           >
             <LinkedinLogo weight="regular" size="24" />
           </a>
-          <Link title="RSS Feed" href="/rss.xml">
+          <Link title="RSS Feed" to="/rss.xml">
             <Rss weight="regular" size="24" />
           </Link>
         </nav>

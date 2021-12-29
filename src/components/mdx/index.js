@@ -6,6 +6,7 @@ import * as Code from './code';
 import * as Heading from './heading';
 import * as Typography from './typography';
 import * as Lists from './lists';
+import ExternalLink from '../external-link';
 
 const components = {
   h1: Heading.H1,
@@ -23,6 +24,7 @@ const components = {
   hr: Typography.ThematicBreak,
   ul: Lists.UnorderedList,
   ol: Lists.OrderedList,
+  a: ExternalLink,
 };
 
 const RenderMDX = ({ children }) => {

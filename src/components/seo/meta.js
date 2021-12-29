@@ -57,7 +57,7 @@ Meta.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   author: PropTypes.string,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   imageAlt: PropTypes.string,
   authorTwitterHandle: PropTypes.string,
   path: PropTypes.string.isRequired,
