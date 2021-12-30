@@ -17,14 +17,14 @@ const Nav = () => {
         <p className="sr-only">Siddharth Borderwala</p>
       </Link>
       <nav className="flex space-x-6">
-        <NavLink href="/blog" isActive={route === 'blog'}>
-          Blog
-        </NavLink>
         <NavLink href="/#about" isActive={route === '' && hash === '#about'}>
           About
         </NavLink>
         <NavLink href="/#work" isActive={route === '' && hash === '#work'}>
           Work
+        </NavLink>
+        <NavLink href="/blog" isActive={route === 'blog'}>
+          Blog
         </NavLink>
       </nav>
     </nav>
