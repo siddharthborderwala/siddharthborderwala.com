@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import RenderMDX from '../../components/mdx';
@@ -75,11 +75,22 @@ const BlogPost = ({
       </header>
       <main className="w-constraint text-gray-700 mt-8">
         <RenderMDX>{body}</RenderMDX>
-        <ShareCard
-          title={title}
-          author="Siddharth Borderwala"
-          url={siteUrl + location.pathname}
-        />
+        <div className="flex flex-col-reverse justify-start md:flex-row md:justify-between border-t pt-12 mt-16">
+          <div className="mt-12 md:mt-0 md:pr-6">
+            <h3 className="text-3xl font-bold">Read More</h3>
+            <p className="text-xl mt-8">
+              If you found this article helpful, you may like to read{' '}
+              <Link className="text-red-400 underline" to="/blog">
+                more
+              </Link>
+            </p>
+          </div>
+          <ShareCard
+            title={title}
+            author="Siddharth Borderwala"
+            url={siteUrl + location.pathname}
+          />
+        </div>
       </main>
     </StandardLayout>
   );
@@ -96,7 +107,7 @@ export const query = graphql`
         createdAt: date(formatString: "YYYY-MM-DDTHH:mm:ssZ")
         hero_image {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
+            gatsbyImageData(placeholder: DOMINANT_COLOR, formats: [WEBP, JPG])
           }
         }
         hero_image_alt

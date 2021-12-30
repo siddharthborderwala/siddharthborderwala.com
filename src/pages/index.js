@@ -49,7 +49,7 @@ const IndexPage = ({ location }) => {
               Contact Now <PaperPlaneTilt className="ml-4" weight="bold" />
             </a>
           </div>
-          <div className="md:pl-16">
+          <div className="md:ml-16 rounded-full">
             <StaticImage
               alt="Siddharth Borderwala"
               src="../images/siddharth.png"
@@ -57,8 +57,8 @@ const IndexPage = ({ location }) => {
             />
           </div>
         </header>
-        <main className="w-constraint pb-20 sm:pb-32">
-          <section id="about" className="py-20">
+        <main className="w-constraint mt-16 pb-20 sm:pb-32">
+          <section id="about" className="pt-8">
             <h3 className="text-4xl font-semibold mb-12">Get to know me!</h3>
             <Text>
               I am a Developer and Computer Science undergraduate studying at{' '}
@@ -86,7 +86,7 @@ const IndexPage = ({ location }) => {
               Chat With Me <ChatCircleDots className="ml-4" weight="bold" />
             </a>
           </section>
-          <section id="work" className="py-20">
+          <section id="work" className="mt-32 pt-8">
             <h3 className="text-4xl font-semibold mb-12">My Work</h3>
             <Text>
               I am a Full-Stack JavaScript/TypeScript developer specializing in

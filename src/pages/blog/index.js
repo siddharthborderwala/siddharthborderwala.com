@@ -52,7 +52,7 @@ export const query = graphql`
           category
           hero_image {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [WEBP, JPG])
+              gatsbyImageData(placeholder: DOMINANT_COLOR, formats: [WEBP, JPG])
             }
           }
           hero_image_alt
