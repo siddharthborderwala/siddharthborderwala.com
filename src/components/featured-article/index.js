@@ -15,6 +15,7 @@ const FeaturedArticle = ({ slug, info }) => {
             image={image}
             alt={info.hero_image_alt}
             className="rounded shadow-md w-full md:w-auto md:min-h-[40vh]"
+            imgClassName="rounded"
           />
           <div className="md:ml-8 mt-4 md:mt-0">
             <p className="uppercase font-bold text-gray-500 tracking-wider ml-1">

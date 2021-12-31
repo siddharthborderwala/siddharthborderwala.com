@@ -35,7 +35,7 @@ const BlogPost = ({
   const image = getImage(hero_image);
   const social = getImage(social_preview);
   const imgSrc = `${siteUrl}${social.images.fallback.src}`;
-  const siteTitle = `${title} | Blog - Siddharth Borderwala`;
+  const siteTitle = `${title} — Blog | Siddharth Borderwala`;
 
   return (
     <StandardLayout>
@@ -49,9 +49,10 @@ const BlogPost = ({
         createdAt={createdAt}
         title={siteTitle}
         image={imgSrc}
+        authorName="Siddharth Borderwala"
       />
       <header className="mt-8 md:mt-10 w-constraint">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-700">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-700">
           {title}
         </h1>
         <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
@@ -60,11 +61,14 @@ const BlogPost = ({
           </p>
           <Badge label={category} />
         </div>
-        <p className="text-xl md:text-2xl text-gray-700 mt-6">{description}</p>
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mt-6">
+          {description}
+        </p>
         <GatsbyImage
           image={image}
           alt={hero_image_alt}
           className="mt-6 rounded-md shadow-lg max-h-[50vh]"
+          imgClassName="rounded-md"
         />
         <p className="mt-4 text-gray-500">
           Photo by{' '}
@@ -74,7 +78,9 @@ const BlogPost = ({
         </p>
       </header>
       <main className="w-constraint text-gray-700 mt-8">
-        <RenderMDX>{body}</RenderMDX>
+        <article>
+          <RenderMDX>{body}</RenderMDX>
+        </article>
         <div className="flex flex-col-reverse justify-start md:flex-row md:justify-between border-t pt-12 mt-16">
           <div className="mt-12 md:mt-0 md:pr-6">
             <h3 className="text-3xl font-bold">Read More</h3>
@@ -107,7 +113,7 @@ export const query = graphql`
         createdAt: date(formatString: "YYYY-MM-DDTHH:mm:ssZ")
         hero_image {
           childImageSharp {
-            gatsbyImageData(placeholder: DOMINANT_COLOR, formats: [WEBP, JPG])
+            gatsbyImageData(placeholder: DOMINANT_COLOR, formats: [WEBP, PNG])
           }
         }
         hero_image_alt

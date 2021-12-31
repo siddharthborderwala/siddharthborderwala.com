@@ -53,7 +53,8 @@ const IndexPage = ({ location }) => {
             <StaticImage
               alt="Siddharth Borderwala"
               src="../images/siddharth.png"
-              className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto"
+              className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto overflow-clip"
+              imgClassName="rounded-full"
             />
           </div>
         </header>
