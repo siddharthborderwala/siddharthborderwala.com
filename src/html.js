@@ -26,6 +26,12 @@ export default function HTML(props) {
           rel="stylesheet"
         />
         {props.headComponents}
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          defer
+          src="https://www.googletagmanager.com/gtag/js?id=G-KZ10P3JM8B"
+        ></script>
+        <script async src="/script-tags.js"></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
