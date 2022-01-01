@@ -1,0 +1,10 @@
+[
+  {
+    "fromPath": "/sitemap",
+    "toPath": "/sitemap/sitemap-index.xml"
+  },
+  {
+    "fromPath": "/sitemap.xml",
+    "toPath": "/sitemap/sitemap-index.xml"
+  }
+]
