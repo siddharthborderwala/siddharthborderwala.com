@@ -9,11 +9,11 @@ import Text from '../components/text';
 
 const siteTitle = 'Siddharth Borderwala';
 const description =
-  "Checkout Siddharth Borderwala's profile and get to know more about him.";
-const imgSrc = 'https://www.codexsid.com/social.png';
+  'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Checkout my profile and get to know more about me!';
+const imgSrc = '/social-preview.png';
 const twitterLink = 'https://twitter.com/sidborderwala';
 const resumeLink =
-  'https://drive.google.com/file/d/1K0Ohd28vKzYxPkIK8FLhCfxs8HGjlPKb/view?usp=sharing';
+  'https://drive.google.com/drive/folders/12V0HB9yLcDc6j2QDzSzVUefYCIq_vHXa?usp=sharing';
 
 const IndexPage = ({ location }) => {
   return (
