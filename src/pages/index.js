@@ -67,7 +67,7 @@ const IndexPage = ({ location }) => {
                 Shiv Nadar University
               </ExternalLink>{' '}
               in Delhi, NCR. I design and build beautiful websites and mobile
-              apps. I am trying to create and online audience using this
+              apps. I am trying to create an online audience using this
               blog-folio and{' '}
               <ExternalLink href={twitterLink}>twitter</ExternalLink>. I love
               the JavaScript ecosystem and{' '}
