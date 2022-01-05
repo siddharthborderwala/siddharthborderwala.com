@@ -23,6 +23,9 @@ const Nav = () => {
         <NavLink href="/#work" isActive={route === '' && hash === '#work'}>
           Work
         </NavLink>
+        <NavLink href="/contact" isActive={route === 'contact'}>
+          Contact
+        </NavLink>
         <NavLink href="/blog" isActive={route === 'blog'}>
           Blog
         </NavLink>
