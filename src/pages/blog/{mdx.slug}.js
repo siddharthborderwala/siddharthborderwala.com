@@ -56,7 +56,7 @@ const BlogPost = ({
           {title}
         </h1>
         <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
-          <p className="md:text-xl text-gray-600 mr-0 md:mr-5 mb-2 md:mb-0">
+          <p className="md:text-xl text-gray-600 mr-0 sm:mr-4 md:mr-6 mb-2 md:mb-0">
             {date}
           </p>
           <Badge label={category} />

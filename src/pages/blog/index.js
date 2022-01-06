@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Check, ClipboardText } from 'phosphor-react';
+import copy from 'copy-to-clipboard';
 
 import StandardLayout from '../../layouts/standard';
 import FeaturedArticle from '../../components/featured-article';
 import Meta from '../../components/seo/meta';
+import useSiteMetadata from '../../hooks/use-site-metadata';
+
+const clipIcon = <ClipboardText size="20" />;
+const checkIcon = <Check size="20" />;
+
+const CopyButton = ({ url }) => {
+  const [icon, setIcon] = useState(clipIcon);
+
+  const handleCopy = e => {
+    copy(url);
+    e.preventDefault();
+    e.stopPropagation();
+    setIcon(checkIcon);
+    setTimeout(() => {
+      setIcon(clipIcon);
+    }, 1500);
+  };
+
+  return (
+    <button
+      className="inline-block p-2 text-red-400 cursor-default"
+      title="Copy link to clipboard"
+      onClick={handleCopy}
+    >
+      {icon}
+    </button>
+  );
+};
 
 const BlogPage = ({
   data: {
@@ -11,6 +42,7 @@ const BlogPage = ({
   },
   location,
 }) => {
+  const { siteUrl } = useSiteMetadata();
   const featuredArticle = posts[0];
 
   return (
@@ -26,14 +58,27 @@ const BlogPage = ({
           slug={featuredArticle.slug}
           info={featuredArticle.info}
         />
-        {posts.slice(1).map(({ info, id, slug }) => (
-          <article key={id}>
-            <h2>
-              <Link to={`/blog/${slug}`}>{info.title}</Link>
-            </h2>
-            <p>Posted: {info.date}</p>
-          </article>
-        ))}
+        <div className="flex flex-wrap mt-8">
+          {posts.slice(1).map(({ info, id, slug }) => (
+            <Link to={`/blog/${slug}`} className="w-1/3">
+              <article>
+                <GatsbyImage
+                  image={getImage(info.hero_image)}
+                  alt={info.hero_image_alt}
+                  className="rounded shadow-md w-full"
+                  imgClassName="rounded"
+                />
+                <h2 className="font-bold text-xl sm:text-2xl mt-4 text-gray-700">
+                  {info.title}
+                </h2>
+                <div className="flex justify-between items-center">
+                  <p className="mt-2 text-lg text-gray-500">{info.date}</p>
+                  <CopyButton url={`${siteUrl}/blog/${slug}`} />
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
       </main>
     </StandardLayout>
   );
