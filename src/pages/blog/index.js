@@ -9,8 +9,8 @@ import FeaturedArticle from '../../components/featured-article';
 import Meta from '../../components/seo/meta';
 import useSiteMetadata from '../../hooks/use-site-metadata';
 
-const clipIcon = <ClipboardText size="20" />;
-const checkIcon = <Check size="20" />;
+const clipIcon = <ClipboardText size="20" weight="bold" />;
+const checkIcon = <Check size="20" weight="bold" />;
 
 const CopyButton = ({ url }) => {
   const [icon, setIcon] = useState(clipIcon);
@@ -60,7 +60,11 @@ const BlogPage = ({
         />
         <div className="flex flex-wrap mt-8">
           {posts.slice(1).map(({ info, id, slug }) => (
-            <Link to={`/blog/${slug}`} className="w-1/3">
+            <Link
+              key={id}
+              to={`/blog/${slug}`}
+              className="w-full sm:w-1/2 md:w-1/3"
+            >
               <article>
                 <GatsbyImage
                   image={getImage(info.hero_image)}
