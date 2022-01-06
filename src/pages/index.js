@@ -1,6 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { PaperPlaneTilt, ChatCircleDots, Cursor, Link } from 'phosphor-react';
+import {
+  PaperPlaneTilt,
+  ChatCircleDots,
+  Cursor,
+  Link as LinkIcon,
+} from 'phosphor-react';
 
 import StandardLayout from '../layouts/standard';
 import { Meta } from '../components/seo';
@@ -60,7 +66,7 @@ const IndexPage = ({ location }) => {
         </header>
         <main className="w-constraint mt-16 pb-20 sm:pb-32">
           <section id="about" className="pt-8">
-            <h3 className="text-4xl font-semibold mb-12">Get to know me!</h3>
+            <h3 className="text-4xl font-semibold mb-12">Get to Know Me!</h3>
             <Text>
               I am a Developer and Computer Science undergraduate studying at{' '}
               <ExternalLink href="https://snu.edu.in/home">
@@ -70,15 +76,22 @@ const IndexPage = ({ location }) => {
               apps. I am trying to create an online audience using this
               blog-folio and{' '}
               <ExternalLink href={twitterLink}>twitter</ExternalLink>. I love
-              the JavaScript ecosystem and{' '}
-              <ExternalLink href="https://rust-lang.org">Rustlang</ExternalLink>
-              . Also, I am currently learning{' '}
-              <ExternalLink href="https://golang.org">Golang</ExternalLink>.
+              the JavaScript ecosystem and Rustlang. Also, I am currently
+              learning Golang.
             </Text>
             <Text>
-              I have been reading The 4-Hour Work Week by Timothy Ferris and
-              Atomic Habits by James Clear. Besides, I love watching football,
-              sitcoms and thrillers.
+              I began writing about the work I do and some engineering
+              challenges I have solved on my{' '}
+              <Link to="/blog" className="underline text-red-400">
+                blog
+              </Link>{' '}
+              recently. Give some of them a read, and share any kind of feedback
+              you have, I would be happy to improve!
+            </Text>
+            <Text>
+              I try and read books, as much as I can and I love watching
+              football, sitcoms and thrillers. Did I mention, I love playing
+              FIFA and shooters with good story-lines?
             </Text>
             <a
               href="mailto:siddharthborderwala@gmail.com?subject=Hi"
@@ -109,7 +122,7 @@ const IndexPage = ({ location }) => {
               <ExternalLink href="https://github.com/sassy-labs/datepicker">
                 sassy-datepicker
               </ExternalLink>
-              . I am looking forward to building many more useful libraries for
+              . I am looking forward to building many more useful projects for
               open source developers.
             </Text>
             <Text>
@@ -118,9 +131,34 @@ const IndexPage = ({ location }) => {
               like SEO/SMO opimzation, technical advise, and consultation for
               building an online presence for businesses.
             </Text>
-            <h4 className="font-semibold text-2xl mt-6">
-              Wanna collaborate/hire me?
-            </h4>
+          </section>
+          <section id="cta" className="mt-32 pt-8">
+            <h3 className="text-4xl font-semibold mb-12">
+              Want to Work With Me?
+            </h3>
+            <Text>
+              I am open to working on open source projects and SaaS startups,
+              where I can make a valuable contribution to the product and the
+              team. I have interned at a SaaS startup called Turtlewig, where I
+              created features such as version control, chat mentions, and magic
+              invite links. I am proficient at frontend and backend, and I love
+              solving exciting web engineering challenges. You can read about
+              one such challenge{' '}
+              <Link
+                className="underline text-red-400"
+                to="/blog/how-we-eliminated-a-race-condition-with-hasura-triggers"
+              >
+                here
+              </Link>
+              .
+            </Text>
+            <Text>
+              I am quite experienced with taking businesses online. I provide
+              services ranging from designing and developing sophisticated
+              landing pages to fabricating complex web applications flaunting
+              features such as authentication, content management systems, and
+              payments.
+            </Text>
             <Text>
               I promise I am fun to work with and once I get comfortable with
               you, I'll crack quite a few jokes 😆.
@@ -136,7 +174,7 @@ const IndexPage = ({ location }) => {
                 href={resumeLink}
                 className="border border-red-400 text-red-400 text-lg py-2 px-4 inline-flex items-center"
               >
-                My Resume <Link className="ml-4" weight="bold" />
+                My Resume <LinkIcon className="ml-4" weight="bold" />
               </ExternalLink>
             </div>
           </section>
