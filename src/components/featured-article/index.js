@@ -17,11 +17,11 @@ const FeaturedArticle = ({ slug, info }) => {
             className="rounded shadow-md w-full md:w-auto md:min-h-[40vh]"
             imgClassName="rounded"
           />
-          <div className="md:ml-8 mt-4 md:mt-0">
+          <div className="md:ml-8 mt-4 md:mt-0 md:max-w-[35%]">
             <p className="uppercase font-bold text-gray-500 tracking-wider ml-1">
               featured article
             </p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-700 mt-2 md:mt-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 mt-2 md:mt-4">
               {info.title}
             </h2>
             <div className="flex flex-row md:flex-col items-center md:items-start mt-3 md:mt-4">
