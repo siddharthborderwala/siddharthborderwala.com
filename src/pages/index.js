@@ -16,7 +16,6 @@ import Text from '../components/text';
 const siteTitle = 'Siddharth Borderwala';
 const description =
   'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Checkout my profile and get to know more about me!';
-const imgSrc = '/social-preview.png';
 const twitterLink = 'https://twitter.com/sidborderwala';
 const resumeLink =
   'https://drive.google.com/drive/folders/12V0HB9yLcDc6j2QDzSzVUefYCIq_vHXa?usp=sharing';
@@ -27,7 +26,6 @@ const IndexPage = ({ location }) => {
       <Meta
         title={siteTitle}
         description={description}
-        image={imgSrc}
         path={location.pathname}
       />
       <div
@@ -131,6 +129,12 @@ const IndexPage = ({ location }) => {
               like SEO/SMO opimzation, technical advise, and consultation for
               building an online presence for businesses.
             </Text>
+            <ExternalLink
+              href={resumeLink}
+              className="mt-8 bg-red-400 text-white text-lg py-2 px-4 inline-flex items-center"
+            >
+              My Resume <LinkIcon className="ml-4" weight="bold" />
+            </ExternalLink>
           </section>
           <section id="cta" className="mt-32 pt-8">
             <h3 className="text-4xl font-semibold mb-12">
@@ -163,20 +167,12 @@ const IndexPage = ({ location }) => {
               I promise I am fun to work with and once I get comfortable with
               you, I'll crack quite a few jokes 😆.
             </Text>
-            <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <a
-                href="mailto:siddharthborderwala@gmail.com?subject=Hi"
-                className="bg-red-400 text-white text-lg py-2 px-4 inline-flex items-center"
-              >
-                Collaborate <Cursor className="ml-4" weight="bold" />
-              </a>
-              <ExternalLink
-                href={resumeLink}
-                className="border border-red-400 text-red-400 text-lg py-2 px-4 inline-flex items-center"
-              >
-                My Resume <LinkIcon className="ml-4" weight="bold" />
-              </ExternalLink>
-            </div>
+            <Link
+              to="/contact"
+              className="mt-8 bg-red-400 text-white text-lg py-2 px-4 inline-flex items-center"
+            >
+              Collaborate <Cursor className="ml-4" weight="bold" />
+            </Link>
           </section>
         </main>
       </div>

@@ -15,7 +15,7 @@ const Meta = ({
   author,
   path,
 }) => {
-  const img = image || '';
+  const img = image || '/social-preview.png';
   const imgAltFinal = imageAlt || title;
   const { siteUrl } = useSiteMetadata();
   const url = `${siteUrl}${path}`;
