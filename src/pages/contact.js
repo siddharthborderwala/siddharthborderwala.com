@@ -1,141 +1,53 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Link } from 'gatsby';
+import { Phone, EnvelopeSimpleOpen, HourglassMedium } from 'phosphor-react';
 
 import StandardLayout from '../layouts/standard';
-
-const validateName = name => {
-  if (name.trim().length === 0) {
-    return 'Name cannot be empty';
-  }
-  return null;
-};
-
-const validateEmail = email => {
-  if (email.trim().length === 0) {
-    return 'Email cannot be empty';
-  }
-  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return 'Email is invalid';
-  }
-  return null;
-};
-
-const validateMessage = message => {
-  if (message.trim().length === 0) {
-    return 'Message cannot be empty';
-  }
-  return null;
-};
-
-const emptyField = { value: '', error: null };
-
-const Form = () => {
-  const [name, setName] = useState(emptyField);
-  const [email, setEmail] = useState(emptyField);
-  const [message, setMessage] = useState(emptyField);
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    // check if there are errors
-    if (name.error || email.error || message.error) {
-      alert('Fix the errors show in the form and retry');
-      return;
-    }
-    try {
-      // make the request
-      await axios.post('/api/contact', {
-        name: name.value,
-        email: email.value,
-        message: message.value,
-      });
-      setName(emptyField);
-      setEmail(emptyField);
-      setMessage(emptyField);
-      alert('Submission Successful - I will reach out to you in a day or so');
-    } catch (error) {
-      console.log(error.response);
-      // handle errors
-      if (error.response?.status === 400) {
-        alert('Submission Failed - Make sure you have entered valid data');
-      } else if (error.response?.status === 500) {
-        alert('Submission Failed - Sorry we messed up');
-      }
-    }
-  };
-
-  const handleNameChange = e => {
-    setName({
-      value: e.target.value,
-      error: validateName(e.target.value),
-    });
-  };
-
-  const handleEmailChange = e => {
-    setEmail({
-      value: e.target.value,
-      error: validateEmail(e.target.value),
-    });
-  };
-
-  const handleMessageChange = e => {
-    setMessage({
-      value: e.target.value,
-      error: validateMessage(e.target.value),
-    });
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          placeholder="John Doe"
-          value={name.value}
-          onChange={handleNameChange}
-        />
-        {name.error && <p>{name.error}</p>}
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          email="email"
-          placeholder="johndoe@example.com"
-          value={email.value}
-          onChange={handleEmailChange}
-        />
-        {email.error && <p>{email.error}</p>}
-      </div>
-      <div>
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="I would like to hire/collaborate..."
-          value={message.value}
-          onChange={handleMessageChange}
-        />
-        {message.error && <p>{message.error}</p>}
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+import ExternalLink from '../components/external-link';
+import ContactForm from '../components/contact-form';
 
 const ContactPage = () => {
   return (
     <StandardLayout>
-      <header className="w-constraint">
-        <h1 className="text-4xl font-bold mt-8">Contact Me</h1>
-        <h2 className="text-lg mt-4">I usually respond in 1 day ⏳</h2>
-      </header>
-      <main className="w-constraint">
-        <Form />
-      </main>
+      <div style={{ backgroundImage: 'url(/dot-grid.png)' }} className="pt-8">
+        <div className="w-constraint flex flex-col md:flex-row">
+          <header className="flex-1 md:mr-16">
+            <h1 className="text-4xl font-bold">Contact Me</h1>
+            <h2 className="text-xl mt-8">
+              Use my contact details or fill the form. I usually respond in 1
+              day <HourglassMedium size="24" className="inline align-middle" />
+            </h2>
+            <ul className="text-lg text-gray-700 mt-8 space-y-4">
+              <li className="font-bold flex items-center space-x-4">
+                <span className="bg-gray-100 p-3 rounded-full inline-block">
+                  <Phone weight="bold" size="24" />
+                </span>
+                <ExternalLink href="tel:+919426944582">
+                  +91 94269 44582
+                </ExternalLink>
+              </li>
+              <li className="font-bold flex items-center space-x-4 overflow-auto">
+                <span className="bg-gray-100 p-3 rounded-full inline-block">
+                  <EnvelopeSimpleOpen weight="bold" size="24" />
+                </span>
+                <ExternalLink href="mailto:siddharthborderwala@gmail.com">
+                  siddharthborderwala@gmail.com
+                </ExternalLink>
+              </li>
+            </ul>
+            <p className="text-xl text-gray-700 mt-8">
+              Find out more about the services I offer and the work I do{' '}
+              <Link to="/#work" className="underline text-red-400">
+                here
+              </Link>
+              .
+            </p>
+          </header>
+          <main className="flex-1 mt-8 md:mt-0">
+            <ContactForm />
+          </main>
+        </div>
+      </div>
     </StandardLayout>
   );
 };
