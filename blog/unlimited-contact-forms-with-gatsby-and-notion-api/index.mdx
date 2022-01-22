@@ -1,6 +1,6 @@
 ---
 title: 'Unlimited Contact Forms Using Gatsby and Notion API'
-description: "How I created free, unlimited contact forms using the Gatsby Cloud Functions' free tier and the Notion API for my Gatsbyjs powered website"
+description: "How I created free, unlimited contact forms using the Gatsby Cloud Functions' free tier and the Notion API for my Gatsbyjs powered website?"
 date: '2022-01-22'
 social_preview: './social-preview.png'
 hero_image: './poster.jpg'
@@ -11,7 +11,7 @@ tags: ['notion', 'gatsby', 'forms']
 category: 'JAMStack'
 ---
 
-Almost every other website has a contact form and having the same on your portfolio is a no brainer. Having a form on your site requires a server to accept and store the responses to a database. Without having to go through the hassle and costs of setting up servers, a simple and straight solution would be to use a contact forms API such as [Formspree](https://formspree.io/) or [Formspark](https://formspark.io/). Some of these APIs do have free tiers but they come with a lot of limits and soon you may need to get a paid plan. In this article, I discuss how [Gatsby Cloud](https://www.gatsbyjs.com/products/cloud/)'s generous functions limits paired with the free [Notion API](https://developers.notion.com/) makes the perfect solution for this and let's you have unlimited forms and responses.
+Almost every other website has a contact form and to have the same on your portfolio is a no brainer. Having a form on your site requires a server to accept and store the responses to a database. Without having to go through the hassle and costs of setting up servers, a straightforward solution would be to use a contact forms API such as [Formspree](https://formspree.io/) or [Formspark](https://formspark.io/). Some of these APIs do have free tiers, although they come with many limits and soon you may need to get a paid plan. In this article, I discuss how [Gatsby Cloud](https://www.gatsbyjs.com/products/cloud/)'s generous functions limits paired with the free [Notion API](https://developers.notion.com/) makes the perfect solution for this and lets you have unlimited forms and responses.
 
 ## Introduction to Gatsby Cloud Functions
 
@@ -41,7 +41,7 @@ The data in the request, such as query strings and the body, is automatically pa
 
 Create a file named `contact.js` inside the `src/api/` directory in your project. Create an async function called handler and make it the default export of the file. This will cause the function to be triggered whenever a request is made to the `/api/contact` endpoint.
 
-The two most important things in our function are the request body and the request method. To accept some data, a POST request is used and the data sent can be found on the req.body attribute. So, we will only allow the POST request in our function and reject other request methods with a [405](https://httpcode.vercel.app/405) client error status.
+The two most important things in our function are the request body and the request method. We use a POST request to send the data to our function, and this data can be found on the req.body attribute. Hence, we will only accept POST requests in our function and reject requests made with other methods with a [405](https://httpcode.vercel.app/405) client error status.
 
 ```jsx
 const handler = async (req, res) => {
@@ -62,15 +62,17 @@ Now that we have our basic function body setup, let's look into how we can integ
 
 ## Introduction to Notion API
 
-The Notion API let's your function interact with Notion's page, databases and users. To be able to use the API make sure you have created an account on Notion. Next, you need to go to [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations) and create a new integration called “Contact”. Here is a [guide](https://developers.notion.com/docs/getting-started#step-1-create-an-integration) to understand how to create a Notion integration.
+The Notion API lets your function interact with Notion's pages, databases and users. To be able to use the API make sure you have created an account on Notion. Next, you need to go to [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations) and create a new integration called “Contact”. Here is a [guide](https://developers.notion.com/docs/getting-started#step-1-create-an-integration) to understand how to create a Notion integration.
 
 Here's how my integration looks -
 
-![Contact Form Integration](https://i.imgur.com/ABebmqN.png)
+<div align="center" class="mt-4 mb-4">
+  <img src="https://i.imgur.com/ABebmqN.png" alt="Contact Form Integration" />
+</div>
 
-Make sure you choose the workspace where you want to store the form submissions. For me it is “Siddharth's Workspace”, choose the above show options and submit the form. Once this is done you can head over to [Step 2](https://developers.notion.com/docs#step-2-share-a-database-with-your-integration) of this process.
+Make sure you choose the workspace where you want to store the form submissions. For me it is “Siddharth's Workspace”, choose the above shown options and submit the form. Once this is done you can head over to [Step 2](https://developers.notion.com/docs#step-2-share-a-database-with-your-integration) of this process.
 
-Create a new page in your notion workspace and create a new database by typing `/table` or selecting the table option show on the page. Once the table is ready, create three columns -
+Create a new page in your notion workspace and create a new database by typing `/table` or selecting the table option show on the default new page. Once the table is ready, create three columns -
 
 1. name
 2. email
@@ -80,11 +82,11 @@ Each new form submission will be a new page, with the title as the name of the s
 
 ![Site Contact Form Notion Database](https://i.imgur.com/RDzKRDh.png)
 
-Once done, press the share button on the top-bar and select the “Contact” integration. This will cause notion to allow the “Contact” integration to access this database. Once you give the access, for inserting new entries in this table, you will need the database id of the table. You can find the database id inside the link of the database, which you will get from the Share menu > Copy Link button.
+Once done, press the share button on the top-bar and select the “Contact” integration. By doing this, Notion will allow the “Contact” integration to access this database. Once you give the access, for inserting new entries in this table, you will need the database id of the table. You can get the database id inside the URL of the database, which you can find from the Copy Link button inside the Share menu.
 
-```
-[https://www.notion.so/xyzworkspace/a8aec43384f447ed84390e8e42c2e089?v=](https://www.notion.so/a8aec43384f447ed84390e8e42c2e089).........
-																	|--------- Database ID ----------|
+```txt
+https://www.notion.so/workspace/a8aec43384f447ed84390e8e42c2e089?v=.........
+                               |--------- Database ID ----------|
 ```
 
 Now, we have everything needed to interact with the Notion API and create form submissions. We have two options to interact with the Notion API
@@ -92,29 +94,31 @@ Now, we have everything needed to interact with the Notion API and create form s
 1. Notion JS SDK
 2. Plain HTTP Requests (using `axios` or `node-fetch`)
 
-Since we only need to interact with the Notion API for a single use-case, go ahead with the second option as we only need the whole SDK when we are creating a more sophisticated app or integration and making plain HTTP requests becomes cumbersome.
+Since we only need to interact with the Notion API for a single use-case, we will go ahead with the second option as we only ever need the whole SDK when creating a more sophisticated app or integration, where making plain HTTP requests may become cumbersome.
 
 ## Interacting with the Notion API
 
 ### Storing the environment secrets
 
-We have two very important pieces of information with us here, the notion-api-secret and the database-id. It would be secure to store these environment secrets in a `.env` file. If you don't already have a `.env` file in your project, go ahead and create one and add the following lines to it -
+We have two very important pieces of information with us here, the notion-api-secret and the database-id. It would be a good security practice to store these environment secrets in a `.env` file. If you don't already have a `.env` file in your project, go ahead and create one and add the following lines to it -
 
-```
+```txt
 NOTION_API_SECRET="<YOUR-SECRET-KEY-HERE>"
 NOTION_DB_ID="<YOUR-DATABASE-ID-HERE>"
 ```
 
 Gatsby has built-in support for environment variables, and will import them by default from the `.env.development` file in development mode and `.env.production` file while creating the build. So, make sure you create those env files accordingly and store the secrets in them. These two variables will be available in `gatsby-config.js` and the functions files in the `/src/api` directory.
 
-<aside>
-⚠️ Make sure you don't commit the environment secrets to your version controlling system because that is a breach of security and may give unauthorized parties access to your notion database.
-
+<aside class="mt-4 bg-yellow-200 rounded p-4">
+  <span class="text-3xl mr-2">⚠️</span> Make sure you don't commit the
+  environment secrets to your version controlling system because that is a
+  breach of security and may give unauthorized parties access to your notion
+  database.
 </aside>
 
 ### Validating form data
 
-Validating the data we receive is very important as we want to make sure we get proper form responses. We need to check if the `name`, `email` and `message` are not empty and valid. If any of the said fields are invalid, we respond with a 400 error status code and a corresponding error message in the response body.
+Validating the data we receive is very important as we want to make sure we get proper form responses. We need to check if the `name`, `email` and `message` are not empty and are of valid formats. If any of the said fields are invalid, we respond with a 400 error status code and a corresponding error message in the response body.
 
 ```jsx
 const { name, email, message } = req.body.data;
@@ -177,7 +181,7 @@ if (message.trim().length === 0) {
 
 Once we deem all the form fields are valid, we go ahead and make the request to the Notion API and create the form submission database entry.
 
-### Using `axios` to create database entries
+### Using axios to create database entries
 
 To create an new database entry, i.e. a page in the database, you need to make a `POST` request at the `'https://api.notion.com/v1/pages'` endpoint. Along with the request payload, we need to send a few headers for the Notion API to authorize our request and perform the operation as specified by the request.
 
@@ -403,4 +407,4 @@ const ContactForm = () => {
 
 This will setup a form with validation, user feedback and error handling. You can style it according to your taste, and it is ready to make requests to the Gatsby function.
 
-I hope this walkthrough helps you to create a free and unlimited forms for your personal site. Of course Notion's API is rate limited to 3 requests per second, but in my opinion that is a generous limit for our use case.
+I hope this walkthrough helps you to create a free and unlimited forms for your personal site. Of course Notion's API is rate limited to 3 requests per second, but in my opinion that is a generous limit for our use case. Using the Notion API unlocks a lot of possibilities and using your creativity you can create such solutions.

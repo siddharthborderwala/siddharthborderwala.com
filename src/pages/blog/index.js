@@ -62,12 +62,12 @@ const BlogPage = ({
             slug={featuredArticle.slug}
             info={featuredArticle.info}
           />
-          <div className="flex flex-wrap mt-8 md:space-x-6 space-y-6">
+          <div className="flex flex-wrap mt-8 md:space-x-6">
             {posts.slice(1).map(({ info, id, slug }) => (
               <Link
                 key={id}
                 to={`/blog/${slug}`}
-                className="w-full sm:w-1/2 md:w-1/3"
+                className="w-full sm:w-1/2 md:w-1/3 mt-6"
               >
                 <article>
                   <GatsbyImage
