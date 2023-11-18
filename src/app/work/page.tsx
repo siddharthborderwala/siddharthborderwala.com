@@ -52,9 +52,9 @@ const Work = () => {
               <p className="mt-4">
                 I am open to chat if you have any nice ideas for collaboration.
                 I would love working on open-source projects and exciting but
-                feasible startup ideas. You can contact me{' '}
+                feasible startup ideas. You can{' '}
                 <Link className="underline text-red-400" href="/contact">
-                  here
+                  contact me here
                 </Link>
                 .
               </p>
