@@ -9,30 +9,35 @@ import NavLink from './nav-link';
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick: React.MouseEventHandler = useCallback((e) => {
+  const handleClick: React.MouseEventHandler = useCallback(e => {
     if (!window.matchMedia('(min-width: 640px)').matches) return;
 
     if ((e.target as Element).tagName.toLowerCase() === 'a') {
       setIsOpen(false);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     }
     return () => {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
   return (
     <nav className="flex items-center py-4 sm:space-x-12 w-constraint">
       <Link className="mr-auto border rounded-full" href="/">
-        <img src='/logo.svg' alt='logo' className="h-12 w-12 inline-block" />
+        <img src="/logo.svg" alt="logo" className="h-12 w-12 inline-block" />
         <p className="sr-only">Siddharth Borderwala</p>
       </Link>
-      <button className="sm:hidden z-20" onClick={() => setIsOpen(v => !v)}>
+      <button
+        title="Toggle Menu"
+        className="sm:hidden z-20"
+        onClick={() => setIsOpen(v => !v)}
+      >
+        <p className="sr-only">Toggle Menu</p>
         {isOpen ? (
           <X size="30" weight="bold" />
         ) : (

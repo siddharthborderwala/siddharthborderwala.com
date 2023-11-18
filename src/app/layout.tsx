@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: 'Siddharth Borderwala',
   description: `Hi, I'm Siddharth Borderwala. I'm a full-stack web developer who loves open source.`,
   icons: {
-    shortcut: '/logo.svg',
+    shortcut: '/favicon.ico',
+    apple: '/logo.svg',
+    icon: '/logo.svg',
   },
 };
 
