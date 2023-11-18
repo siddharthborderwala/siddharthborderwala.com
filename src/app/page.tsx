@@ -1,113 +1,142 @@
-import Image from 'next/image'
+import {
+  ChatCircleDots,
+  PaperPlaneTilt,
+  LinkSimple,
+  Cursor,
+} from '@phosphor-icons/react/dist/ssr';
+import Image from 'next/image';
+import Link from 'next/link';
+import ExternalLink from '~/components/external-link';
+import Text from '~/components/text';
+import Sid from '~/images/siddharth.webp';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div
+      style={{
+        background: 'url(/dot-grid.png)',
+        backgroundRepeat: 'repeat',
+      }}
+    >
+      <header className="w-constraint flex justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
+        <div>
+          <h1 className="text-3xl sm:text-5xl font-bold">
+            Hi, I am Siddharth.
+          </h1>
+          <h2 className="text-lg sm:text-2xl text-gray-700 mt-6 font-normal">
+            I build beautiful, fast, accessible and amazing websites. I am a
+            computer science geek{' '}
+            <span role="img" title="Love">
+              💖
+            </span>{' '}
+            and I love programming 💻.
+          </h2>
+          <Link
+            href="/contact"
+            className="bg-red-400 text-white text-lg py-2 px-4 mt-8 inline-flex items-center"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Contact Now <PaperPlaneTilt className="ml-4" weight="bold" />
+          </Link>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        <div className="md:ml-16 rounded-full">
+          <Image
+            alt="Siddharth Borderwala"
+            src={Sid}
+            className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto overflow-clip"
+          />
+        </div>
+      </header>
+      <main className="w-constraint mt-16 pb-20 sm:pb-32">
+        <section id="about" className="pt-8">
+          <h3 className="text-4xl font-semibold mb-12">Get to Know Me!</h3>
+          <Text>
+            I am a Full-Stack Developer and Computer Science undergraduate at{' '}
+            <ExternalLink href="https://snu.edu.in/home">
+              Shiv Nadar University
+            </ExternalLink>{' '}
+            in Delhi. I specialize in the Javascript/Typescript ecosystem and
+            have recently gotten into the web3 world via the NEAR protocol
+            ecosystem using the rust language.
+          </Text>
+          <Text>
+            I began writing about my work and some engineering challenges I have
+            solved on my{' '}
+            <Link href="/blog" className="underline text-red-400">
+              blog
+            </Link>{' '}
+            recently. Give some of them a read and share any feedback or
+            suggestions you have.
+          </Text>
+          <Text>
+            Besides coding and writing, I love Formula 1 and Football and enjoy
+            watching sitcoms and thrillers. Also, did I mention that I am always
+            down to play FIFA and first-person shooters with good storylines?
+          </Text>
+          <Link
+            href="/contact"
+            className="bg-red-400 text-white text-lg py-2 px-4 mt-8 inline-flex items-center"
+          >
+            Chat With Me <ChatCircleDots className="ml-4" weight="bold" />
+          </Link>
+        </section>
+        <section id="work" className="mt-32 pt-8">
+          <h3 className="text-4xl font-semibold mb-12">My Work</h3>
+          <Text>
+            I am a Full-Stack JavaScript/TypeScript developer specializing in
+            Reactjs, Nodejs, and the JAMStack ecosystem. I have worked on
+            projects solo and led teams of up to 6 developers to design, build
+            and deploy production-grade web applications.
+          </Text>
+          <Text>
+            I am an open-source contributor and have contributed to libraries
+            like{' '}
+            <ExternalLink href="https://github.com/validatorjs/validator.js">
+              validatorjs
+            </ExternalLink>
+            and{' '}
+            <ExternalLink href="https://github.com/supabase">
+              supabase
+            </ExternalLink>
+            . I have created and am maintaining reactjs libraries such as{' '}
+            <ExternalLink href="https://github.com/sassy-labs/datepicker">
+              sassy-datepicker
+            </ExternalLink>
+            which has 3000 monthly downloads. I am looking forward to building
+            many more useful projects for open source developers.
+          </Text>
+          <Text>
+            I also work with local businesses to design, build and maintain
+            their website and web applications. I also provide services like
+            SEO/SMO optimization, technical advice, and consultation for
+            building an online presence for businesses.
+          </Text>
+          <Link
+            href="/work"
+            className="mt-8 bg-red-400 text-white text-lg py-2 px-4 inline-flex items-center"
+          >
+            Know More <LinkSimple className="ml-4" weight="bold" />
+          </Link>
+        </section>
+        <section id="cta" className="mt-32 pt-8">
+          <h3 className="text-4xl font-semibold mb-12">
+            Want to Work With Me?
+          </h3>
+          <Text>
+            Currently, I am looking for a part-time development job and am
+            flexible in terms of roles and responsibilities. I am also open to
+            working on open source projects and SaaS startups, where I can make
+            valuable contributions to the product and the team. I promise you
+            will have fun working with me once I get comfortable with you as I
+            start cracking quite a few jokes 😆.
+          </Text>
+          <Link
+            href="/contact"
+            className="mt-8 bg-red-400 text-white text-lg py-2 px-4 inline-flex items-center"
+          >
+            Contact Now <Cursor className="ml-4" weight="bold" />
+          </Link>
+        </section>
+      </main>
+    </div>
+  );
 }

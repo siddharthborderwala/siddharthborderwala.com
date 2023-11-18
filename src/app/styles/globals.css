@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::selection {
+  background-color: #ffbdbd !important;
+  /* color: white !important; */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  min-height: calc(100vh - 24.95rem);
+  padding-bottom: 4rem;
+}
+
+.mark {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.mark:hover .mark::after {
+  height: 75%;
+}
+
+.mark::after {
+  display: block;
+  content: '';
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #ffb1b1;
+  z-index: -1;
+}
+
+.w-constraint {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.anchor.before {
+  display: inline-block;
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+
+@media screen and (min-width: 640px) {
+  .w-constraint {
+    padding-left: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .w-constraint {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .w-constraint {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .w-constraint {
+    width: 1024px;
+  }
+}
