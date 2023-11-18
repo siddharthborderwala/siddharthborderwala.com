@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { DM_Sans as Font } from 'next/font/google';
-// import { GeistSans as font } from 'geist/font/sans';
+import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
+
 import Footer from '../components/footer';
 import Nav from '../components/nav';
 import './styles/globals.css';
 import './styles/compose.css';
-import { Toaster } from 'react-hot-toast';
 
 const font = Font({ subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
