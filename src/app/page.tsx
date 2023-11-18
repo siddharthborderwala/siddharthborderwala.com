@@ -38,7 +38,7 @@ export default function Home() {
             Contact Now <PaperPlaneTilt className="ml-4" weight="bold" />
           </Link>
         </div>
-        <div className="md:ml-16 rounded-full">
+        <div className="md:ml-16 rounded-full flex-shrink-0">
           <Image
             alt="Siddharth Borderwala"
             src={Sid}
