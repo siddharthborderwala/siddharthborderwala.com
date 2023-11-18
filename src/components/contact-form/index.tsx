@@ -74,10 +74,6 @@ const ContactForm = () => {
           toast.error('Make sure you have entered valid data');
         } else if (error.response?.status === 404) {
           toast.error('We are not accepting responses right now');
-        } else if (error.response?.status === 500) {
-          toast.error(
-            'Sorry we messed up, please contact us via email or twitter'
-          );
         } else {
           toast.error(
             'Something went wrong, please contact us via email or twitter'
