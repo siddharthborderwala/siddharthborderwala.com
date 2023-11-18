@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios';
-import { NextApiRequest, NextApiResponse } from 'next';
 
 export const POST = async (req: Request) => {
   const { name, email, message } = await req.json();
@@ -95,8 +94,15 @@ export const POST = async (req: Request) => {
   }
 };
 
-export const OPTIONS = async (req: NextApiRequest, res: NextApiResponse) => {
-  res.setHeader('Allow', 'POST, OPTIONS');
-  res.status(204).send('OK');
-  return;
+export const OPTIONS = async (req: Request) => {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+  const origin = req.headers.get('origin');
+  if (origin) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return new Response(null, { headers });
 };
