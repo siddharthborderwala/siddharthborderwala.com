@@ -1,0 +1,80 @@
+---
+title: 'How I Built My First Blog With Gatsby?'
+description: 'How I built my blog using the powers of JAMStack, with features like image optimizations, SEO and RSS feed and why I chose Gatsby over Nextjs?'
+date: '2022-01-01'
+heroImage: 'https://images.unsplash.com/photo-1615419235091-59bf9cbd530b?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3'
+heroImageAlt: 'black and silver pen beside white book.'
+heroImageCreditUrl: 'https://unsplash.com/photos/mWI9FhbS43I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink'
+heroImageCreditName: 'Girl with red hat'
+tags: ['react', 'gatsby']
+category: 'web development'
+---
+
+First of all, as a developer, I believe it is important for one to build a blog of their own, and so I set out to do exactly that. I am a reactjs developer, and there are tons of tools and frameworks out there to build a blog, often it is overwhelming and confusing to choose from such amazing tools like create-react-app, nextjs and gatsby. Each of these has its own pros and cons, so deciding which one to use needs quite a lot of deliberation.
+
+## Deciding which framework to use
+
+I have noticed, a lot of articles comparing tools and frameworks, end with a conclusion saying "It depends on your use case". So, I decided to pick the tool which met all requirements in the following checklist for my site -
+
+- SEO/SMO
+- MDX Support
+- RSS Feed
+- Fast and Performant
+- Image Optimization
+
+Not only do I need support for these, but I wanted to use third party libraries with simple integration, so that I can yield the power of open-source javascript ecosystem with little difficulty. The three main options for me were [create-react-app](https://create-react-app.dev), [nextjs](https://nextjs.org) and [gatsbyjs](https://gatsbyjs.com).
+
+Now, creat-react-app was out of the window because of poor SEO/SMO support. The next two contenders were nextjs and gatsbyjs. Both have really good tooling and support for all the 5 points in my checklist, but gatsby had the edge for me thanks to its amazing plugin system! It would save me a lot of time and effort to be able to use plugins like RSS feed generator, image optimisation using sharp, mdx support, auto-linking headers, and site map generator. Moreover, these plugins have rich documentation, which makes it even easier to use them. And so, gatsbyjs was the winner for me!
+
+## Planning and Prioritizing
+
+It may not seem like creating your own blog and publishing your first article is difficult, but believe me, it has its own challenges. For me, the problem was I had lined up too many features for the blog and that caused me to think, there is just too much to do and so I kept on procrastinating, and the deadline to publish my blog just kept getting pushed into the future. But I really wanted to complete the blog and publish it, so I decided to changed my strategy.
+
+The new strategy was **Incremental Releases**, meaning with each release, I add one or more features to the blog. This strategy turned out to be very successful. The benefits of using this strategy were -
+
+1. After each iteration, there were visible results
+2. If something is broken or need improvement can be fixed in the next release
+
+The concept behind this was basically, break down big tasks into small ones and addressing them one by one, completing the whole problem. In fact, this blogfolio is still not complete, there are quite a few features like having a dark mode and some other content like the projects I have worked on still have to be worked on. But, I believe that incremental releases is going to help me through the journey!
+
+Another challenge here is which features to work on first? This is highly variable depending on your priorities, but a proper landing page to your blogfolio with some information about you and your work, and your contact information must be the first priority for your blog. And then you can go on to decide which features you should release and when.
+
+For me, starting from 2022, I wanted to create blog posts, twice a month and so a blog was my first priority. Now, I also wanted to add search and filter for my blog, but I decided to add that feature later on, as initially I would have just a few posts, so this feature would not be very useful. Adding to that, it was important for me to put up more information on the blogfolio about me, my education and skills, and work experience and projects, and so I decided to have implement the blog search and filter feature later on, and work on this instead. This was completely dependant on my priorities and choices, and yours may be different.
+
+## How was my experience with Gatsby?
+
+It was my first time using gatsby for a production site. I started with the [gatsby tutorial](https://www.gatsbyjs.com/docs/tutorial/) and it was easy to follow. What I had difficulty with was - the gatsby config files and the data flow. The data flow in gatsby, is done completely using GraphQL, and initially it was quite confusing and I had to google a lot of stuff, but as I used the API more and more, it became more natural to me.
+
+There are some areas where I think gatsby can get better like speed of the development server and a more seamless live reloading. I don't have a lot of pages in my gatsby app, but it still take about 60 seconds to generate the development bundle, which I think is a lot, especially considering the dev server speeds of vite and nextjs.
+
+## Some amazing libraries I am using
+
+Apart from the libraries and plugins from gatsby, I am using the following libraries -
+
+1. [tailwindcss](https://tailwindcss.com/) - I refrained from using SASS or CSS modules for styling and went ahead with tailwind due to countless benefits, which you can read on their website.
+2. [flexsearch](https://www.npmjs.com/package/flexsearch) - I also wanted a search interface on my blog so I explored a few solutions but ended up selecting flexsearch as it is claimed to be the fastest full-text search library with zero dependencies!
+3. [prism-react-renderer](https://www.npmjs.com/package/prism-react-renderer) - The best syntax highlighting library for reactjs out there, based on prism-js. It is highly flexible and performant, and does not pollute your global css while using prismjs.
+4. [copy-to-clipboard](https://www.npmjs.com/package/copy-to-clipboard) - A vanilla-js library, providing a simple **copy** function to use, that works across all the browsers with appropriate fallbacks.
+5. [phosphor-react](https://www.npmjs.com/package/phosphor-react) - An amazing library of hundreds of beautifully designed icons called Phosphor Icons. It provides various weights and variants of icons like filled and outlined.
+
+## How am I managing my content?
+
+A very important decision to make was where to keep my content? There are a lot of CMS options out there, with rich features and markdown support but I did not use any of them. Also, I wanted MDX support, and I currently don't know any CMSes having the same. So, I chose to have all my content on my file system itself, inside my project backed by git.
+
+I like to write the articles themselves in [Notion](https://www.notion.so/) on my iPad and export them as markdown. After copying the contents to an **mdx** file, I add the react components as needed, and save it in my repository. Then, I find an appropriate hero image for my article, make a social preview image for the post using a template I created, so it does not take very long. And bam, there's my latest blog post, ready to be published.
+
+I make it a priority to provide credit to the creators on unsplash from where I get the hero images. All the metadata related to each blog post is store inside the mdx file itself, at top of the file, in [YAML](https://yaml.org/) format. This metadata is then used by gatsby to generate important SEO/SMO things such as the title, decription and social preview images.
+
+## Plans for the future
+
+As I mentioned earlier, I am still working on this blogfolio and improving it, iterations after iterations, adding new features and more content, week by week. The roadmap looks something like this -
+
+- Contact Page
+- My Projects Page
+- My Work Experience Page
+- Search and Sort for My Projects
+- Complete Blog Search and Sort
+- Related Articles
+- Dark Mode
+
+Hope you had a good time reading my first article, and that it helped you have an insight on how and why you make different choices based on your needs and how strategically working on your tasks reduces friction and helps you accomplish them!

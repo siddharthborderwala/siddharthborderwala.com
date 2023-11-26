@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
+import zod, { set } from 'zod';
 import {
   CircleNotch,
   Warning,
   PaperPlaneTilt,
+  XCircle,
 } from '@phosphor-icons/react/dist/ssr';
 import toast from 'react-hot-toast';
 
@@ -40,10 +42,21 @@ type Field = {
 
 const emptyField: Field = { value: '', error: null };
 
+type FormErrors = zod.typeToFlattenedError<
+  {
+    name: string;
+    email: string;
+    message: string;
+  },
+  string
+>;
+
 const ContactForm = () => {
   const [name, setName] = useState<Field>(emptyField);
   const [email, setEmail] = useState<Field>(emptyField);
   const [message, setMessage] = useState<Field>(emptyField);
+
+  const [formErrors, setFormErrors] = useState<FormErrors>();
 
   const [submitting, setSubmitting] = useState(false);
 
@@ -54,6 +67,7 @@ const ContactForm = () => {
       alert('Fix the errors show in the form and retry');
       return;
     }
+    setFormErrors(undefined);
     setSubmitting(true);
     try {
       // make the request
@@ -71,7 +85,7 @@ const ContactForm = () => {
     } catch (error) {
       if (error instanceof AxiosError) {
         if (error.response?.status === 400) {
-          toast.error('Make sure you have entered valid data');
+          setFormErrors(error.response.data);
         } else if (error.response?.status === 404) {
           toast.error('We are not accepting responses right now');
         } else {
@@ -133,6 +147,12 @@ const ContactForm = () => {
             {name.error}
           </p>
         )}
+        {formErrors?.fieldErrors.name ? (
+          <p className="text-red-500 mt-2 flex items-center">
+            <XCircle className="inline mr-2" size="20" />
+            {formErrors.fieldErrors.name}
+          </p>
+        ) : null}
       </div>
       <div className="flex flex-col">
         <label className="text-md sm:text-lg" htmlFor="email">
@@ -154,6 +174,12 @@ const ContactForm = () => {
             {email.error}
           </p>
         )}
+        {formErrors?.fieldErrors.email ? (
+          <p className="text-red-500 mt-2 flex items-center">
+            <XCircle className="inline mr-2" size="20" />
+            {formErrors.fieldErrors.email}
+          </p>
+        ) : null}
       </div>
       <div className="flex flex-col">
         <label className="text-md sm:text-lg" htmlFor="message">
@@ -175,6 +201,12 @@ const ContactForm = () => {
             {message.error}
           </p>
         )}
+        {formErrors?.fieldErrors.message ? (
+          <p className="text-red-500 mt-2 flex items-center">
+            <XCircle className="inline mr-2" size="20" />
+            {formErrors.fieldErrors.message}
+          </p>
+        ) : null}
       </div>
       <div className="py-4">
         <button

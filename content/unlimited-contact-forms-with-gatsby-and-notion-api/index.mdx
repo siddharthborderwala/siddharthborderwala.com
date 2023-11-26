@@ -1,0 +1,409 @@
+---
+title: 'Unlimited Contact Forms Using Gatsby and Notion API'
+description: "How I created free, unlimited contact forms using the Gatsby Cloud Functions' free tier and the Notion API for my Gatsbyjs powered website?"
+date: '2022-01-22'
+heroImage: 'https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3'
+heroImageAlt: 'six assorted-color mailboxes photo'
+heroImageCreditUrl: 'https://unsplash.com/photos/fb7yNPbT0l8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink'
+heroImageCreditName: 'Mathyas Kurmann'
+tags: ['notion', 'gatsby', 'forms']
+category: 'JAMStack'
+---
+
+Almost every other website has a contact form and to have the same on your portfolio is a no brainer. Having a form on your site requires a server to accept and store the responses to a database. Without having to go through the hassle and costs of setting up servers, a straightforward solution would be to use a contact forms API such as [Formspree](https://formspree.io/) or [Formspark](https://formspark.io/). Some of these APIs do have free tiers, although they come with many limits and soon you may need to get a paid plan. In this article, I discuss how [Gatsby Cloud](https://www.gatsbyjs.com/products/cloud/)'s generous functions limits paired with the free [Notion API](https://developers.notion.com/) makes the perfect solution for this and lets you have unlimited forms and responses.
+
+## Introduction to Gatsby Cloud Functions
+
+Cloud functions are like server endpoints, they can receive data and send data as needed. The difference is they are run independently by your cloud provider. In our case, our cloud provider is Gatsby Cloud and I chose gatsby cloud as my blog is a gatsby project, so it was the goto platform.
+
+Let's talk about how we can use gatsby cloud functions. The functions you want to run must be put inside the `src/api/` directory in your gatsby project. Gatsby looks for `*.js` and `*.ts` files inside the folder and the name of the file will decide the endpoint for the function. These functions provide an expressjs like interface to work with requests and responses.
+
+For example, you have the following `ping.js` file
+
+```jsx
+// src/api/ping.js
+
+// This endpoint returns the data recieved in the requst body
+export default function handler(req, res) {
+  res.status(200).send('pong');
+}
+```
+
+The file must contain a function as a default export, taking the following two arguments -
+
+- `request` - Nodejs request object
+- `response` - Nodejs response object
+
+The data in the request, such as query strings and the body, is automatically parsed and can be accessed using the `req.query` and `req.body` respectively. It also supports form submissions and the form data can be directly found on `req.body`. You can also check the request method, get/set for headers, and a use lot of other properties and methods on the request and response objects.
+
+## Setup the contact function
+
+Create a file named `contact.js` inside the `src/api/` directory in your project. Create an async function called handler and make it the default export of the file. This will cause the function to be triggered whenever a request is made to the `/api/contact` endpoint.
+
+The two most important things in our function are the request body and the request method. We use a POST request to send the data to our function, and this data can be found on the req.body attribute. Hence, we will only accept POST requests in our function and reject requests made with other methods with a [405](https://httpcode.vercel.app/405) client error status.
+
+```jsx
+const handler = async (req, res) => {
+  const method = req.method.toLowerCase();
+  if (method === 'post') {
+    const data = req.body;
+    // validate the data
+    // store it in notion
+    // send a 200 OK response
+  } else {
+    res.set('Allow', 'POST');
+    res.status(405).send(`${method} not allowed`);
+  }
+};
+```
+
+Now that we have our basic function body setup, let's look into how we can integrate it with the Notion API.
+
+## Introduction to Notion API
+
+The Notion API lets your function interact with Notion's pages, databases and users. To be able to use the API make sure you have created an account on Notion. Next, you need to go to [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations) and create a new integration called “Contact”. Here is a [guide](https://developers.notion.com/docs/getting-started#step-1-create-an-integration) to understand how to create a Notion integration.
+
+Here's how my integration looks -
+
+<div align="center" className="mt-4 mb-4">
+  <img src="https://i.imgur.com/ABebmqN.png" alt="Contact Form Integration" />
+</div>
+
+Make sure you choose the workspace where you want to store the form submissions. For me it is “Siddharth's Workspace”, choose the above shown options and submit the form. Once this is done you can head over to [Step 2](https://developers.notion.com/docs#step-2-share-a-database-with-your-integration) of this process.
+
+Create a new page in your notion workspace and create a new database by typing `/table` or selecting the table option show on the default new page. Once the table is ready, create three columns -
+
+1. name
+2. email
+3. date
+
+Each new form submission will be a new page, with the title as the name of the sender, and the message as a block of text in that page. The table will look something like this -
+
+![Site Contact Form Notion Database](https://i.imgur.com/RDzKRDh.png)
+
+Once done, press the share button on the top-bar and select the “Contact” integration. By doing this, Notion will allow the “Contact” integration to access this database. Once you give the access, for inserting new entries in this table, you will need the database id of the table. You can get the database id inside the URL of the database, which you can find from the Copy Link button inside the Share menu.
+
+```txt
+https://www.notion.so/workspace/a8aec43384f447ed84390e8e42c2e089?v=.........
+                               |--------- Database ID ----------|
+```
+
+Now, we have everything needed to interact with the Notion API and create form submissions. We have two options to interact with the Notion API
+
+1. Notion JS SDK
+2. Plain HTTP Requests (using `axios` or `node-fetch`)
+
+Since we only need to interact with the Notion API for a single use-case, we will go ahead with the second option as we only ever need the whole SDK when creating a more sophisticated app or integration, where making plain HTTP requests may become cumbersome.
+
+## Interacting with the Notion API
+
+### Storing the environment secrets
+
+We have two very important pieces of information with us here, the notion-api-secret and the database-id. It would be a good security practice to store these environment secrets in a `.env` file. If you don't already have a `.env` file in your project, go ahead and create one and add the following lines to it -
+
+```txt
+NOTION_API_SECRET="<YOUR-SECRET-KEY-HERE>"
+NOTION_DB_ID="<YOUR-DATABASE-ID-HERE>"
+```
+
+Gatsby has built-in support for environment variables, and will import them by default from the `.env.development` file in development mode and `.env.production` file while creating the build. So, make sure you create those env files accordingly and store the secrets in them. These two variables will be available in `gatsby-config.js` and the functions files in the `/src/api` directory.
+
+<aside className="mt-4 bg-yellow-200 rounded p-4">
+  <span className="text-3xl mr-2">⚠️</span> Make sure you don't commit the
+  environment secrets to your version controlling system because that is a
+  breach of security and may give unauthorized parties access to your notion
+  database.
+</aside>
+
+### Validating form data
+
+Validating the data we receive is very important as we want to make sure we get proper form responses. We need to check if the `name`, `email` and `message` are not empty and are of valid formats. If any of the said fields are invalid, we respond with a 400 error status code and a corresponding error message in the response body.
+
+```jsx
+const { name, email, message } = req.body.data;
+
+// if we don't have a name
+if (!name) {
+  res.status(400).send('`name` field required');
+  return;
+}
+// if the type of name is not string
+if (typeof name !== 'string') {
+  res.status(400).send('`name` field must be a string');
+  return;
+}
+// if after stripping out whitespaces, the name is empty
+if (name.trim().length === 0) {
+  res.status(400).send('`name` field must not be empty');
+  return;
+}
+
+// if we don't have an email
+if (!email) {
+  res.status(400).send('`email` field required');
+  return;
+}
+// if the type of email is not string
+if (typeof email !== 'string') {
+  res.status(400).send('`email` field must be a string');
+  return;
+}
+// if after stripping out whitespaces, the email is empty
+if (email.trim().length === 0) {
+  res.status(400).send('`email` field must not be empty');
+  return;
+}
+// if the email is invalid, this check is made using a regular expression
+// Want to learn more about regular expressions, check out this amazing youtube video
+// https://www.youtube.com/watch?v=VrT3TRDDE4M
+if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+  res.status(400).send('`email` field invalid');
+  return;
+}
+
+// if we don't have a message
+if (!message) {
+  res.status(400).send('`message` field required');
+  return;
+}
+// if the type of message is not a string
+if (typeof message !== 'string') {
+  res.status(400).send('`message` field must be a string');
+  return;
+}
+// if after stripping out whitespaces, the email is empty
+if (message.trim().length === 0) {
+  res.status(400).send('`message` field must not be empty');
+  return;
+}
+```
+
+Once we deem all the form fields are valid, we go ahead and make the request to the Notion API and create the form submission database entry.
+
+### Using axios to create database entries
+
+To create an new database entry, i.e. a page in the database, you need to make a `POST` request at the `'https://api.notion.com/v1/pages'` endpoint. Along with the request payload, we need to send a few headers for the Notion API to authorize our request and perform the operation as specified by the request.
+
+Let's look at the headers first -
+
+```jsx
+const headers = {
+  // bearer-token authorization header
+  Authorization: `Bearer ${process.env.NOTION_API_SECRET}`,
+  // the payload content-type
+  'Content-Type': 'application/json',
+  // specify the version of the API
+  'Notion-Version': '2021-08-16',
+};
+```
+
+And, here is how the payload, i.e. request body will look like -
+
+```jsx
+const payload = {
+  parent: {
+    database_id: process.env.NOTION_DB_ID,
+  },
+  properties: {
+    name: [
+      {
+        text: {
+          content: name,
+        },
+      },
+    ],
+    email: email,
+    date: {
+      start: new Date().toISOString(),
+      end: null,
+    },
+  },
+  children: [
+    {
+      object: 'block',
+      type: 'paragraph',
+      paragraph: {
+        text: [
+          {
+            type: 'text',
+            text: {
+              content: message,
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+```
+
+Now lets make the request with `axios` -
+
+```jsx
+try {
+  const response = axios.post('https://api.notion.com/v1/pages', payload, {
+    headers,
+  });
+  // the request was successful, send a 200 OK response
+  res.status(200).send('OK');
+} catch (error) {
+  if (error.response && error.response.status === 400) {
+    // some error in the request data
+    res.status(400).send('Bad request');
+  } else {
+    // some error on our part
+    res.status(500).send('Internal Server Error');
+  }
+}
+```
+
+You can find the whole code in this GitHub Gist - [https://gist.github.com/siddharthborderwala/18704060e0179d37f0fe8ce4a4690840](https://gist.github.com/siddharthborderwala/18704060e0179d37f0fe8ce4a4690840)
+
+## Form submissions on the frontend
+
+Time to create a form for the users to interact with and make submissions. There are a couple ways to handle inputs in react. You can let the browser handle the inputs' states or you can us JavaScript to control them. Since we want to be able to show errors below the inputs, for instance an ‘Invalid email' message, we will use controlled inputs.
+
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const validateName = name => {
+  if (name.trim().length === 0) {
+    return 'Name cannot be empty';
+  }
+  return null;
+};
+
+const validateEmail = email => {
+  if (email.trim().length === 0) {
+    return 'Email cannot be empty';
+  }
+  if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return 'Email is invalid';
+  }
+  return null;
+};
+
+const validateMessage = message => {
+  if (message.trim().length === 0) {
+    return 'Message cannot be empty';
+  }
+  return null;
+};
+
+const emptyField = { value: '', error: null };
+
+const ContactForm = () => {
+  const [name, setName] = useState(emptyField);
+  const [email, setEmail] = useState(emptyField);
+  const [message, setMessage] = useState(emptyField);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    // check if there are errors
+    if (name.error || email.error || message.error) {
+      alert('Fix the errors show in the form and retry');
+      return;
+    }
+    setSubmitting(true);
+    try {
+      // make the request
+      await axios.post('/api/contact', {
+        name: name.value,
+        email: email.value,
+        message: message.value,
+      });
+      setName(emptyField);
+      setEmail(emptyField);
+      setMessage(emptyField);
+      alert('Submission Successful - I will reach out to you in a day or so');
+    } catch (error) {
+      console.log(error.response);
+      // handle errors
+      if (error.response?.status === 400) {
+        alert('Submission Failed - Make sure you have entered valid data');
+      } else if (error.response?.status === 500) {
+        alert('Submission Failed - Sorry we messed up');
+      } else {
+        alert('Something went wrong, please try again');
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleNameChange = e => {
+    setName({
+      value: e.target.value,
+      error: validateName(e.target.value),
+    });
+  };
+
+  const handleEmailChange = e => {
+    setEmail({
+      value: e.target.value,
+      error: validateEmail(e.target.value),
+    });
+  };
+
+  const handleMessageChange = e => {
+    setMessage({
+      value: e.target.value,
+      error: validateMessage(e.target.value),
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="John Doe"
+          value={name.value}
+          onChange={handleNameChange}
+          disabled={submitting}
+        />
+        {name.error && <p>{name.error}</p>}
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          email="email"
+          placeholder="johndoe@example.com"
+          value={email.value}
+          onChange={handleEmailChange}
+          disabled={submitting}
+        />
+        {email.error && <p>{email.error}</p>}
+      </div>
+      <div>
+        <label htmlFor="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="I would like to hire/collaborate..."
+          value={message.value}
+          onChange={handleMessageChange}
+          disabled={submitting}
+        />
+        {message.error && <p>{message.error}</p>}
+      </div>
+      <div>
+        <button type="submit" disabled={submitting}>
+          {submitting ? 'Sending...' : 'Send Message'}
+        </button>
+      </div>
+    </form>
+  );
+};
+```
+
+This will setup a form with validation, user feedback and error handling. You can style it according to your taste, and it is ready to make requests to the Gatsby function.
+
+I hope this walkthrough helps you to create a free and unlimited forms for your personal site. Of course Notion's API is rate limited to 3 requests per second, but in my opinion that is a generous limit for our use case. Using the Notion API unlocks a lot of possibilities and using your creativity you can create such solutions.

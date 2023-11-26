@@ -19,11 +19,13 @@ const FeaturedArticle: React.FC<{
       <article className="mt-8 md:mt-12">
         <div className="flex flex-col md:flex-row">
           <Image
+            className="relative rounded shadow-md md:min-h-[40vh] flex-1"
             src={info.heroImage}
             alt={info.heroImageAlt}
-            className="rounded shadow-md w-full md:w-auto md:min-h-[40vh]"
+            width={512}
+            height={300}
           />
-          <div className="md:ml-8 mt-4 md:mt-0 md:max-w-[35%]">
+          <div className="md:ml-8 mt-4 md:mt-0 md:max-w-[35%] flex-shrink-0">
             <p className="uppercase font-bold text-gray-500 tracking-wider ml-1">
               featured article
             </p>

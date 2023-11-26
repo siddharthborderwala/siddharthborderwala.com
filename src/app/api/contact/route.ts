@@ -1,95 +1,157 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
+import zod from 'zod';
+import FormData from 'form-data';
+import Mailgun from 'mailgun.js';
+import stripIndent from 'strip-indent';
+import { json } from '~/utils/server';
 
-export const POST = async (req: Request) => {
-  const { name, email, message } = await req.json();
+const contactFormValidator = zod.object({
+  name: zod
+    .string({
+      required_error: 'Name is required',
+      invalid_type_error: 'Invalid name',
+    })
+    .min(3, {
+      message: 'Name must be at least 3 characters long',
+    })
+    .max(50, {
+      message: 'Name must be less than 50 characters long',
+    }),
+  email: zod
+    .string({
+      required_error: 'Email is required',
+      invalid_type_error: 'Invalid email',
+    })
+    .email({
+      message: 'Invalid email',
+    }),
+  message: zod
+    .string({
+      required_error: 'Message is required',
+      invalid_type_error: 'Invalid message',
+    })
+    .min(3, {
+      message: 'Message must be at least 3 characters long',
+    })
+    .max(500, {
+      message: 'Message must be less than 500 characters long',
+    }),
+});
 
-  if (!name) {
-    return new Response('`name` field required', { status: 400 });
-  }
-  if (typeof name !== 'string') {
-    return new Response('`name` field must be a string', { status: 400 });
-  }
-  if (name.trim().length === 0) {
-    return new Response('`name` field must not be empty', { status: 400 });
-  }
-  if (!email) {
-    return new Response('`email` field required', { status: 400 });
-  }
-  if (typeof email !== 'string') {
-    return new Response('`email` field must be a string', { status: 400 });
-  }
-  if (email.trim().length === 0) {
-    return new Response('`email` field must not be empty', { status: 400 });
-  }
-  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return new Response('`email` field invalid', { status: 400 });
-  }
-  if (!message) {
-    return new Response('`message` field required', { status: 400 });
-  }
-  if (typeof message !== 'string') {
-    return new Response('`message` field must be a string', { status: 400 });
-  }
-  if (message.trim().length === 0) {
-    return new Response('`message` field must not be empty', { status: 400 });
-  }
+const sendContactFormEmail = async (
+  name: string,
+  email: string,
+  message: string
+) => {
+  const mailgun = new Mailgun(FormData);
+  const mg = mailgun.client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY,
+  });
+  return mg.messages.create(process.env.MAILGUN_SENDER_DOMAIN, {
+    'h:Reply-To': email,
+    from: `Website Contact Form <noreply@${process.env.MAILGUN_SENDER_DOMAIN}>`,
+    to: 'Siddharth Borderwala <siddharthborderwala@gmail.com>',
+    subject: 'Website Contact Form Submission',
+    text: stripIndent(`
+      Name: ${name}
+      Email: ${email}
 
-  try {
-    // make a post request to notion api
-    await axios.post(
-      'https://api.notion.com/v1/pages',
-      {
-        parent: {
-          database_id: process.env.NOTION_DB,
-        },
-        properties: {
-          name: [
-            {
-              text: {
-                content: name,
-              },
-            },
-          ],
-          email: email,
-          date: {
-            start: new Date().toISOString(),
-            end: null,
-          },
-        },
-        children: [
+      Message:
+      ${message}
+    `),
+    html: stripIndent(`
+      <p>
+        <strong>Name:</strong> ${name}
+      </p>
+      <p>
+        <strong>Email:</strong> ${email}
+      </p>
+      <p>
+        <strong>Message:</strong>
+      </p>
+      <p>${message}</p>
+    `),
+  });
+};
+
+const submitContactFormNotion = (
+  name: string,
+  email: string,
+  message: string
+) => {
+  return axios.post(
+    'https://api.notion.com/v1/pages',
+    {
+      parent: {
+        database_id: process.env.NOTION_DB,
+      },
+      properties: {
+        name: [
           {
-            object: 'block',
-            type: 'paragraph',
-            paragraph: {
-              text: [
-                {
-                  type: 'text',
-                  text: {
-                    content: message,
-                  },
-                },
-              ],
+            text: {
+              content: name,
             },
           },
         ],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.NOTION_SECRET}`,
-          'Content-Type': 'application/json',
-          'Notion-Version': '2021-08-16',
+        email: email,
+        date: {
+          start: new Date().toISOString(),
+          end: null,
         },
-      }
-    );
-
-    return new Response('OK', { status: 200 });
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      if (error.response && error.response.status === 400) {
-        return new Response('Bad Request', { status: 400 });
-      }
-      return new Response('Internal Server Error', { status: 500 });
+      },
+      children: [
+        {
+          object: 'block',
+          type: 'paragraph',
+          paragraph: {
+            text: [
+              {
+                type: 'text',
+                text: {
+                  content: message,
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_SECRET}`,
+        'Content-Type': 'application/json',
+        'Notion-Version': '2021-08-16',
+      },
     }
+  );
+};
+
+export const POST = async (req: Request) => {
+  const data = await req.json();
+
+  try {
+    const parseResult = contactFormValidator.safeParse(data);
+    if (parseResult.success === false) {
+      const errors = parseResult.error.flatten();
+      return json(errors, 400);
+    } else {
+      const emailResponse = await sendContactFormEmail(
+        parseResult.data.name,
+        parseResult.data.email,
+        parseResult.data.message
+      );
+      return json(
+        {
+          message: emailResponse.message,
+          status: emailResponse.status,
+        },
+        200
+      );
+    }
+  } catch (error) {
+    console.log(error);
+
     return new Response('Internal Server Error', { status: 500 });
   }
 };

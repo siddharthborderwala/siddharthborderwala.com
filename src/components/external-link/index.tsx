@@ -1,17 +1,18 @@
 import React from 'react';
 
 const ExternalLink: React.FC<
-  React.PropsWithChildren<{
-    href: string;
-    className?: string;
-  }>
-> = ({ href, className, children }) => {
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+> = ({ href, className, children, ...props }) => {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={`link ${className ?? ''}`}
+      {...props}
     >
       {children}
     </a>

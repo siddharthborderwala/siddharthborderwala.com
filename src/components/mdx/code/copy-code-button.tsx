@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+'use client';
 
-const CopyCodeButton = ({ onClick }) => {
+import React, { useCallback, useState } from 'react';
+
+const CopyCodeButton: React.FC<{
+  onClick?: () => void;
+}> = ({ onClick }) => {
   const [message, setMessage] = useState('Copy');
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setMessage('Copied');
-    onClick();
+    onClick?.();
     setTimeout(() => setMessage('Copy'), 1000);
-  };
+  }, [onClick]);
 
   return (
     <button
@@ -18,10 +21,6 @@ const CopyCodeButton = ({ onClick }) => {
       {message}
     </button>
   );
-};
-
-CopyCodeButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default CopyCodeButton;

@@ -1,3 +1,5 @@
+import { PrismTheme } from 'prism-react-renderer';
+
 export const rosePineMoon = {
   plain: {
     color: '#e0def4',
@@ -52,11 +54,10 @@ export const rosePineMoon = {
   ],
 };
 
-export const rosePineDawn = {
+export const rosePineDawn: PrismTheme = {
   plain: {
     color: '#575279',
     fontWeight: '400',
-    fontFamily: 'DM Mono',
     backgroundColor: '#faf4ed',
   },
   styles: [
@@ -65,7 +66,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(152, 147, 165)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
         fontStyle: 'italic',
       },
     },
@@ -74,7 +74,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(40, 105, 131)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
       },
     },
     {
@@ -82,7 +81,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(215, 130, 126)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
       },
     },
     {
@@ -90,7 +88,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(86, 148, 159)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
       },
     },
     {
@@ -98,7 +95,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(144, 122, 169)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
         fontStyle: 'italic',
       },
     },
@@ -107,7 +103,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(234, 157, 52)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
       },
     },
     {
@@ -115,7 +110,6 @@ export const rosePineDawn = {
       style: {
         color: 'rgb(215, 130, 126)',
         fontWeight: '400',
-        fontFamily: 'DM Mono',
       },
     },
   ],
