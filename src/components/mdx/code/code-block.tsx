@@ -7,6 +7,7 @@ import copy from 'copy-to-clipboard';
 import CopyCodeButton from './copy-code-button';
 import LanguageLabel from './language-label';
 import { rosePineDawn } from './code-themes';
+import { default as InlineCode } from './inline-code';
 
 const CodeBlock: React.FC<
   React.PropsWithChildren<{
@@ -24,6 +25,10 @@ const CodeBlock: React.FC<
 
   const copyCode = useCallback(() => copy(code), [code]);
 
+  if (className === '') {
+    return <InlineCode>{children}</InlineCode>;
+  }
+
   return (
     <div className="mt-6">
       <LanguageLabel language={language} />
@@ -31,13 +36,15 @@ const CodeBlock: React.FC<
         <Highlight theme={rosePineDawn} code={code} language={language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${className} overflow-x-auto p-5`} style={style}>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
+              {tokens
+                .map((line, i) => (
+                  <div key={i} {...getLineProps({ line, key: i })}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                ))
+                .slice(0, -1)}
             </pre>
           )}
         </Highlight>

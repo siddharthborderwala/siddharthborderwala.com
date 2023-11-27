@@ -15,7 +15,7 @@ const components: MDXComponents = {
   h4: Heading.H4,
   h5: Heading.H5,
   h6: Heading.H6,
-  // inlineCode: Code.InlineCode,
+  samp: Code.InlineCode,
   code: Code.Block,
   p: Typography.Paragraph,
   em: Typography.Emphasis,
@@ -37,9 +37,6 @@ const RenderMDX: React.FC<{
         source={source}
         options={{
           parseFrontmatter: true,
-          mdxOptions: {
-            // format: 'mdx',
-          },
         }}
       />
     </div>
