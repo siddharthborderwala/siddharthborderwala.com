@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { usePathname } from 'next/navigation';
 
 const NavLink: React.FC<
   React.PropsWithChildren<{
     href: string;
+    onClick?: () => void;
   }>
-> = ({ href, children }) => {
+> = ({ href, children, onClick }) => {
   const pathname = usePathname();
 
   const isActive = useMemo(
@@ -21,14 +21,11 @@ const NavLink: React.FC<
         isActive ? 'text-red-400' : 'text-gray-500'
       }`}
       href={href}
+      onClick={onClick}
     >
       {children}
     </Link>
   );
-};
-
-NavLink.propTypes = {
-  href: PropTypes.string.isRequired,
 };
 
 export default NavLink;
