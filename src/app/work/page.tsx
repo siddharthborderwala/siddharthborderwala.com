@@ -13,7 +13,7 @@ import { TabButton, TabProvider } from './tab';
 
 const Work = () => {
   return (
-    <div style={{ backgroundImage: 'url(/dot-grid.png)' }} className="pt-8">
+    <div className="pt-8">
       <div className="w-constraint">
         <header className="flex-1">
           <h1 className="text-4xl font-bold">My Work</h1>

@@ -14,7 +14,7 @@ const data: {
   description: string[];
 }[] = [
   {
-    title: 'Full-Stack Web3 Engineer',
+    title: 'Full Stack Web3 Engineer',
     company: {
       name: 'Leap Wallet',
       url: 'https://leapwallet.io/',
@@ -30,7 +30,7 @@ const data: {
     ],
   },
   {
-    title: 'Full-Stack Web3 Engineer',
+    title: 'Full Stack Web3 Engineer',
     company: {
       name: 'Crypto Capable',
     },
@@ -43,7 +43,7 @@ const data: {
     ],
   },
   {
-    title: 'Full-Stack Development Intern',
+    title: 'Full Stack Development Intern',
     company: {
       name: 'Turtlewig',
     },

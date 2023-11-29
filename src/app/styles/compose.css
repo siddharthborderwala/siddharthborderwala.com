@@ -3,5 +3,5 @@
 }
 
 .link {
-  @apply underline text-red-400;
+  @apply underline text-red-400 break-words;
 }

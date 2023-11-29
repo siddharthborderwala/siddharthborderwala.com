@@ -7,7 +7,6 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { BlogMetadata } from './types';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import CopyToClipboardButton from '~/components/copy-to-clipboard';
 import path from 'path';
 import Badge from '~/components/badge';
 
@@ -68,7 +67,7 @@ const BlogPage = async () => {
   const featuredArticle = posts[0];
 
   return (
-    <div style={{ backgroundImage: 'url(/dot-grid.png)' }}>
+    <div>
       <main className="w-constraint pt-8">
         <h1 className="text-4xl font-bold">My Blog</h1>
         <FeaturedArticle

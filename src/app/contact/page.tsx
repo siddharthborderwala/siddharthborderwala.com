@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div style={{ backgroundImage: 'url(/dot-grid.png)' }} className="pt-8">
+    <div className="pt-8">
       <main className="w-constraint pb-16">
         <h1 className="text-4xl font-bold">Contact Me</h1>
         <div className="flex flex-col sm:flex-row gap-12 sm:gap-8">

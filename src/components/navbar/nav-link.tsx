@@ -17,7 +17,7 @@ const NavLink: React.FC<
 
   return (
     <Link
-      className={`py-1 font-medium text-lg ${
+      className={`py-1 font-medium font-serif text-xl sm:text-lg ${
         isActive ? 'text-red-400' : 'text-gray-500'
       }`}
       href={href}

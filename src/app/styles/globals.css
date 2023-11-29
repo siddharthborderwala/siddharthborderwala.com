@@ -4,7 +4,6 @@
 
 *::selection {
   background-color: #ffbdbd !important;
-  /* color: white !important; */
 }
 
 html {
@@ -52,6 +51,17 @@ main {
   top: 0.5rem;
 }
 
+body {
+  @apply font-sans;
+}
+
+pre,
+code,
+samp,
+kbd {
+  @apply font-mono;
+}
+
 h1,
 h2,
 h3,
@@ -59,6 +69,7 @@ h4,
 h5,
 h6 {
   position: relative;
+  @apply font-serif;
 }
 
 @media screen and (min-width: 640px) {

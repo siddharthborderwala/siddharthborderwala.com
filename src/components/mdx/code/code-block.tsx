@@ -32,10 +32,13 @@ const CodeBlock: React.FC<
   return (
     <div className="mt-6">
       <LanguageLabel language={language} />
-      <div className="relative text-sm">
+      <div className="relative">
         <Highlight theme={rosePineDawn} code={code} language={language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={`${className} overflow-x-auto p-5`} style={style}>
+            <pre
+              className={`${className} overflow-x-auto p-5 font-mono`}
+              style={style}
+            >
               {tokens
                 .map((line, i) => (
                   <div key={i} {...getLineProps({ line, key: i })}>

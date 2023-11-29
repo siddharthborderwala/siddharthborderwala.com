@@ -9,6 +9,8 @@ import {
 import Image from 'next/image';
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-red-400">
       <div className="flex items-start justify-between flex-col-reverse sm:flex-row py-12 w-constraint">
@@ -23,11 +25,9 @@ const Footer = () => {
             />
             <p className="sr-only">Siddharth Borderwala</p>
           </Link>
-          <div className="mt-8 sm:mt-20 flex items-center">
+          <div className="mt-8 sm:mt-20 flex items-center font-serif">
             <Copyright />
-            <p className="ml-2">
-              {new Date().getFullYear()} Siddharth Borderwala
-            </p>
+            <p className="ml-2">{year} Siddharth Borderwala</p>
           </div>
         </div>
         <nav className="flex space-x-6">
