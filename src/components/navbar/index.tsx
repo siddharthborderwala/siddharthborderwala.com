@@ -55,12 +55,10 @@ const MobileNav = () => {
           />
           <p className="sr-only">Siddharth Borderwala</p>
         </Link>
-        {!isOpen ? (
-          <button title="Open Menu" onClick={() => setIsOpen(true)}>
-            <p className="sr-only">Open Menu</p>
-            <List size="30" weight="bold" />
-          </button>
-        ) : null}
+        <button title="Open Menu" onClick={() => setIsOpen(true)}>
+          <p className="sr-only">Open Menu</p>
+          <List size="30" weight="bold" />
+        </button>
       </div>
       <AnimatePresence mode="wait">
         {isOpen ? (
@@ -76,12 +74,10 @@ const MobileNav = () => {
                 />
                 <p className="sr-only">Siddharth Borderwala</p>
               </Link>
-              {isOpen ? (
-                <button title="Close Menu" onClick={() => setIsOpen(false)}>
-                  <p className="sr-only">Close Menu</p>
-                  <X size="30" weight="bold" />
-                </button>
-              ) : null}
+              <button title="Close Menu" onClick={() => setIsOpen(false)}>
+                <p className="sr-only">Close Menu</p>
+                <X size="30" weight="bold" />
+              </button>
             </div>
             <motion.nav
               initial={{ opacity: 0, y: 16 }}
@@ -132,14 +128,14 @@ const DesktopNav = () => {
 
 const Nav = () => {
   return (
-    <>
+    <nav>
       <div className="block sm:hidden relative">
         <MobileNav />
       </div>
       <div className="hidden sm:block">
         <DesktopNav />
       </div>
-    </>
+    </nav>
   );
 };
 

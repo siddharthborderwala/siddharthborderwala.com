@@ -10,6 +10,7 @@ import {
   XCircle,
 } from '@phosphor-icons/react/dist/ssr';
 import toast from 'react-hot-toast';
+import ButtonCTA from '../button-cta';
 
 const validateName = (name: string) => {
   if (name.trim().length === 0) {
@@ -127,7 +128,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="flex flex-col">
-        <label className="text-md sm:text-lg" htmlFor="name">
+        <label className="text-md sm:text-lg font-serif" htmlFor="name">
           Name
         </label>
         <input
@@ -135,7 +136,7 @@ const ContactForm = () => {
           type="text"
           name="name"
           placeholder="John Doe"
-          className="px-3 py-2 bg-gray-200 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75"
+          className="px-3 py-2 bg-white border border-gray-300 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75 rounded-xl"
           value={name.value}
           onChange={handleNameChange}
           disabled={submitting}
@@ -155,14 +156,14 @@ const ContactForm = () => {
         ) : null}
       </div>
       <div className="flex flex-col">
-        <label className="text-md sm:text-lg" htmlFor="email">
+        <label className="text-md sm:text-lg font-serif" htmlFor="email">
           Email
         </label>
         <input
           id="email"
           type="email"
           placeholder="johndoe@example.com"
-          className="px-3 py-2 bg-gray-200 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75"
+          className="px-3 py-2 bg-white border border-gray-300 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75 rounded-xl"
           value={email.value}
           onChange={handleEmailChange}
           disabled={submitting}
@@ -182,14 +183,14 @@ const ContactForm = () => {
         ) : null}
       </div>
       <div className="flex flex-col">
-        <label className="text-md sm:text-lg" htmlFor="message">
+        <label className="text-md sm:text-lg font-serif" htmlFor="message">
           Message
         </label>
         <textarea
           id="message"
           name="message"
           placeholder="What are your favorite TV Shows?"
-          className="px-3 py-2 bg-gray-200 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75 min-h-[2.7rem] h-48"
+          className="px-3 py-2 bg-white border border-gray-300 text-md sm:text-lg mt-2 text-gray-800 placeholder:text-gray-500/75 min-h-[2.7rem] h-48 rounded-xl"
           value={message.value}
           onChange={handleMessageChange}
           disabled={submitting}
@@ -208,20 +209,14 @@ const ContactForm = () => {
           </p>
         ) : null}
       </div>
-      <div className="py-4">
-        <button
-          type="submit"
-          className="bg-red-400 disabled:cursor-not-allowed disabled:bg-red-300 text-white text-lg py-2 px-4 flex items-center"
-          disabled={submitting}
-        >
-          Send Message
-          {submitting ? (
-            <CircleNotch weight="bold" className="ml-4 animate-spin" />
-          ) : (
-            <PaperPlaneTilt weight="bold" className="ml-4" />
-          )}
-        </button>
-      </div>
+      <ButtonCTA type="submit" disabled={submitting} className="mt-2">
+        <span>Send Message</span>
+        {submitting ? (
+          <CircleNotch weight="bold" className="ml-4 animate-spin" />
+        ) : (
+          <PaperPlaneTilt weight="bold" className="ml-4" />
+        )}
+      </ButtonCTA>
     </form>
   );
 };

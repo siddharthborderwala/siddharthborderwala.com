@@ -1,79 +1,10 @@
-'use client';
-
-import { CaretRight, ArrowRight } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AnimationProps, motion } from 'framer-motion';
 import ExternalLink from '~/components/external-link';
 import Text from '~/components/text';
+import FadeInSection from '~/components/fade-in-section';
+import LinkCTA from '~/components/link-cta';
 import Sid from '~/images/siddharth.webp';
-import { useEffect, useRef, useState } from 'react';
-
-const LinkCTA: React.FC<{
-  href: string;
-  label: string;
-}> = ({ href, label }) => {
-  return (
-    <Link
-      href={href}
-      className="group bg-red-400 font-serif text-white text-lg py-2 px-4 mt-8 inline-flex items-center rounded-xl transition-all shadow-xl shadow-red-100 hover:shadow-2xl hover:shadow-red-200 active:shadow-lg active:shadow-red-200"
-    >
-      <span className="mr-3">{label}</span>
-      <div className="relative w-4 h-4 mb-[2px]">
-        <CaretRight
-          className="absolute inset-0 opacity-100 scale-100 group-hover:scale-0 transition-all group-hover:opacity-0 group-hover:translate-x-4"
-          weight="bold"
-        />
-        <ArrowRight
-          className="absolute inset-0 opacity-0 scale-0 group-hover:scale-100 transition-all group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0"
-          weight="bold"
-        />
-      </div>
-    </Link>
-  );
-};
-
-const FadeInSection: React.FC<
-  React.PropsWithChildren<{
-    delay?: number;
-    ease?: AnimationProps['transition'];
-  }>
-> = ({ children, delay = 0, ease = 'easeInOut' }) => {
-  const [isVisible, setVisible] = useState(false);
-  const checkerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!checkerRef.current) {
-      return;
-    }
-
-    const element = checkerRef.current;
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) setVisible(true);
-      });
-    });
-
-    observer.observe(element);
-
-    return () => observer.unobserve(element);
-  }, []);
-
-  if (!isVisible) {
-    return <div ref={checkerRef}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
-      transition={{ ease, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 export default function Home() {
   return (

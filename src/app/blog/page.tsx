@@ -85,7 +85,7 @@ const BlogPage = async () => {
                   height={300}
                   className="rounded shadow-sm w-full"
                 />
-                <h2 className="font-bold text-xl sm:text-2xl mt-4 text-gray-700">
+                <h2 className="font-medium text-xl sm:text-2xl mt-4 text-gray-700">
                   {info.title}
                 </h2>
                 <div className="flex justify-between items-center">
