@@ -33,7 +33,13 @@ const FadeInSection: React.FC<
 
   if (!isVisible) {
     return (
-      <div ref={checkerRef} className={className}>
+      <div
+        ref={checkerRef}
+        className={className}
+        style={{
+          opacity: 0,
+        }}
+      >
         {children}
       </div>
     );
