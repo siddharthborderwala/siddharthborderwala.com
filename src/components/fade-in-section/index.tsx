@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimationProps, motion } from 'framer-motion';
+import { type AnimationProps, type MotionStyle, motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
 const FadeInSection: React.FC<
@@ -8,8 +8,9 @@ const FadeInSection: React.FC<
     delay?: number;
     ease?: AnimationProps['transition'];
     className?: string;
+    style?: MotionStyle;
   }>
-> = ({ children, className, delay = 0, ease = 'easeInOut' }) => {
+> = ({ children, className, delay = 0, ease = 'easeInOut', style = {} }) => {
   const [isVisible, setVisible] = useState(false);
   const checkerRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,7 +23,9 @@ const FadeInSection: React.FC<
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) setVisible(true);
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
       });
     });
 
@@ -47,10 +50,15 @@ const FadeInSection: React.FC<
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
-      transition={{ ease, delay }}
+      initial={{ opacity: 0, y: 16, rotateX: '-2deg' }}
+      animate={{ opacity: 1, y: 0, rotateX: '0deg' }}
+      transition={{ ease, delay, duration: 0.2 }}
       className={className}
+      style={{
+        ...style,
+        transformPerspective: '200px',
+        transformOrigin: 'center',
+      }}
     >
       {children}
     </motion.div>

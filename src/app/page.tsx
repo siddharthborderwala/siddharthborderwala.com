@@ -18,13 +18,18 @@ export default function Home() {
           </FadeInSection>
           <FadeInSection delay={0.1}>
             <Text>
-              I build beautiful, fast, accessible and amazing websites. I am a
-              computer science geek and I love programming.
+              I am a full stack developer. I build fast, beautiful and
+              accessible websites and apps.
             </Text>
           </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Contact Me" />
-          </FadeInSection>
+          <div className="flex items-center justify-start gap-4">
+            <FadeInSection delay={0.2}>
+              <LinkCTA href="/contact" label="Contact Me" />
+            </FadeInSection>
+            <FadeInSection delay={0.2}>
+              <LinkCTA isSecondary={true} href="/work" label="Know More" />
+            </FadeInSection>
+          </div>
         </div>
         <div className="md:ml-16 rounded-full flex-shrink-0">
           <FadeInSection>
@@ -39,38 +44,104 @@ export default function Home() {
       <main className="w-constraint mt-16 pb-20 sm:pb-32">
         <section id="about" className="pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">Get to Know Me</h3>
+            <h3 className="text-4xl font-medium">About Me</h3>
           </FadeInSection>
-          {/* TODO: change this to a better visual thingy */}
-          <FadeInSection delay={0.1}>
-            <Text>
-              I am a Full-Stack Developer and Computer Science undergraduate at{' '}
-              <ExternalLink href="https://snu.edu.in/home">
-                Shiv Nadar University
-              </ExternalLink>{' '}
-              in Delhi. I specialize in the Javascript/Typescript ecosystem and
-              have recently gotten into the web3 world via the NEAR protocol
-              ecosystem using the rust language.
-            </Text>
-            <Text>
-              I began writing about my work and some engineering challenges I
-              have solved on my{' '}
-              <Link href="/blog" className="underline text-red-400">
-                blog
-              </Link>{' '}
-              recently. Give some of them a read and share any feedback or
-              suggestions you have.
-            </Text>
-            <Text>
-              Besides coding and writing, I love Formula 1 and Football and
-              enjoy watching sitcoms and thrillers. Also, did I mention that I
-              am always down to play FIFA and first-person shooters with good
-              storylines?
-            </Text>
+          <FadeInSection>
+            <Text>Here&apos;s a few things about me</Text>
           </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Connect" />
-          </FadeInSection>
+          <div
+            className="grid gap-4 mt-12"
+            style={{
+              gridTemplateColumns: `repeat(8, 1fr)`,
+              gridTemplateRows: 'repeat(3, 10rem)',
+            }}
+          >
+            <FadeInSection
+              delay={0.3}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '1 / 6',
+                gridRow: '1 / 2',
+              }}
+            >
+              <p className="text-center text-lg font-serif">
+                Full Stack Developer
+              </p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.3}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '6 / 9',
+                gridRow: '1 / 2',
+              }}
+            >
+              <p className="text-center font-serif">Technical Writer</p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.4}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '1 / 4',
+                gridRow: '2 / 3',
+              }}
+            >
+              <p className="text-center font-serif">
+                Computer Science Graduate
+              </p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.4}
+              className="w-full h-full flex items-center justify-center bg-gray-50 rounded-xl shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '4 / 6',
+                gridRow: '2 / 3',
+                backgroundImage: `url(${Sid.src})`,
+                backgroundSize: '150%',
+                backgroundPosition: 'center 30%',
+              }}
+            ></FadeInSection>
+            <FadeInSection
+              delay={0.4}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '6 / 9',
+                gridRow: '2 / 3',
+              }}
+            >
+              <p className="text-center font-serif">Open Source Contributor</p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.6}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '1 / 4',
+                gridRow: '3 / 4',
+              }}
+            >
+              <p className="text-center font-serif">F1 Fan</p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.6}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '4 / 7',
+                gridRow: '3 / 4',
+              }}
+            >
+              <p className="text-center font-serif">Football Enthusiast</p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.6}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '7 / 9',
+                gridRow: '3 / 4',
+              }}
+            >
+              <p className="text-center font-serif">Designer</p>
+            </FadeInSection>
+          </div>
         </section>
         <section id="work" className="mt-32 pt-8">
           <FadeInSection>

@@ -27,6 +27,16 @@ const navLinks = [
   },
 ];
 
+const logo = (
+  <Image
+    src="/logo.svg"
+    height={48}
+    width={48}
+    alt="logo"
+    className="h-12 w-12 inline-block"
+  />
+);
+
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -46,13 +56,7 @@ const MobileNav = () => {
     <>
       <div className="w-constraint w-full flex items-center justify-between py-4">
         <Link className="inline-block border rounded-full" href="/">
-          <Image
-            src="/logo.svg"
-            height={48}
-            width={48}
-            alt="logo"
-            className="h-12 w-12 inline-block"
-          />
+          {logo}
           <p className="sr-only">Siddharth Borderwala</p>
         </Link>
         <button title="Open Menu" onClick={() => setIsOpen(true)}>
@@ -65,13 +69,7 @@ const MobileNav = () => {
           <div className="fixed inset-0 h-screen w-screen z-[200] flex flex-col bg-gray-100">
             <div className="w-constraint w-full flex items-center justify-between py-4">
               <Link className="inline-block border rounded-full" href="/">
-                <Image
-                  src="/logo.svg"
-                  height={48}
-                  width={48}
-                  alt="logo"
-                  className="h-12 w-12 inline-block"
-                />
+                {logo}
                 <p className="sr-only">Siddharth Borderwala</p>
               </Link>
               <button title="Close Menu" onClick={() => setIsOpen(false)}>
@@ -106,13 +104,7 @@ const DesktopNav = () => {
   return (
     <div className="flex items-center py-4 w-constraint justify-between">
       <Link className="border rounded-full" href="/">
-        <Image
-          src="/logo.svg"
-          height={48}
-          width={48}
-          alt="logo"
-          className="h-12 w-12 inline-block"
-        />
+        {logo}
         <p className="sr-only">Siddharth Borderwala</p>
       </Link>
       <ul className="list-none flex gap-6">
