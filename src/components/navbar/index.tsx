@@ -30,10 +30,13 @@ const navLinks = [
 const logo = (
   <Image
     src="/logo.svg"
-    height={48}
-    width={48}
-    alt="logo"
-    className="h-12 w-12 inline-block"
+    height={36}
+    width={36}
+    alt="Siddharth Borderwala"
+    className="inline-block bg-white rounded-full border-none"
+    style={{
+      scale: 1.05,
+    }}
   />
 );
 
@@ -102,12 +105,16 @@ const MobileNav = () => {
 
 const DesktopNav = () => {
   return (
-    <div className="flex items-center py-4 w-constraint justify-between">
-      <Link className="border rounded-full" href="/">
-        {logo}
-        <p className="sr-only">Siddharth Borderwala</p>
-      </Link>
-      <ul className="list-none flex gap-6">
+    <div className="mx-4 w-full lg:w-[80%] 2xl:w-[1024px] flex items-center p-2 justify-between bg-gray-900 rounded-full shadow-2xl shadow-gray-900/5">
+      <div className="flex items-center">
+        <Link className="border rounded-full" href="/">
+          {logo}
+        </Link>
+        <p className="text-gray-100 font-serif text-lg ml-4">
+          Siddharth Borderwala
+        </p>
+      </div>
+      <ul className="list-none flex gap-6 mr-4">
         {navLinks.map(({ href, label }, index) => (
           <li key={index}>
             <NavLink href={href}>{label}</NavLink>
@@ -120,11 +127,11 @@ const DesktopNav = () => {
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="py-4 fixed top-0 left-0 w-full z-[200]">
       <div className="block sm:hidden relative">
         <MobileNav />
       </div>
-      <div className="hidden sm:block">
+      <div className="hidden sm:flex sm:items-center sm:justify-center">
         <DesktopNav />
       </div>
     </nav>
