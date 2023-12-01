@@ -105,14 +105,11 @@ const MobileNav = () => {
 
 const DesktopNav = () => {
   return (
-    <div className="mx-4 w-full lg:w-[80%] 2xl:w-[1024px] flex items-center p-2 justify-between bg-gray-900 rounded-full shadow-2xl shadow-gray-900/5">
+    <motion.div className="mx-4 w-full lg:w-[80%] 2xl:w-[1024px] flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
       <div className="flex items-center">
-        <Link className="border rounded-full" href="/">
+        <Link className="border rounded-full" href="/" title="Home Page">
           {logo}
         </Link>
-        <p className="text-gray-100 font-serif text-lg ml-4">
-          Siddharth Borderwala
-        </p>
       </div>
       <ul className="list-none flex gap-6 mr-4">
         {navLinks.map(({ href, label }, index) => (
@@ -121,7 +118,7 @@ const DesktopNav = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

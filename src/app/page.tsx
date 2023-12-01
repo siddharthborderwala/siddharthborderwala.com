@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import ExternalLink from '~/components/external-link';
 import Text from '~/components/text';
 import FadeInSection from '~/components/fade-in-section';

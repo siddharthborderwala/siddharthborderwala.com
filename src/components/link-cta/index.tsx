@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const LinkCTA: React.FC<{
   href: string;
-  label: string;
+  label: React.ReactNode;
   isSecondary?: boolean;
 }> = ({ href, label, isSecondary }) => {
   return (

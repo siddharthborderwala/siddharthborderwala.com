@@ -11,6 +11,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 import toast from 'react-hot-toast';
 import ButtonCTA from '../button-cta';
+import FadeInSection from '../fade-in-section';
 
 const validateName = (name: string) => {
   if (name.trim().length === 0) {
@@ -127,7 +128,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="flex flex-col">
+      <FadeInSection className="flex flex-col" delay={0.3}>
         <label className="text-md sm:text-lg font-serif" htmlFor="name">
           Name
         </label>
@@ -154,8 +155,8 @@ const ContactForm = () => {
             {formErrors.fieldErrors.name}
           </p>
         ) : null}
-      </div>
-      <div className="flex flex-col">
+      </FadeInSection>
+      <FadeInSection className="flex flex-col" delay={0.4}>
         <label className="text-md sm:text-lg font-serif" htmlFor="email">
           Email
         </label>
@@ -181,8 +182,8 @@ const ContactForm = () => {
             {formErrors.fieldErrors.email}
           </p>
         ) : null}
-      </div>
-      <div className="flex flex-col">
+      </FadeInSection>
+      <FadeInSection className="flex flex-col" delay={0.5}>
         <label className="text-md sm:text-lg font-serif" htmlFor="message">
           Message
         </label>
@@ -208,15 +209,17 @@ const ContactForm = () => {
             {formErrors.fieldErrors.message}
           </p>
         ) : null}
-      </div>
-      <ButtonCTA type="submit" disabled={submitting} className="mt-2">
-        <span>Send Message</span>
-        {submitting ? (
-          <CircleNotch weight="bold" className="ml-4 animate-spin" />
-        ) : (
-          <PaperPlaneTilt weight="bold" className="ml-4" />
-        )}
-      </ButtonCTA>
+      </FadeInSection>
+      <FadeInSection delay={0.6}>
+        <ButtonCTA type="submit" disabled={submitting} className="mt-2">
+          <span>Send Message</span>
+          {submitting ? (
+            <CircleNotch weight="bold" className="ml-4 animate-spin" />
+          ) : (
+            <PaperPlaneTilt weight="bold" className="ml-4" />
+          )}
+        </ButtonCTA>
+      </FadeInSection>
     </form>
   );
 };
