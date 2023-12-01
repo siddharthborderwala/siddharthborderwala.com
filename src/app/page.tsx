@@ -179,7 +179,7 @@ export default function Home() {
             </Text>
           </FadeInSection>
           <FadeInSection delay={0.2}>
-            <LinkCTA href="/href" label="Know More" />
+            <LinkCTA href="/work" label="Know More" />
           </FadeInSection>
         </section>
         <section id="cta" className="mt-32 pt-8">
