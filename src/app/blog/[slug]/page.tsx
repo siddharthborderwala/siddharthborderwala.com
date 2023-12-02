@@ -102,7 +102,7 @@ const BlogPost = async ({
         createdAt={new Date(date).toISOString()}
         authorName={'Siddharth Borderwala'}
       />
-      <header className="pt-16 w-constraint">
+      <header className="pt-8 sm:pt-16 w-constraint">
         <div className="flex flex-col md:flex-row gap-4">
           <FadeInSection className="flex-[3] flex flex-col max-h-[70vh]">
             <Image

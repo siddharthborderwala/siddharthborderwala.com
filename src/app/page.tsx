@@ -30,7 +30,7 @@ export default function Home() {
             </FadeInSection>
           </div>
         </div>
-        <FadeInSection className="flex-[2] w-full flex items-center justify-center md:justify-end flex-shrink-0 py-12 sm:py-auto">
+        <FadeInSection className="flex-[2] w-full flex items-center justify-center md:justify-end flex-shrink-0 py-4 sm:py-12 sm:py-auto">
           <Image
             alt="Siddharth Borderwala"
             src={Siddharth}
@@ -45,7 +45,7 @@ export default function Home() {
           </FadeInSection>
           <div className="grid gap-4 mt-12 grid-cols-1 grid-rows-6 md:grid-rows-3 md:grid-cols-8 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl">
             <FadeInSection className="w-full col-span-1 md:col-span-5 row-span-1 h-full px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <h4 className="text-center text-3xl font-serif font-thin text-gray-700">
+              <h4 className="text-center text-lg sm:text-xl font-serif font-thin text-gray-700">
                 Full Stack Developer
               </h4>
             </FadeInSection>
@@ -53,12 +53,12 @@ export default function Home() {
               delay={0.1}
               className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
-              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
                 Technical Writer
               </p>
             </FadeInSection>
             <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
                 Computer Science Graduate
               </p>
             </FadeInSection>
@@ -66,12 +66,12 @@ export default function Home() {
               delay={0.1}
               className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
-              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
                 Open Source Contributor
               </p>
             </FadeInSection>
             <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
                 Designer
               </p>
             </FadeInSection>
@@ -79,7 +79,7 @@ export default function Home() {
               delay={0.1}
               className="w-full h-full col-span-1 md:col-span-5 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
-              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
                 F1 and FIFA Fan
               </p>
             </FadeInSection>

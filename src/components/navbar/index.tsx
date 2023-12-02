@@ -73,9 +73,7 @@ const MobileNav = () => {
           onClick={() => setIsOpen(true)}
           className="mr-2 text-gray-900"
         >
-          <motion.div>
-            <List size="28" />
-          </motion.div>
+          <List size="28" />
         </button>
       </motion.div>
       <AnimatePresence mode="wait">
@@ -122,6 +120,7 @@ const MobileNav = () => {
                   key={index}
                   initial={{ opacity: 0, x: 16 }}
                   animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 16 }}
                   transition={{
                     duration: 0.2,
                     ease: 'easeIn',
