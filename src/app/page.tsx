@@ -43,77 +43,41 @@ export default function Home() {
           <FadeInSection>
             <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
           </FadeInSection>
-          <div
-            className="grid gap-4 mt-12 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl"
-            style={{
-              gridTemplateColumns: `repeat(8, 1fr)`,
-              gridTemplateRows: 'repeat(3, 30rem)',
-            }}
-          >
-            <FadeInSection
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '1 / 6',
-                gridRow: '1 / 2',
-              }}
-            >
+          <div className="grid gap-4 mt-12 grid-cols-1 grid-rows-6 md:grid-rows-3 md:grid-cols-8 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl">
+            <FadeInSection className="w-full col-span-1 md:col-span-5 row-span-1 h-full px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
               <h4 className="text-center text-3xl font-serif font-thin text-gray-700">
                 Full Stack Developer
               </h4>
             </FadeInSection>
             <FadeInSection
               delay={0.1}
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '6 / 9',
-                gridRow: '1 / 2',
-              }}
+              className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
               <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Technical Writer
               </p>
             </FadeInSection>
-            <FadeInSection
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '1 / 5',
-                gridRow: '2 / 3',
-              }}
-            >
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
               <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Computer Science Graduate
               </p>
             </FadeInSection>
             <FadeInSection
               delay={0.1}
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '5 / 9',
-                gridRow: '2 / 3',
-              }}
+              className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
               <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Open Source Contributor
               </p>
             </FadeInSection>
-            <FadeInSection
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '1 / 4',
-                gridRow: '3 / 4',
-              }}
-            >
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
               <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Designer
               </p>
             </FadeInSection>
             <FadeInSection
               delay={0.1}
-              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
-              style={{
-                gridColumn: '4 / 9',
-                gridRow: '3 / 4',
-              }}
+              className="w-full h-full col-span-1 md:col-span-5 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
             >
               <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 F1 and FIFA Fan

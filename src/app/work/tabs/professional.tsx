@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowSquareOut } from '@phosphor-icons/react/dist/ssr';
+import { ArrowSquareOut, TextIndent } from '@phosphor-icons/react/dist/ssr';
 import { TimelineView, TimelineSection } from './timeline';
 import FadeInSection from '~/components/fade-in-section';
 
@@ -59,11 +59,16 @@ const data: {
 
 const Professional: React.FC = () => {
   return (
-    <div className="py-8">
+    <div>
+      <FadeInSection>
+        <h2 className="text-2xl text-red-400 font-medium flex gap-2 items-center">
+          <TextIndent weight="bold" /> Professional Experience
+        </h2>
+      </FadeInSection>
       {data.map((item, index) => (
-        <TimelineView key={index} className="py-6">
+        <TimelineView key={index} className="mt-6">
           <FadeInSection
-            className="flex flex-col sm:flex-row snap-start sm:px-4"
+            className="flex flex-col sm:flex-row snap-start"
             delay={(index + 1) * 0.1}
           >
             <TimelineSection
@@ -75,7 +80,7 @@ const Professional: React.FC = () => {
                     {item.from} - {item.to}
                   </p>
                   <div className="flex gap-2 items-center">
-                    <p className="text-gray-700 text-lg">{item.company.name}</p>
+                    <p className="text-gray-600 text-lg">{item.company.name}</p>
                     {item.company.url ? (
                       <a
                         title="Company website"
@@ -94,7 +99,9 @@ const Professional: React.FC = () => {
               <ul className="list-disc space-y-2 ml-4 sm:ml-0 sm:text-lg">
                 {item.description.map((desc, index) => (
                   <li key={index}>
-                    <p className="leading-7 font-light text-gray-700">{desc}</p>
+                    <p className="leading-normal font-light text-gray-700">
+                      {desc}
+                    </p>
                   </li>
                 ))}
               </ul>
