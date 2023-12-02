@@ -50,8 +50,8 @@ const FadeInSection: React.FC<
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16, rotateX: '-2deg' }}
-      animate={{ opacity: 1, y: 0, rotateX: '0deg' }}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ ease, delay, duration: 0.2 }}
       className={className}
       style={{

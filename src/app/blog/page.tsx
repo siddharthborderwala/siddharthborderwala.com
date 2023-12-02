@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import path from 'path';
 import Badge from '~/components/badge';
+import FadeInSection from '~/components/fade-in-section';
 
 const contentDir = path.join(process.cwd(), './content');
 
@@ -75,9 +76,9 @@ const BlogPage = async () => {
           info={featuredArticle.info}
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 flex-wrap mt-8 gap-2 md:gap-6">
-          {posts.slice(1).map(({ info, slug }) => (
+          {posts.slice(1).map(({ info, slug }, index) => (
             <Link key={slug} href={`/blog/${slug}`} className="w-full">
-              <article>
+              <FadeInSection delay={(index + 1) * 0.1}>
                 <Image
                   src={info.heroImage}
                   alt={info.heroImageAlt}
@@ -92,7 +93,7 @@ const BlogPage = async () => {
                   <p className="py-2 text-lg text-gray-500">{info.date}</p>
                   <Badge label={info.category} />
                 </div>
-              </article>
+              </FadeInSection>
             </Link>
           ))}
         </div>

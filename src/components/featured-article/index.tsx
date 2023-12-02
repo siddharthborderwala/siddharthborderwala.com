@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Badge from '../badge';
+import FadeInSection from '../fade-in-section';
 
 const FeaturedArticle: React.FC<{
   slug: string;
@@ -16,7 +17,7 @@ const FeaturedArticle: React.FC<{
 }> = ({ slug, info }) => {
   return (
     <Link href={`/blog/${slug}`}>
-      <article className="mt-8 md:mt-12">
+      <FadeInSection className="mt-8 md:mt-12">
         <div className="flex flex-col md:flex-row">
           <Image
             className="relative rounded shadow-md md:min-h-[40vh] flex-1"
@@ -43,7 +44,7 @@ const FeaturedArticle: React.FC<{
         <p className="text-gray-700 text-lg md:text-xl mt-4 md:mt-6">
           {info.description}
         </p>
-      </article>
+      </FadeInSection>
     </Link>
   );
 };

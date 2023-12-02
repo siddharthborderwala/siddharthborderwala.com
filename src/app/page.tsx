@@ -3,7 +3,7 @@ import ExternalLink from '~/components/external-link';
 import Text from '~/components/text';
 import FadeInSection from '~/components/fade-in-section';
 import LinkCTA from '~/components/link-cta';
-import Sid from '~/images/siddharth.webp';
+import Siddharth from '~/images/siddharth-centered.jpg';
 
 export default function Home() {
   return (
@@ -30,15 +30,13 @@ export default function Home() {
             </FadeInSection>
           </div>
         </div>
-        <div className="md:ml-16 rounded-full flex-shrink-0">
-          <FadeInSection>
-            <Image
-              alt="Siddharth Borderwala"
-              src={Sid}
-              className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto overflow-clip"
-            />
-          </FadeInSection>
-        </div>
+        <FadeInSection className="md:ml-16 rounded-full flex-shrink-0">
+          <Image
+            alt="Siddharth Borderwala"
+            src={Siddharth}
+            className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
+          />
+        </FadeInSection>
       </header>
       <main className="w-constraint mt-16 pb-20 sm:pb-32">
         <section id="about" className="pt-8">
@@ -57,7 +55,7 @@ export default function Home() {
           >
             <FadeInSection
               delay={0.3}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '1 / 6',
                 gridRow: '1 / 2',
@@ -69,7 +67,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.3}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '6 / 9',
                 gridRow: '1 / 2',
@@ -79,7 +77,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.4}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '1 / 4',
                 gridRow: '2 / 3',
@@ -91,18 +89,18 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.4}
-              className="w-full h-full flex items-center justify-center bg-gray-50 rounded-xl shadow-2xl shadow-gray-200/50"
+              className="w-full h-full flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '4 / 6',
                 gridRow: '2 / 3',
-                backgroundImage: `url(${Sid.src})`,
+                // backgroundImage: `url(${Sid.src})`,
                 backgroundSize: '150%',
                 backgroundPosition: 'center 30%',
               }}
             ></FadeInSection>
             <FadeInSection
               delay={0.4}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '6 / 9',
                 gridRow: '2 / 3',
@@ -112,7 +110,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.6}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '1 / 4',
                 gridRow: '3 / 4',
@@ -122,7 +120,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.6}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '4 / 7',
                 gridRow: '3 / 4',
@@ -132,7 +130,7 @@ export default function Home() {
             </FadeInSection>
             <FadeInSection
               delay={0.6}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-50 rounded-xl border-2 border-gray-200 shadow-2xl shadow-gray-200/50"
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '7 / 9',
                 gridRow: '3 / 4',
