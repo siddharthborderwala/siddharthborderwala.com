@@ -1,15 +1,17 @@
+import { TextIndent } from '@phosphor-icons/react/dist/ssr';
 import React from 'react';
-import { TabItem } from '../tab';
 
-const OpenSource: React.FC<{
-  tabId: string;
-}> = ({ tabId }) => {
+const OpenSource: React.FC = () => {
   return (
-    <TabItem tabId={tabId} className="space-y-8 text-gray-700 py-8">
-      <p className="py-6">
-        I have been contributing to open-source projects since 2019.
+    <div>
+      <h2 className="text-2xl text-red-400 font-medium flex gap-2 items-center">
+        <TextIndent weight="bold" /> Open Source Contributions
+      </h2>
+      <p className="mt-6 text-xl font-light text-gray-700">
+        I have been contributing to open-source projects since 2019. More about
+        this coming soon.
       </p>
-    </TabItem>
+    </div>
   );
 };
 

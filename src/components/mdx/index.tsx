@@ -31,7 +31,7 @@ const RenderMDX: React.FC<{
   source: string;
 }> = ({ source }) => {
   return (
-    <div className="text-lg leading-8 font-para">
+    <div className="leading-tight font-light text-base">
       <MDXRemote
         components={components}
         source={source}

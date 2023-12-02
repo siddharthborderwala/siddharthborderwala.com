@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowSquareOut } from '@phosphor-icons/react/dist/ssr';
+import { ArrowSquareOut, TextIndent } from '@phosphor-icons/react/dist/ssr';
 import { TimelineView, TimelineSection } from './timeline';
-import { TabItem } from '../tab';
+import FadeInSection from '~/components/fade-in-section';
 
 const data: {
   title: string;
@@ -25,7 +25,7 @@ const data: {
       'Collaborated in a fast-paced environment to build and enhance essential features of Leap Cosmos Wallet driving user adoption and boosting WAUs up by four times.',
       'Built and maintained multiple open-source libraries and SDKs for the Cosmos ecosystem, to facilitate the development of new features and improve the developer experience.',
       'Took initiative by creating and maintaining documentation for four projects, implementing CI/CD automation, optimizing build tooling resulting in up to 10x faster build times, and refactoring the codebase to remove technical debt.',
-      'Configured sentry for error logging on four projects, slashing the app crash rates to 25% and improving user experience.',
+      'Configured sentry for error logging on four projects, slashing the app crash rates by 75%, and implemented a robust error handling system to improve the user experience.',
       'Contributed to the planning and estimating of new features, conducted thorough code reviews, engaged in pair programming for effective debugging, and delivered presentations to share knowledge with peers.',
     ],
   },
@@ -57,49 +57,59 @@ const data: {
   },
 ];
 
-const Professional: React.FC<{
-  tabId: string;
-}> = ({ tabId }) => {
+const Professional: React.FC = () => {
   return (
-    <TabItem tabId={tabId} className="py-8">
+    <div>
+      <FadeInSection>
+        <h2 className="text-2xl text-red-400 font-medium flex gap-2 items-center">
+          <TextIndent weight="bold" /> Professional Experience
+        </h2>
+      </FadeInSection>
       {data.map((item, index) => (
-        <TimelineView key={index} className="py-6">
-          <TimelineSection
-            className="flex flex-col sm:flex-row snap-start sm:px-4"
-            title={item.title}
-            subtitle={
-              <div className="mt-3">
-                <p className="text-gray-500 text-xs uppercase">
-                  {item.from} - {item.to}
-                </p>
-                <div className="flex gap-2 items-center">
-                  <p className="text-gray-700 text-lg">{item.company.name}</p>
-                  {item.company.url ? (
-                    <a
-                      title="Company website"
-                      href={item.company.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-red-400 hover:underline"
-                    >
-                      <ArrowSquareOut weight="bold" size={16} />
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            }
+        <TimelineView key={index} className="mt-6">
+          <FadeInSection
+            className="flex flex-col sm:flex-row snap-start"
+            delay={(index + 1) * 0.1}
           >
-            <ul className="list-disc space-y-2 ml-4 sm:ml-0 sm:text-lg">
-              {item.description.map((desc, index) => (
-                <li key={index}>
-                  <p className="leading-7 font-light text-gray-700">{desc}</p>
-                </li>
-              ))}
-            </ul>
-          </TimelineSection>
+            <TimelineSection
+              title={item.title}
+              className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-8"
+              subtitle={
+                <div className="mt-3">
+                  <p className="text-gray-500 text-xs uppercase">
+                    {item.from} - {item.to}
+                  </p>
+                  <div className="flex gap-2 items-center">
+                    <p className="text-gray-600 text-lg">{item.company.name}</p>
+                    {item.company.url ? (
+                      <a
+                        title="Company website"
+                        href={item.company.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-red-400 hover:underline"
+                      >
+                        <ArrowSquareOut weight="bold" size={16} />
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              }
+            >
+              <ul className="list-disc space-y-2 ml-4 sm:ml-0 sm:text-lg">
+                {item.description.map((desc, index) => (
+                  <li key={index}>
+                    <p className="leading-normal font-light text-gray-700">
+                      {desc}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </TimelineSection>
+          </FadeInSection>
         </TimelineView>
       ))}
-    </TabItem>
+    </div>
   );
 };
 

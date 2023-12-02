@@ -1,82 +1,95 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import ExternalLink from '~/components/external-link';
 import Text from '~/components/text';
 import FadeInSection from '~/components/fade-in-section';
 import LinkCTA from '~/components/link-cta';
-import Sid from '~/images/siddharth.webp';
+import Siddharth from '~/images/siddharth-centered.jpg';
 
 export default function Home() {
   return (
     <>
-      <header className="w-constraint flex justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
-        <div>
+      <header className="w-constraint flex gap-8 sm:gap-16 justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
+        <div className="flex-[3]">
           <FadeInSection>
-            <h1 className="font-serif text-3xl sm:text-5xl font-medium text-gray-900">
-              Hi, I am Siddharth
+            <h1 className="font-serif text-3xl sm:text-5xl font-medium text-gray-900 !leading-tight">
+              Hello 👋🏻 <br /> I am Siddharth
             </h1>
           </FadeInSection>
           <FadeInSection delay={0.1}>
             <Text>
-              I build beautiful, fast, accessible and amazing websites. I am a
-              computer science geek and I love programming.
+              I am a full stack developer. I build fast, beautiful and
+              accessible websites and apps.
             </Text>
           </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Contact Me" />
-          </FadeInSection>
+          <div className="flex items-center justify-start gap-2 sm:gap-4">
+            <FadeInSection delay={0.2}>
+              <LinkCTA href="/contact" label="Contact Me" />
+            </FadeInSection>
+            <FadeInSection delay={0.2}>
+              <LinkCTA isSecondary={true} href="/work" label="My Work" />
+            </FadeInSection>
+          </div>
         </div>
-        <div className="md:ml-16 rounded-full flex-shrink-0">
-          <FadeInSection>
-            <Image
-              alt="Siddharth Borderwala"
-              src={Sid}
-              className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto overflow-clip"
-            />
-          </FadeInSection>
-        </div>
+        <FadeInSection className="flex-[2] w-full flex items-center justify-center md:justify-end flex-shrink-0 py-12 sm:py-auto">
+          <Image
+            alt="Siddharth Borderwala"
+            src={Siddharth}
+            className="border-none rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
+          />
+        </FadeInSection>
       </header>
       <main className="w-constraint mt-16 pb-20 sm:pb-32">
         <section id="about" className="pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">Get to Know Me</h3>
+            <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
           </FadeInSection>
-          {/* TODO: change this to a better visual thingy */}
-          <FadeInSection delay={0.1}>
-            <Text>
-              I am a Full-Stack Developer and Computer Science undergraduate at{' '}
-              <ExternalLink href="https://snu.edu.in/home">
-                Shiv Nadar University
-              </ExternalLink>{' '}
-              in Delhi. I specialize in the Javascript/Typescript ecosystem and
-              have recently gotten into the web3 world via the NEAR protocol
-              ecosystem using the rust language.
-            </Text>
-            <Text>
-              I began writing about my work and some engineering challenges I
-              have solved on my{' '}
-              <Link href="/blog" className="underline text-red-400">
-                blog
-              </Link>{' '}
-              recently. Give some of them a read and share any feedback or
-              suggestions you have.
-            </Text>
-            <Text>
-              Besides coding and writing, I love Formula 1 and Football and
-              enjoy watching sitcoms and thrillers. Also, did I mention that I
-              am always down to play FIFA and first-person shooters with good
-              storylines?
-            </Text>
-          </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Connect" />
-          </FadeInSection>
+          <div className="grid gap-4 mt-12 grid-cols-1 grid-rows-6 md:grid-rows-3 md:grid-cols-8 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl">
+            <FadeInSection className="w-full col-span-1 md:col-span-5 row-span-1 h-full px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <h4 className="text-center text-3xl font-serif font-thin text-gray-700">
+                Full Stack Developer
+              </h4>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.1}
+              className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
+            >
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                Technical Writer
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                Computer Science Graduate
+              </p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.1}
+              className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
+            >
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                Open Source Contributor
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                Designer
+              </p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.1}
+              className="w-full h-full col-span-1 md:col-span-5 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
+            >
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                F1 and FIFA Fan
+              </p>
+            </FadeInSection>
+          </div>
         </section>
         <section id="work" className="mt-32 pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">My Work</h3>
+            <h3 className="text-3xl sm:text-4xl font-medium mb-12">My Work</h3>
           </FadeInSection>
-          <FadeInSection delay={0.1}>
+          <FadeInSection>
             <Text>
               I am a Full-Stack JavaScript/TypeScript developer specializing in
               Reactjs, Nodejs, and the JAMStack ecosystem. I have worked on
@@ -109,26 +122,6 @@ export default function Home() {
           </FadeInSection>
           <FadeInSection delay={0.2}>
             <LinkCTA href="/work" label="Know More" />
-          </FadeInSection>
-        </section>
-        <section id="cta" className="mt-32 pt-8">
-          <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">
-              Want to Work With Me?
-            </h3>
-          </FadeInSection>
-          <FadeInSection delay={0.1}>
-            <Text>
-              Currently, I am looking for a part-time development job and am
-              flexible in terms of roles and responsibilities. I am also open to
-              working on open source projects and SaaS startups, where I can
-              make valuable contributions to the product and the team. I promise
-              you will have fun working with me once I get comfortable with you
-              as I start cracking quite a few jokes.
-            </Text>
-          </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Contact Now" />
           </FadeInSection>
         </section>
       </main>

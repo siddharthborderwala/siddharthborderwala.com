@@ -86,7 +86,7 @@ export const TabItem: React.FC<
 
   return (
     <div
-      className={`animate-fadeIn ${className ?? ''}`}
+      className={className}
       style={{
         display: isActive ? 'block' : 'none',
       }}

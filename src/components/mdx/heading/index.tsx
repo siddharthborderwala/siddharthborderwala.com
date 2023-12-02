@@ -25,7 +25,7 @@ export const H1: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h1
       id={slugify(children)}
-      className="group text-3xl md:text-4xl text-gray-700 font-bold mt-12"
+      className="group text-3xl md:text-4xl text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />
@@ -41,7 +41,7 @@ export const H2: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h2
       id={slugify(children)}
-      className="group text-2xl md:text-3xl text-gray-700 font-bold mt-12"
+      className="group text-2xl md:text-3xl text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />
@@ -57,7 +57,7 @@ export const H3: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h3
       id={slugify(children)}
-      className="group md:text-lg text-gray-700 font-bold mt-12"
+      className="group text-lg md:text-xl text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />
@@ -73,7 +73,7 @@ export const H4: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h4
       id={slugify(children)}
-      className="group text-md md:text-md text-gray-700 font-bold mt-12"
+      className="group text-md md:text-lg text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />
@@ -89,7 +89,7 @@ export const H5: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h5
       id={slugify(children)}
-      className="group text-sm md:text-md text-gray-700 font-bold mt-12"
+      className="group text-sm md:text-md text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />
@@ -105,7 +105,7 @@ export const H6: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <h6
       id={slugify(children)}
-      className="group text-xs text-gray-700 font-bold mt-12"
+      className="group text-xs text-gray-900 font-medium mt-12"
     >
       {children}
       <HeaderLink label={children} />

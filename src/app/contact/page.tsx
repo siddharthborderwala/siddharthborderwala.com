@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 
 import ExternalLink from '~/components/external-link';
@@ -37,7 +36,7 @@ const ContactPage = () => {
                   delay={0.4}
                   className="font-bold flex items-center space-x-4"
                 >
-                  <span className="bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
+                  <span className="flex-shrink-0 bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
                     <Envelope size="100%" />
                   </span>
                   <div>
@@ -46,7 +45,7 @@ const ContactPage = () => {
                     </p>
                     <ExternalLink
                       href="mailto:siddharthborderwala@gmail.com"
-                      className="text-sm sm:text-base"
+                      className="text-sm sm:text-base break-words"
                     >
                       siddharthborderwala@gmail.com
                     </ExternalLink>
@@ -58,7 +57,7 @@ const ContactPage = () => {
                   delay={0.5}
                   className="font-bold flex items-center space-x-4"
                 >
-                  <span className="bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
+                  <span className="flex-shrink-0 bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
                     <TwitterLogo size="100%" />
                   </span>
                   <div>
@@ -67,7 +66,7 @@ const ContactPage = () => {
                     </p>
                     <ExternalLink
                       href="https://twitter.com/sidborderwala"
-                      className="text-sm sm:text-base"
+                      className="text-sm sm:text-base break-words"
                     >
                       @sidborderwala
                     </ExternalLink>
@@ -79,7 +78,7 @@ const ContactPage = () => {
                   delay={0.6}
                   className="font-bold flex items-center space-x-4"
                 >
-                  <span className="bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
+                  <span className="flex-shrink-0 bg-gray-100 p-2 w-10 sm:p-4 sm:w-16 rounded-full inline-flex items-center justify-center">
                     <TelegramLogo size="100%" />
                   </span>
                   <div>
@@ -88,7 +87,7 @@ const ContactPage = () => {
                     </p>
                     <ExternalLink
                       href="https://t.me/siddharthborderwala"
-                      className="text-sm sm:text-base"
+                      className="text-sm sm:text-base break-words"
                     >
                       @siddharthborderwala
                     </ExternalLink>
@@ -97,9 +96,9 @@ const ContactPage = () => {
               </li>
             </ul>
           </div>
-          <FadeInSection delay={0.2} className="flex-1">
+          <div className="flex-1">
             <ContactForm />
-          </FadeInSection>
+          </div>
         </div>
       </main>
     </div>
