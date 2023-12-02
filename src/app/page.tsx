@@ -8,8 +8,8 @@ import Siddharth from '~/images/siddharth-centered.jpg';
 export default function Home() {
   return (
     <>
-      <header className="w-constraint flex justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
-        <div>
+      <header className="w-constraint flex gap-8 sm:gap-16 justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
+        <div className="flex-[3]">
           <FadeInSection>
             <h1 className="font-serif text-3xl sm:text-5xl font-medium text-gray-900">
               Hi, I am Siddharth
@@ -21,7 +21,7 @@ export default function Home() {
               accessible websites and apps.
             </Text>
           </FadeInSection>
-          <div className="flex items-center justify-start gap-4">
+          <div className="flex items-center justify-start gap-2 sm:gap-4">
             <FadeInSection delay={0.2}>
               <LinkCTA href="/contact" label="Contact Me" />
             </FadeInSection>
@@ -30,38 +30,35 @@ export default function Home() {
             </FadeInSection>
           </div>
         </div>
-        <FadeInSection className="md:ml-16 rounded-full flex-shrink-0">
+        <FadeInSection className="flex-[2] w-full flex items-center justify-center flex-shrink-0 py-12 sm:py-auto">
           <Image
             alt="Siddharth Borderwala"
             src={Siddharth}
-            className="border-none rounded-full w-56 md:w-96 mb-16 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
+            className="border-none rounded-full w-56 md:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>
       </header>
       <main className="w-constraint mt-16 pb-20 sm:pb-32">
         <section id="about" className="pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium">About Me</h3>
-          </FadeInSection>
-          <FadeInSection>
-            <Text>Here&apos;s a few things about me</Text>
+            <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
           </FadeInSection>
           <div
             className="grid gap-4 mt-12"
             style={{
               gridTemplateColumns: `repeat(8, 1fr)`,
-              gridTemplateRows: 'repeat(3, 10rem)',
+              gridTemplateRows: 'repeat(3, 30rem)',
             }}
           >
             <FadeInSection
-              delay={0.3}
+              delay={0.2}
               className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '1 / 6',
                 gridRow: '1 / 2',
               }}
             >
-              <p className="text-center text-lg font-serif">
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
                 Full Stack Developer
               </p>
             </FadeInSection>
@@ -73,76 +70,63 @@ export default function Home() {
                 gridRow: '1 / 2',
               }}
             >
-              <p className="text-center font-serif">Technical Writer</p>
-            </FadeInSection>
-            <FadeInSection
-              delay={0.4}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
-              style={{
-                gridColumn: '1 / 4',
-                gridRow: '2 / 3',
-              }}
-            >
-              <p className="text-center font-serif">
-                Computer Science Graduate
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+                Technical Writer
               </p>
             </FadeInSection>
             <FadeInSection
               delay={0.4}
-              className="w-full h-full flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
-              style={{
-                gridColumn: '4 / 6',
-                gridRow: '2 / 3',
-                // backgroundImage: `url(${Sid.src})`,
-                backgroundSize: '150%',
-                backgroundPosition: 'center 30%',
-              }}
-            ></FadeInSection>
-            <FadeInSection
-              delay={0.4}
               className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
-                gridColumn: '6 / 9',
+                gridColumn: '1 / 5',
                 gridRow: '2 / 3',
               }}
             >
-              <p className="text-center font-serif">Open Source Contributor</p>
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+                Computer Science Graduate
+              </p>
             </FadeInSection>
             <FadeInSection
-              delay={0.6}
+              delay={0.1}
+              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              style={{
+                gridColumn: '5 / 9',
+                gridRow: '2 / 3',
+              }}
+            >
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+                Open Source Contributor
+              </p>
+            </FadeInSection>
+            <FadeInSection
+              delay={0.2}
               className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
                 gridColumn: '1 / 4',
                 gridRow: '3 / 4',
               }}
             >
-              <p className="text-center font-serif">F1 Fan</p>
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+                Designer
+              </p>
             </FadeInSection>
             <FadeInSection
-              delay={0.6}
+              delay={0.3}
               className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
               style={{
-                gridColumn: '4 / 7',
+                gridColumn: '4 / 9',
                 gridRow: '3 / 4',
               }}
             >
-              <p className="text-center font-serif">Football Enthusiast</p>
-            </FadeInSection>
-            <FadeInSection
-              delay={0.6}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
-              style={{
-                gridColumn: '7 / 9',
-                gridRow: '3 / 4',
-              }}
-            >
-              <p className="text-center font-serif">Designer</p>
+              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+                F1 Fan and FIFA Enthusiast
+              </p>
             </FadeInSection>
           </div>
         </section>
         <section id="work" className="mt-32 pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">My Work</h3>
+            <h3 className="text-3xl sm:text-4xl font-medium mb-12">My Work</h3>
           </FadeInSection>
           <FadeInSection delay={0.1}>
             <Text>
@@ -181,7 +165,7 @@ export default function Home() {
         </section>
         <section id="cta" className="mt-32 pt-8">
           <FadeInSection>
-            <h3 className="text-4xl font-medium mb-12">
+            <h3 className="text-3xl sm:text-4xl font-medium mb-12">
               Want to Work With Me?
             </h3>
           </FadeInSection>

@@ -7,6 +7,7 @@ import { List, X } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import NavLink from './nav-link';
+import { Copyright } from '@phosphor-icons/react/dist/ssr';
 
 const navLinks = [
   {
@@ -43,6 +44,8 @@ const logo = (
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const year = new Date().getFullYear();
+
   const handleLinkClick = useCallback(() => {
     setIsOpen(false);
   }, []);
@@ -57,7 +60,10 @@ const MobileNav = () => {
 
   return (
     <>
-      <motion.div className="mx-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
+      <motion.div
+        layoutId="floating-navbar"
+        className="mx-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5"
+      >
         <Link className="inline-block border rounded-full" href="/">
           {logo}
           <p className="sr-only">Siddharth Borderwala</p>
@@ -67,13 +73,27 @@ const MobileNav = () => {
           onClick={() => setIsOpen(true)}
           className="mr-2 text-gray-900"
         >
-          <List size="30" weight="bold" />
+          <motion.div>
+            <List size="28" />
+          </motion.div>
         </button>
       </motion.div>
       <AnimatePresence mode="wait">
         {isOpen ? (
-          <div className="fixed inset-0 h-screen w-screen z-[200] flex flex-col bg-gray-100">
-            <div className="mx-4 mt-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
+          <motion.div
+            className="fixed inset-0 h-screen w-screen z-[200] flex flex-col bg-gray-100"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{
+              duration: 0.2,
+              ease: 'easeInOut',
+            }}
+          >
+            <motion.div
+              layoutId="floating-navbar"
+              className="mx-4 mt-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5"
+            >
               <Link className="inline-block border rounded-full" href="/">
                 {logo}
                 <p className="sr-only">Siddharth Borderwala</p>
@@ -83,26 +103,42 @@ const MobileNav = () => {
                 onClick={() => setIsOpen(false)}
                 className="mr-2 text-gray-900"
               >
-                <X size="30" weight="bold" />
+                <motion.div
+                  initial={{ opacity: 0, rotate: -45, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -45, scale: 0.5 }}
+                  transition={{
+                    duration: 0.2,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <X size="28" />
+                </motion.div>
               </button>
-            </div>
-            <motion.nav
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 16 }}
-              transition={{
-                duration: 0.2,
-                ease: 'easeInOut',
-              }}
-              className="flex flex-col gap-6 items-center justify-center flex-grow mb-24"
-            >
+            </motion.div>
+            <motion.nav className="flex flex-col gap-6 items-center justify-center flex-grow mb-24">
               {navLinks.map(({ href, label }, index) => (
-                <NavLink key={index} href={href} onClick={handleLinkClick}>
-                  {label}
-                </NavLink>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.2,
+                    ease: 'easeIn',
+                    delay: 0.2 + index * 0.15,
+                  }}
+                >
+                  <NavLink href={href} onClick={handleLinkClick}>
+                    {label}
+                  </NavLink>
+                </motion.div>
               ))}
             </motion.nav>
-          </div>
+            <div className="flex items-center font-serif py-6 justify-center text-gray-700">
+              <Copyright weight="bold" />
+              <p className="ml-2">{year} Siddharth Borderwala</p>
+            </div>
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </>
