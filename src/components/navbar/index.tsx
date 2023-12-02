@@ -57,26 +57,32 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className="w-constraint w-full flex items-center justify-between py-4">
+      <motion.div className="mx-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
         <Link className="inline-block border rounded-full" href="/">
           {logo}
           <p className="sr-only">Siddharth Borderwala</p>
         </Link>
-        <button title="Open Menu" onClick={() => setIsOpen(true)}>
-          <p className="sr-only">Open Menu</p>
+        <button
+          title="Open Menu"
+          onClick={() => setIsOpen(true)}
+          className="mr-2 text-gray-900"
+        >
           <List size="30" weight="bold" />
         </button>
-      </div>
+      </motion.div>
       <AnimatePresence mode="wait">
         {isOpen ? (
           <div className="fixed inset-0 h-screen w-screen z-[200] flex flex-col bg-gray-100">
-            <div className="w-constraint w-full flex items-center justify-between py-4">
+            <div className="mx-4 mt-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
               <Link className="inline-block border rounded-full" href="/">
                 {logo}
                 <p className="sr-only">Siddharth Borderwala</p>
               </Link>
-              <button title="Close Menu" onClick={() => setIsOpen(false)}>
-                <p className="sr-only">Close Menu</p>
+              <button
+                title="Close Menu"
+                onClick={() => setIsOpen(false)}
+                className="mr-2 text-gray-900"
+              >
                 <X size="30" weight="bold" />
               </button>
             </div>
