@@ -141,8 +141,9 @@ const BlogPost = async ({
           </p>
         </FadeInSection>
       </header>
-      <main className="w-constraint text-gray-700 mt-8">
+      <main className="w-constraint text-gray-700">
         <FadeInSection>
+          <hr className="my-12" />
           <article>
             <RenderMDX source={source} />
           </article>
