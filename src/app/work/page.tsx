@@ -5,8 +5,6 @@ import Link from 'next/link';
 import OpenSourceTab from './tabs/open-source';
 import ProfessionalTab from './tabs/professional';
 
-import DeveloperSetup from '~/images/developer-setup.webp';
-import { TabButton, TabProvider } from './tab';
 import FadeInSection from '~/components/fade-in-section';
 
 const Work = () => {
@@ -24,18 +22,8 @@ const Work = () => {
           </FadeInSection>
         </header>
         <main>
-          <TabProvider defaultTabId="professional">
-            <FadeInSection delay={0.1}>
-              <nav className="flex py-2 mt-8 space-x-2 overflow-x-auto whitespace-nowrap w-full">
-                <TabButton tabId="professional">Professional</TabButton>
-                <TabButton tabId="open-source">Open Source</TabButton>
-              </nav>
-            </FadeInSection>
-            <div>
-              <ProfessionalTab tabId="professional" />
-              <OpenSourceTab tabId="open-source" />
-            </div>
-          </TabProvider>
+          <ProfessionalTab />
+          <OpenSourceTab />
         </main>
       </div>
     </div>

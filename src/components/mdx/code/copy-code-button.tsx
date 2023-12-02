@@ -15,7 +15,7 @@ const CopyCodeButton: React.FC<{
 
   return (
     <button
-      className="absolute top-4 right-4 bg-red-400 px-2 text-gray-100"
+      className="absolute text-sm top-4 right-4 py-1 px-2 bg-red-400 text-gray-100 rounded-lg"
       onClick={handleClick}
     >
       {message}

@@ -11,8 +11,8 @@ export default function Home() {
       <header className="w-constraint flex gap-8 sm:gap-16 justify-between items-center py-8 sm:py-16 flex-col-reverse md:flex-row md:py-24">
         <div className="flex-[3]">
           <FadeInSection>
-            <h1 className="font-serif text-3xl sm:text-5xl font-medium text-gray-900">
-              Hi, I am Siddharth
+            <h1 className="font-serif text-3xl sm:text-5xl font-medium text-gray-900 !leading-tight">
+              Hello 👋🏻 <br /> I am Siddharth
             </h1>
           </FadeInSection>
           <FadeInSection delay={0.1}>
@@ -26,15 +26,15 @@ export default function Home() {
               <LinkCTA href="/contact" label="Contact Me" />
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <LinkCTA isSecondary={true} href="/work" label="Know More" />
+              <LinkCTA isSecondary={true} href="/work" label="My Work" />
             </FadeInSection>
           </div>
         </div>
-        <FadeInSection className="flex-[2] w-full flex items-center justify-center flex-shrink-0 py-12 sm:py-auto">
+        <FadeInSection className="flex-[2] w-full flex items-center justify-center md:justify-end flex-shrink-0 py-12 sm:py-auto">
           <Image
             alt="Siddharth Borderwala"
             src={Siddharth}
-            className="border-none rounded-full w-56 md:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
+            className="border-none rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>
       </header>
@@ -44,82 +44,79 @@ export default function Home() {
             <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
           </FadeInSection>
           <div
-            className="grid gap-4 mt-12"
+            className="grid gap-4 mt-12 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl"
             style={{
               gridTemplateColumns: `repeat(8, 1fr)`,
               gridTemplateRows: 'repeat(3, 30rem)',
             }}
           >
             <FadeInSection
-              delay={0.2}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '1 / 6',
                 gridRow: '1 / 2',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+              <h4 className="text-center text-3xl font-serif font-thin text-gray-700">
                 Full Stack Developer
-              </p>
+              </h4>
             </FadeInSection>
             <FadeInSection
-              delay={0.3}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              delay={0.1}
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '6 / 9',
                 gridRow: '1 / 2',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Technical Writer
               </p>
             </FadeInSection>
             <FadeInSection
-              delay={0.4}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '1 / 5',
                 gridRow: '2 / 3',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Computer Science Graduate
               </p>
             </FadeInSection>
             <FadeInSection
               delay={0.1}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '5 / 9',
                 gridRow: '2 / 3',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Open Source Contributor
               </p>
             </FadeInSection>
             <FadeInSection
-              delay={0.2}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '1 / 4',
                 gridRow: '3 / 4',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
                 Designer
               </p>
             </FadeInSection>
             <FadeInSection
-              delay={0.3}
-              className="w-full h-full p-4 flex items-center justify-center bg-gray-900/10 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-200/50"
+              delay={0.1}
+              className="w-full h-full px-6 py-12 flex flex-col items-center justify-start bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10"
               style={{
                 gridColumn: '4 / 9',
                 gridRow: '3 / 4',
               }}
             >
-              <p className="text-center text-2xl font-sans font-bold text-gray-600">
-                F1 Fan and FIFA Enthusiast
+              <p className="text-center text-3xl font-serif font-thin text-gray-600">
+                F1 and FIFA Fan
               </p>
             </FadeInSection>
           </div>
@@ -128,7 +125,7 @@ export default function Home() {
           <FadeInSection>
             <h3 className="text-3xl sm:text-4xl font-medium mb-12">My Work</h3>
           </FadeInSection>
-          <FadeInSection delay={0.1}>
+          <FadeInSection>
             <Text>
               I am a Full-Stack JavaScript/TypeScript developer specializing in
               Reactjs, Nodejs, and the JAMStack ecosystem. I have worked on
@@ -159,28 +156,8 @@ export default function Home() {
               building an online presence for businesses.
             </Text>
           </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/href" label="Know More" />
-          </FadeInSection>
-        </section>
-        <section id="cta" className="mt-32 pt-8">
           <FadeInSection>
-            <h3 className="text-3xl sm:text-4xl font-medium mb-12">
-              Want to Work With Me?
-            </h3>
-          </FadeInSection>
-          <FadeInSection delay={0.1}>
-            <Text>
-              Currently, I am looking for a part-time development job and am
-              flexible in terms of roles and responsibilities. I am also open to
-              working on open source projects and SaaS startups, where I can
-              make valuable contributions to the product and the team. I promise
-              you will have fun working with me once I get comfortable with you
-              as I start cracking quite a few jokes.
-            </Text>
-          </FadeInSection>
-          <FadeInSection delay={0.2}>
-            <LinkCTA href="/contact" label="Contact Now" />
+            <LinkCTA href="/href" label="Know More" />
           </FadeInSection>
         </section>
       </main>

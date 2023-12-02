@@ -30,18 +30,22 @@ const FeaturedArticle: React.FC<{
             <p className="uppercase font-bold text-gray-500 tracking-wider ml-1">
               featured article
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 mt-2 md:mt-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mt-2 md:mt-4">
               {info.title}
             </h2>
             <div className="flex flex-row md:flex-col items-center md:items-start mt-3 md:mt-4">
               <p className="md:text-xl text-gray-600 mr-5 md:mr-0 md:mb-6">
-                {info.date}
+                {new Date(info.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
               </p>
               <Badge label={info.category} />
             </div>
           </div>
         </div>
-        <p className="text-gray-700 text-lg md:text-xl mt-4 md:mt-6">
+        <p className="text-gray-900 font-light text-lg leading-relaxed md:text-xl mt-4 md:mt-6">
           {info.description}
         </p>
       </FadeInSection>

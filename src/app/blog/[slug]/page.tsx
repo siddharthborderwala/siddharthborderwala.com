@@ -11,6 +11,7 @@ import Link from 'next/link';
 import ShareCard from '~/components/share-card';
 import { BlogMetadata } from '../types';
 import path from 'path';
+import FadeInSection from '~/components/fade-in-section';
 
 type Props = {
   params: { slug: string };
@@ -101,39 +102,53 @@ const BlogPost = async ({
         createdAt={new Date(date).toISOString()}
         authorName={'Siddharth Borderwala'}
       />
-      <header className="mt-8 md:mt-10 w-constraint">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-700">
-          {title}
-        </h1>
-        <div className="flex flex-col sm:flex-row items-start md:items-center mt-3 md:mt-4">
-          <p className="md:text-xl text-gray-600 mr-0 sm:mr-4 md:mr-6 mb-2 md:mb-0">
-            {date}
-          </p>
-          <Badge label={category} />
+      <header className="pt-16 w-constraint">
+        <div className="flex flex-col md:flex-row gap-4">
+          <FadeInSection className="flex-[3] flex flex-col max-h-[70vh]">
+            <Image
+              src={heroImage}
+              alt={heroImageAlt}
+              width={512}
+              height={300}
+              className="rounded-md shadow-lg w-full h-full object-cover"
+            />
+            <p className="mt-4 text-gray-500">
+              Photo by{' '}
+              <ExternalLink href={heroImageCreditUrl}>
+                {heroImageCreditName}
+              </ExternalLink>
+            </p>
+          </FadeInSection>
+          <FadeInSection className="flex-[2] flex flex-col gap-4">
+            <h1 className="text-3xl md:text-5xl font-medium text-gray-900">
+              {title}
+            </h1>
+            <div className="flex items-center gap-6 md:flex-col md:items-start md:gap-2">
+              <p className="md:text-xl text-gray-700">
+                {new Date(date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+              <Badge label={category} />
+            </div>
+          </FadeInSection>
         </div>
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mt-6">
-          {description}
-        </p>
-        <Image
-          src={heroImage}
-          alt={heroImageAlt}
-          width={512}
-          height={300}
-          className="mt-6 rounded-md shadow-lg max-h-[50vh]"
-        />
-        <p className="mt-4 text-gray-500">
-          Photo by{' '}
-          <ExternalLink href={heroImageCreditUrl}>
-            {heroImageCreditName}
-          </ExternalLink>
-        </p>
+        <FadeInSection className="mt-6">
+          <p className="font-sans font-light text-lg md:text-xl leading-relaxed text-gray-900">
+            {description}
+          </p>
+        </FadeInSection>
       </header>
       <main className="w-constraint text-gray-700 mt-8">
-        <article>
-          <RenderMDX source={source} />
-        </article>
+        <FadeInSection>
+          <article>
+            <RenderMDX source={source} />
+          </article>
+        </FadeInSection>
         <div className="flex flex-col-reverse justify-start md:flex-row md:justify-between border-t pt-12 mt-16">
-          <div className="mt-12 md:mt-0 md:pr-6">
+          <FadeInSection className="mt-12 md:mt-0 md:pr-6">
             <h3 className="text-3xl font-bold">Read More</h3>
             <p className="text-xl mt-8">
               If you found this article helpful, you may like to read{' '}
@@ -141,12 +156,14 @@ const BlogPost = async ({
                 more
               </Link>
             </p>
-          </div>
-          <ShareCard
-            title={title}
-            author="Siddharth Borderwala"
-            url={shareUrl}
-          />
+          </FadeInSection>
+          <FadeInSection>
+            <ShareCard
+              title={title}
+              author="Siddharth Borderwala"
+              url={shareUrl}
+            />
+          </FadeInSection>
         </div>
       </main>
     </>

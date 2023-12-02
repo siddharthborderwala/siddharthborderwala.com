@@ -36,7 +36,7 @@ const CodeBlock: React.FC<
         <Highlight theme={rosePineDawn} code={code} language={language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={`${className} overflow-x-auto p-5 font-mono`}
+              className={`${className} overflow-x-auto p-5 font-mono text-sm`}
               style={style}
             >
               {tokens

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowSquareOut } from '@phosphor-icons/react/dist/ssr';
 import { TimelineView, TimelineSection } from './timeline';
-import { TabItem } from '../tab';
 import FadeInSection from '~/components/fade-in-section';
 
 const data: {
@@ -58,11 +57,9 @@ const data: {
   },
 ];
 
-const Professional: React.FC<{
-  tabId: string;
-}> = ({ tabId }) => {
+const Professional: React.FC = () => {
   return (
-    <TabItem tabId={tabId} className="py-8">
+    <div className="py-8">
       {data.map((item, index) => (
         <TimelineView key={index} className="py-6">
           <FadeInSection
@@ -71,6 +68,7 @@ const Professional: React.FC<{
           >
             <TimelineSection
               title={item.title}
+              className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-8"
               subtitle={
                 <div className="mt-3">
                   <p className="text-gray-500 text-xs uppercase">
@@ -93,7 +91,7 @@ const Professional: React.FC<{
                 </div>
               }
             >
-              <ul className="list-disc space-y-2 mt-4 ml-4 sm:ml-0 sm:text-lg">
+              <ul className="list-disc space-y-2 ml-4 sm:ml-0 sm:text-lg">
                 {item.description.map((desc, index) => (
                   <li key={index}>
                     <p className="leading-7 font-light text-gray-700">{desc}</p>
@@ -104,7 +102,7 @@ const Professional: React.FC<{
           </FadeInSection>
         </TimelineView>
       ))}
-    </TabItem>
+    </div>
   );
 };
 
