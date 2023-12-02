@@ -120,8 +120,8 @@ export default function Home() {
               building an online presence for businesses.
             </Text>
           </FadeInSection>
-          <FadeInSection>
-            <LinkCTA href="/href" label="Know More" />
+          <FadeInSection delay={0.2}>
+            <LinkCTA href="/work" label="Know More" />
           </FadeInSection>
         </section>
       </main>
