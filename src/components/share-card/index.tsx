@@ -39,6 +39,7 @@ const ShareCard: React.FC<{
       <h3 className="text-gray-700 font-bold text-3xl">Share this article</h3>
       <div className="flex items-center md:justify-center text-3xl space-x-4 mt-4">
         <a
+          title="Share on Twitter"
           className="inline-block p-2 text-red-400"
           target="_blank"
           rel="noopener noreferrer"
@@ -51,12 +52,17 @@ const ShareCard: React.FC<{
           <TwitterLogo weight="bold" />
         </a>
         <button
+          title="Share on Linkedin"
           className="inline-block p-2 text-red-400"
           onClick={handleLinkedinShare}
         >
           <LinkedinLogo weight="bold" />
         </button>
-        <button className="inline-block p-2 text-red-400" onClick={handleCopy}>
+        <button
+          title="Copy link to Clipboard"
+          className="inline-block p-2 text-red-400"
+          onClick={handleCopy}
+        >
           {icon}
         </button>
       </div>

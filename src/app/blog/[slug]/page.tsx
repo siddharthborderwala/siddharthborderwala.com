@@ -1,17 +1,17 @@
 import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import { readFile } from 'fs/promises';
+import path from 'path';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import Badge from '~/components/badge';
 import ExternalLink from '~/components/external-link';
 import RenderMDX from '~/components/mdx';
 import PostStructuredData from '~/components/seo/post-structured-data';
-import Link from 'next/link';
 import ShareCard from '~/components/share-card';
-import { BlogMetadata } from '../types';
-import path from 'path';
 import FadeInSection from '~/components/fade-in-section';
+import { BlogMetadata } from '../types';
 
 type Props = {
   params: { slug: string };
@@ -142,12 +142,10 @@ const BlogPost = async ({
         </FadeInSection>
       </header>
       <main className="w-constraint text-gray-700">
-        <FadeInSection>
-          <hr className="my-12" />
-          <article>
-            <RenderMDX source={source} />
-          </article>
-        </FadeInSection>
+        <hr className="my-12" />
+        <article>
+          <RenderMDX source={source} />
+        </article>
         <div className="flex flex-col-reverse justify-start md:flex-row md:justify-between border-t pt-12 mt-16">
           <FadeInSection className="mt-12 md:mt-0 md:pr-6">
             <h3 className="text-3xl font-bold">Read More</h3>
