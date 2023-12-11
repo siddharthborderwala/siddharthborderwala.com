@@ -21,11 +21,5 @@ export const TimelineView: React.FC<
     className?: string;
   }>
 > = ({ children, className }) => {
-  return (
-    <div
-      className={`h-full snap-y snap-mandatory overflow-y-auto ${className}`}
-    >
-      {children}
-    </div>
-  );
+  return <div className={className}>{children}</div>;
 };

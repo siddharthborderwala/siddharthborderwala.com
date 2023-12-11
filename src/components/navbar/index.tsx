@@ -60,10 +60,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <motion.div
-        layoutId="floating-navbar"
-        className="mx-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5"
-      >
+      <div className="mx-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
         <Link className="inline-block border rounded-full" href="/">
           {logo}
           <p className="sr-only">Siddharth Borderwala</p>
@@ -75,7 +72,7 @@ const MobileNav = () => {
         >
           <List size="28" />
         </button>
-      </motion.div>
+      </div>
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div
@@ -88,10 +85,7 @@ const MobileNav = () => {
               ease: 'easeInOut',
             }}
           >
-            <motion.div
-              layoutId="floating-navbar"
-              className="mx-4 mt-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5"
-            >
+            <div className="mx-4 mt-4 flex items-center p-2 justify-between bg-gray-900/10 backdrop-blur rounded-full shadow-2xl shadow-gray-900/5">
               <Link className="inline-block border rounded-full" href="/">
                 {logo}
                 <p className="sr-only">Siddharth Borderwala</p>
@@ -113,7 +107,7 @@ const MobileNav = () => {
                   <X size="28" />
                 </motion.div>
               </button>
-            </motion.div>
+            </div>
             <motion.nav className="flex flex-col gap-6 items-center justify-center flex-grow mb-24">
               {navLinks.map(({ href, label }, index) => (
                 <motion.div
