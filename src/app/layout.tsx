@@ -64,8 +64,10 @@ const gelica = LocalFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://siddharthborderwala.com'),
   title: 'Siddharth Borderwala',
-  description: `Full-stack web developer who loves open source.`,
+  description:
+    'I am a Full Stack Developer having fun building things that live on the internet.',
   icons: {
     shortcut: '/favicon.ico',
     apple: '/logo.svg',
