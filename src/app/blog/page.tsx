@@ -61,6 +61,36 @@ export const metadata: Metadata = {
   title: 'Blog | Siddharth Borderwala',
   description:
     'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+  openGraph: {
+    title: 'Blog | Siddharth Borderwala',
+    description:
+      'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    url: 'https://siddharthborderwala.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-blog.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
+  twitter: {
+    site: 'siddharthborderwala',
+    card: 'summary_large_image',
+    title: 'Blog | Siddharth Borderwala',
+    description:
+      'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-blog.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
 };
 
 const BlogPage = async () => {

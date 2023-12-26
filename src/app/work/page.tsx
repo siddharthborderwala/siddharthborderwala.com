@@ -8,7 +8,37 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Work | Siddharth Borderwala',
   description:
-    'Know more about the work done by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+  openGraph: {
+    title: 'Work | Siddharth Borderwala',
+    description:
+      'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    url: 'https://siddharthborderwala.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-work.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
+  twitter: {
+    site: 'siddharthborderwala',
+    card: 'summary_large_image',
+    title: 'Work | Siddharth Borderwala',
+    description:
+      'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-work.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
 };
 
 const Work = () => {

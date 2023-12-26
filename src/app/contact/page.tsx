@@ -14,6 +14,36 @@ export const metadata: Metadata = {
   title: 'Contact | Siddharth Borderwala',
   description:
     'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+  openGraph: {
+    title: 'Contact | Siddharth Borderwala',
+    description:
+      'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+    url: 'https://siddharthborderwala.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-contact.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
+  twitter: {
+    site: 'siddharthborderwala',
+    card: 'summary_large_image',
+    title: 'Contact | Siddharth Borderwala',
+    description:
+      'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-contact.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
 };
 
 const ContactPage = () => {

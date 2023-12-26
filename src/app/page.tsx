@@ -10,6 +10,40 @@ import {
   ChartLine,
   GlobeSimple,
 } from '@phosphor-icons/react/dist/ssr';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  openGraph: {
+    title: 'Siddharth Borderwala',
+    description:
+      'I am a Full Stack Developer having fun building things that live on the internet.',
+    url: 'https://siddharthborderwala.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-home.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
+  twitter: {
+    site: 'siddharthborderwala',
+    card: 'summary_large_image',
+    title: 'Siddharth Borderwala',
+    description:
+      'I am a Full Stack Developer having fun building things that live on the internet.',
+    images: [
+      {
+        url: 'https://siddharthborderwala.com/social-home.png',
+        width: 1900,
+        height: 1000,
+        alt: 'Siddharth Borderwala',
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
