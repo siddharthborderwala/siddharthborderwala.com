@@ -8,11 +8,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Work | Siddharth Borderwala',
   description:
-    'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    'Find out about the work I have done so far and what I am interested in.',
   openGraph: {
     title: 'Work | Siddharth Borderwala',
     description:
-      'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+      'Find out about the work I have done so far and what I am interested in.',
     url: 'https://siddharthborderwala.com',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Work | Siddharth Borderwala',
     description:
-      'Know more about the work done by me - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+      'Find out about the work I have done so far and what I am interested in.',
     images: [
       {
         url: 'https://siddharthborderwala.com/social-work.png',

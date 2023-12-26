@@ -60,11 +60,11 @@ const getAllBlogPosts = async () => {
 export const metadata: Metadata = {
   title: 'Blog | Siddharth Borderwala',
   description:
-    'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+    'Check out my blog - here I share things that you may find interesting.',
   openGraph: {
     title: 'Blog | Siddharth Borderwala',
     description:
-      'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+      'Check out my blog - here I share things that you may find interesting.',
     url: 'https://siddharthborderwala.com',
     type: 'website',
     images: [
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog | Siddharth Borderwala',
     description:
-      'View all the blog posts by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+      'Check out my blog - here I share things that you may find interesting.',
     images: [
       {
         url: 'https://siddharthborderwala.com/social-blog.png',

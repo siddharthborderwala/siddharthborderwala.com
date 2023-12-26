@@ -12,12 +12,10 @@ import FadeInSection from '~/components/fade-in-section';
 
 export const metadata: Metadata = {
   title: 'Contact | Siddharth Borderwala',
-  description:
-    'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+  description: 'Reach out to me via twitter, email or telegram.',
   openGraph: {
     title: 'Contact | Siddharth Borderwala',
-    description:
-      'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+    description: 'Reach out to me via twitter, email or telegram.',
     url: 'https://siddharthborderwala.com',
     type: 'website',
     images: [
@@ -33,8 +31,7 @@ export const metadata: Metadata = {
     site: 'siddharthborderwala',
     card: 'summary_large_image',
     title: 'Contact | Siddharth Borderwala',
-    description:
-      'I am Siddharth Borderwala, a full-stack developer specializing in front-end development. Contact me from here and I will get back to you in a day!',
+    description: 'Reach out to me via twitter, email or telegram.',
     images: [
       {
         url: 'https://siddharthborderwala.com/social-contact.png',

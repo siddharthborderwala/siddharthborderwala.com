@@ -1,3 +1,9 @@
-
+# *
 User-agent: *
-Allow: /
+Allow: *
+
+# Host
+Host: https://siddharthborderwala.com
+
+# Sitemaps
+Sitemap: https://siddharthborderwala.com/sitemap.xml
