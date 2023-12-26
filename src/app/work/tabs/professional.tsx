@@ -22,11 +22,11 @@ const data: {
     from: 'Sep 2022',
     to: 'Present',
     description: [
-      'Collaborated in a fast-paced environment to build and enhance essential features of Leap Cosmos Wallet driving user adoption and boosting WAUs up by four times.',
-      'Built and maintained multiple open-source libraries and SDKs for the Cosmos ecosystem, to facilitate the development of new features and improve the developer experience.',
-      'Took initiative by creating and maintaining documentation for four projects, implementing CI/CD automation, optimizing build tooling resulting in up to 10x faster build times, and refactoring the codebase to remove technical debt.',
+      'Collaborated in a fast-paced environment, working across the stack to build and enhance the core features of Leap Wallet (a non-custodial, open-source cosmos blockchain wallet), driving user adoption and boosting weekly active users by four times.',
+      'Built, documented and maintained open-source libraries and developer SDKs for the cosmos ecosystem to make it easier for cosmos developers to provide a better UX to their dApp users and to ship their dApps quicker',
+      'Took the initiative to create and maintain documentation for four different projects, implementing CI/CD automation, optimizing build tooling resulting in up to 10x faster build times, and refactoring the codebase to remove technical debt.',
       'Configured sentry for error logging on four projects, slashing the app crash rates by 75%, and implemented a robust error handling system to improve the user experience.',
-      'Contributed to the planning and estimating of new features, conducted thorough code reviews, engaged in pair programming for effective debugging, and delivered presentations to share knowledge with peers.',
+      'Conducted thorough code reviews, engaged in pair programming for effective debugging, and delivered presentations to share knowledge with peers.',
     ],
   },
   {
@@ -50,9 +50,9 @@ const data: {
     from: 'May 2021',
     to: 'Aug 2021',
     description: [
-      'Spearheaded the development of innovative features such as review workflows, version control systems for digital assets, and magic invite links for workspaces, working across the tech stack.',
-      'Tackled challenging engineering issues, such as race conditions, and developed robust solutions using cloud technologies while improving the reliability of the production application.',
-      'Took the initiative to refactor sub-modules to reduce technical debt, enhance overall product performance, and improve the developer experience for the team.',
+      'Built innovative features for a digital assets delivery platform, such as review workflows, version control systems, and magic invite links for workspaces, working across the stack, front-end, backend and database modelling.',
+      "Tackled challenging engineering issues, such as race conditions in asset processing, and developed robust solutions using cloud technologies eventually improving the application's reliability.",
+      'Took the initiative to refactor sub-modules to reduce technical debt, in turn enhancing product performance and improving the developer experience for the team.',
     ],
   },
 ];
