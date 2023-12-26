@@ -3,6 +3,13 @@ import React from 'react';
 import ProfessionalTab from './tabs/professional';
 
 import FadeInSection from '~/components/fade-in-section';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Work | Siddharth Borderwala',
+  description:
+    'Know more about the work done by Siddharth Borderwala - a computer science undergrad and a full-stack web engineer specializing in the javascript ecosystem.',
+};
 
 const Work = () => {
   return (

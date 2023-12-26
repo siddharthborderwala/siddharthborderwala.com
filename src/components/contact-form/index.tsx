@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
-import zod, { set } from 'zod';
+import zod from 'zod';
 import {
   CircleNotch,
   Warning,

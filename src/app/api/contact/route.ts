@@ -1,4 +1,3 @@
-import axios from 'axios';
 import zod from 'zod';
 import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
@@ -73,58 +72,6 @@ const sendContactFormEmail = async (
       <p>${message}</p>
     `),
   });
-};
-
-const submitContactFormNotion = (
-  name: string,
-  email: string,
-  message: string
-) => {
-  return axios.post(
-    'https://api.notion.com/v1/pages',
-    {
-      parent: {
-        database_id: process.env.NOTION_DB,
-      },
-      properties: {
-        name: [
-          {
-            text: {
-              content: name,
-            },
-          },
-        ],
-        email: email,
-        date: {
-          start: new Date().toISOString(),
-          end: null,
-        },
-      },
-      children: [
-        {
-          object: 'block',
-          type: 'paragraph',
-          paragraph: {
-            text: [
-              {
-                type: 'text',
-                text: {
-                  content: message,
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.NOTION_SECRET}`,
-        'Content-Type': 'application/json',
-        'Notion-Version': '2021-08-16',
-      },
-    }
-  );
 };
 
 export const POST = async (req: Request) => {
