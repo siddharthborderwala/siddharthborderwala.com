@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    site: 'siddharthborderwala',
+    site: '@sidborderwala',
     card: 'summary_large_image',
     title: 'Siddharth Borderwala',
     description:

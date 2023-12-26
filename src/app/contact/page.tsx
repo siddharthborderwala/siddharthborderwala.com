@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    site: 'siddharthborderwala',
+    site: '@sidborderwala',
     card: 'summary_large_image',
     title: 'Contact | Siddharth Borderwala',
     description: 'Reach out to me via twitter, email or telegram.',
