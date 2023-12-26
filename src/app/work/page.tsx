@@ -1,6 +1,5 @@
 import React from 'react';
 
-import OpenSourceTab from './tabs/open-source';
 import ProfessionalTab from './tabs/professional';
 
 import FadeInSection from '~/components/fade-in-section';
@@ -13,7 +12,7 @@ const Work = () => {
           <FadeInSection>
             <h1 className="text-4xl font-bold">My Work</h1>
           </FadeInSection>
-          <FadeInSection delay={0.1}>
+          <FadeInSection>
             <p className="text-xl text-gray-900 mt-6 font-light">
               I am a computer science graduate with extensive experience in full
               stack development. I have worked in the industry as a professional
@@ -24,7 +23,6 @@ const Work = () => {
         </header>
         <main className="mt-12 space-y-12">
           <ProfessionalTab />
-          <OpenSourceTab />
         </main>
       </div>
     </div>

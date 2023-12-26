@@ -14,7 +14,7 @@ const data: {
   description: string[];
 }[] = [
   {
-    title: 'Full Stack Web3 Engineer',
+    title: 'Full Stack Developer',
     company: {
       name: 'Leap Wallet',
       url: 'https://leapwallet.io/',
@@ -30,7 +30,7 @@ const data: {
     ],
   },
   {
-    title: 'Full Stack Web3 Engineer',
+    title: 'Full Stack Web3 Developer',
     company: {
       name: 'Crypto Capable',
     },
@@ -67,10 +67,7 @@ const Professional: React.FC = () => {
       </FadeInSection>
       {data.map((item, index) => (
         <TimelineView key={index} className="mt-6">
-          <FadeInSection
-            className="flex flex-col sm:flex-row snap-start"
-            delay={(index + 1) * 0.1}
-          >
+          <FadeInSection className="flex flex-col sm:flex-row snap-start">
             <TimelineSection
               title={item.title}
               className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-8"

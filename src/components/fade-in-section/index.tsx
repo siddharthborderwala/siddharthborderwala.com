@@ -1,11 +1,10 @@
 'use client';
 
 import { type AnimationProps, type MotionStyle, motion } from 'framer-motion';
-import { useMemo } from 'react';
 
 const initial = { opacity: 0, y: 16 };
 const whileInView = { opacity: 1, y: 0 };
-const viewport = { once: true };
+const viewport = { once: true, margin: '-16px' };
 
 const FadeInSection: React.FC<
   React.PropsWithChildren<{
@@ -14,12 +13,7 @@ const FadeInSection: React.FC<
     className?: string;
     style?: MotionStyle;
   }>
-> = ({ children, className, delay = 0, ease = 'easeInOut', style = {} }) => {
-  const transition = useMemo(
-    () => ({ ease, delay, duration: 0.2 }),
-    [delay, ease]
-  );
-
+> = ({ children, className, delay = 0, style = {} }) => {
   return (
     <motion.div
       className={className}
@@ -27,7 +21,10 @@ const FadeInSection: React.FC<
       initial={initial}
       whileInView={whileInView}
       viewport={viewport}
-      transition={transition}
+      transition={{
+        delay,
+        damping: 10,
+      }}
     >
       {children}
     </motion.div>

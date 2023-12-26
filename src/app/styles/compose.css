@@ -5,3 +5,7 @@
 .link {
   @apply underline text-red-400 break-words;
 }
+
+.emphasis {
+  @apply font-medium text-gray-900;
+}
