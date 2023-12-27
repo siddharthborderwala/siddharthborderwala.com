@@ -79,18 +79,18 @@ export default function Home() {
         </FadeInSection>
       </header>
       <main className="w-constraint pb-20">
-        <section id="about" className="my-12 py-12 space-y-16 sm:space-y-24">
-          <FadeInSection className="!mb-24">
+        <section id="about" className="my-12 py-12 space-y-12 sm:space-y-20">
+          <FadeInSection>
             <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
             <Text>Here&apos; a little bit about me and my work!</Text>
           </FadeInSection>
-          <FadeInSection className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-center">
+          <FadeInSection className="flex flex-col sm:flex-row gap-8 sm:gap-20 items-center">
             <div className="w-48 h-48 flex-shrink-0 bg-gradient-to-br from-red-400 to-orange-300 rounded-2xl p-4 shadow-2xl shadow-red-100">
               <div className="w-full h-full flex items-center justify-center bg-white rounded-xl shadow-inner">
                 <CodeSimple size={32} weight="bold" className="text-red-400" />
               </div>
             </div>
-            <Text>
+            <Text className="!m-0">
               I am a{' '}
               <span className="emphasis">Full-Stack TypeScript Developer</span>{' '}
               specializing in front-end development. I am proficient with with
@@ -98,13 +98,13 @@ export default function Home() {
               and Rust for building backend services and CLI tools.
             </Text>
           </FadeInSection>
-          <FadeInSection className="flex flex-col-reverse sm:flex-row gap-8 sm:gap-12 items-center">
-            <Text>
+          <FadeInSection className="flex flex-col-reverse sm:flex-row gap-8 sm:gap-20 items-center">
+            <Text className="!m-0">
               I have <span className="emphasis">more than 2 years</span> of
               experience in building web experiences, ranging from simple
               landing pages, complex web applications and chrome extensions. I
-              am also experienced in creating and maintaining developer SDKs and
-              open source packages.
+              am also fairly experienced with creating and maintaining developer
+              SDKs and open source packages.
             </Text>
             <div className="w-48 h-48 flex-shrink-0 bg-gradient-to-br from-red-400 to-orange-300 rounded-2xl p-4 shadow-2xl shadow-red-100">
               <div className="w-full h-full flex items-center justify-center bg-white rounded-xl shadow-inner">
@@ -112,20 +112,20 @@ export default function Home() {
               </div>
             </div>
           </FadeInSection>
-          <FadeInSection className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-center">
+          <FadeInSection className="flex flex-col sm:flex-row gap-8 sm:gap-20 items-center">
             <div className="w-48 h-48 flex-shrink-0 bg-gradient-to-br from-red-400 to-orange-300 rounded-2xl p-4 shadow-2xl shadow-red-100">
               <div className="w-full h-full flex items-center justify-center bg-white rounded-xl shadow-inner">
                 <ChartLine size={32} weight="bold" className="text-red-400" />
               </div>
             </div>
-            <Text>
+            <Text className="!m-0">
               I love open source and I am the creator and maintainer of{' '}
               <ExternalLink href="https://github.com/sassy-labs/datepicker">
                 sassy-datepicker
               </ExternalLink>{' '}
               - a date picker library for React, which has{' '}
-              <span className="emphasis">60K downloads in 2024</span>. I am an
-              open-source contributor and have contributed to libraries like{' '}
+              <span className="emphasis">60K downloads in 2024</span>. I have
+              also contributed to libraries like{' '}
               <ExternalLink href="https://github.com/validatorjs/validator.js">
                 validatorjs
               </ExternalLink>{' '}
@@ -136,8 +136,8 @@ export default function Home() {
               .
             </Text>
           </FadeInSection>
-          <FadeInSection className="flex flex-col-reverse sm:flex-row gap-8 sm:gap-12 items-center">
-            <Text>
+          <FadeInSection className="flex flex-col-reverse sm:flex-row gap-8 sm:gap-20 items-center">
+            <Text className="!m-0">
               I also work with local businesses to{' '}
               <span className="emphasis">design</span>, build and maintain their
               website and web applications. I also provide services like{' '}
