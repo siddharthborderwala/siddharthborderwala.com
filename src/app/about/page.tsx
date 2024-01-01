@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import Text from '~/components/text';
 import LinkCTA from '~/components/link-cta';
 import Image from 'next/image';
-import Siddharth from '~/images/about.jpg';
+import Siddharth from '~/images/siddharth-centered.jpg';
 import { TechStack } from './tech-stack';
 
 export const metadata: Metadata = {
