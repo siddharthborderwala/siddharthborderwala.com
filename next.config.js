@@ -13,6 +13,13 @@ const nextConfig = {
       },
     ],
   },
+  redirects: async () => [
+    {
+      source: '/work',
+      destination: '/about',
+      permanent: true,
+    },
+  ],
 };
 
 const withMDX = createMDX();

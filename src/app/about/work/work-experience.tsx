@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowSquareOut, TextIndent } from '@phosphor-icons/react/dist/ssr';
 import { TimelineView, TimelineSection } from './timeline';
 import FadeInSection from '~/components/fade-in-section';
+import Text from '~/components/text';
 
 const data: {
   title: string;
@@ -57,16 +58,17 @@ const data: {
   },
 ];
 
-const Professional: React.FC = () => {
+const WorkExperience: React.FC = () => {
   return (
-    <div>
+    <section id="work-experience" className="py-24">
       <FadeInSection>
-        <h2 className="text-2xl text-red-400 font-medium flex gap-2 items-center">
-          <TextIndent weight="bold" /> Professional Experience
-        </h2>
+        <h2 className="text-2xl sm:text-3xl font-medium">Work Experience</h2>
+        <Text>
+          Here&apos;s what I have done in my career as a professional.
+        </Text>
       </FadeInSection>
       {data.map((item, index) => (
-        <TimelineView key={index} className="mt-6">
+        <TimelineView key={index} className="mt-16">
           <FadeInSection className="flex flex-col sm:flex-row snap-start">
             <TimelineSection
               title={item.title}
@@ -106,8 +108,8 @@ const Professional: React.FC = () => {
           </FadeInSection>
         </TimelineView>
       ))}
-    </div>
+    </section>
   );
 };
 
-export default Professional;
+export default WorkExperience;

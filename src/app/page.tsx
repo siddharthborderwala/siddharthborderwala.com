@@ -63,10 +63,10 @@ export default function Home() {
           </FadeInSection>
           <div className="flex items-center justify-start gap-2 sm:gap-4">
             <FadeInSection delay={0.2}>
-              <LinkCTA href="/contact" label="Contact Me" />
+              <LinkCTA href="/about" label="About Me" />
             </FadeInSection>
             <FadeInSection delay={0.2}>
-              <LinkCTA isSecondary={true} href="/work" label="My Work" />
+              <LinkCTA isSecondary={true} href="/contact" label="Contact Me" />
             </FadeInSection>
           </div>
         </div>
@@ -79,6 +79,49 @@ export default function Home() {
         </FadeInSection>
       </header>
       <main className="w-constraint pb-20">
+        <section id="tldr" className="my-12 py-12">
+          <FadeInSection>
+            <h3 className="text-3xl sm:text-4xl font-medium">TLDR;</h3>
+            <Text>Short on time? This is me, bento box style!</Text>
+          </FadeInSection>
+          <div className="grid gap-4 mt-12 grid-cols-1 grid-rows-6 md:grid-rows-3 md:grid-cols-8 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl">
+            <FadeInSection className="w-full col-span-1 md:col-span-5 row-span-1 h-full px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <h4 className="text-center text-lg sm:text-xl font-serif font-thin text-gray-700">
+                Full Stack Developer
+              </h4>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                Technical Writer
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                Computer Science Graduate
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                Open Source Contributor
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                Designer
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-2 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                SEO Expert
+              </p>
+            </FadeInSection>
+            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
+              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
+                F1 and FIFA Fan
+              </p>
+            </FadeInSection>
+          </div>
+        </section>
         <section id="about" className="my-12 py-12 space-y-12 sm:space-y-20">
           <FadeInSection>
             <h3 className="text-3xl sm:text-4xl font-medium">About Me</h3>
@@ -152,51 +195,8 @@ export default function Home() {
             </div>
           </FadeInSection>
           <FadeInSection delay={0.2}>
-            <LinkCTA href="/work" label="Know More" />
+            <LinkCTA href="/about" label="Know More" />
           </FadeInSection>
-        </section>
-        <section id="tldr" className="my-12 py-12">
-          <FadeInSection>
-            <h3 className="text-3xl sm:text-4xl font-medium">TLDR;</h3>
-            <Text>Short on time? This is me, bento box style!</Text>
-          </FadeInSection>
-          <div className="grid gap-4 mt-12 grid-cols-1 grid-rows-6 md:grid-rows-3 md:grid-cols-8 bg-gradient-to-br from-red-400 via-pink-400 to-red-400 p-4 rounded-2xl shadow-2xl">
-            <FadeInSection className="w-full col-span-1 md:col-span-5 row-span-1 h-full px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <h4 className="text-center text-lg sm:text-xl font-serif font-thin text-gray-700">
-                Full Stack Developer
-              </h4>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                Technical Writer
-              </p>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                Computer Science Graduate
-              </p>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-4 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                Open Source Contributor
-              </p>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                Designer
-              </p>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-2 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                SEO Expert
-              </p>
-            </FadeInSection>
-            <FadeInSection className="w-full h-full col-span-1 md:col-span-3 row-span-1 px-6 py-12 flex flex-col items-center justify-center bg-white border border-gray-200/20 backdrop-blur-md rounded-xl shadow-2xl shadow-gray-900/10">
-              <p className="text-center text-lg sm:text-xl font-serif font-thin text-gray-600">
-                F1 and FIFA Fan
-              </p>
-            </FadeInSection>
-          </div>
         </section>
       </main>
     </>

@@ -12,9 +12,10 @@ import { default as InlineCode } from './inline-code';
 const CodeBlock: React.FC<
   React.PropsWithChildren<{
     className?: string;
+    showCopyButton?: boolean;
   }>
-> = ({ children, className = '' }) => {
-  const language = className.replace(/language-/, '');
+> = ({ children, className = '', showCopyButton = true }) => {
+  const language = className.match(/language-(\w+)/)?.[1] ?? '';
 
   const code = useMemo(() => {
     if (typeof children === 'string') {
@@ -34,9 +35,9 @@ const CodeBlock: React.FC<
       <LanguageLabel language={language} />
       <div className="relative">
         <Highlight theme={rosePineDawn} code={code} language={language}>
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          {({ className: cx, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={`${className} overflow-x-auto p-5 font-mono text-sm`}
+              className={`${className} ${cx} overflow-x-auto p-5 font-mono text-sm`}
               style={style}
             >
               {tokens
@@ -51,7 +52,7 @@ const CodeBlock: React.FC<
             </pre>
           )}
         </Highlight>
-        <CopyCodeButton onClick={copyCode} />
+        {showCopyButton ? <CopyCodeButton onClick={copyCode} /> : null}
       </div>
     </div>
   );
