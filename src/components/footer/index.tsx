@@ -28,7 +28,9 @@ const Footer = () => {
           </Link>
           <div className="mt-8 sm:mt-20 flex items-center font-serif text-gray-900">
             <Copyright weight="bold" />
-            <p className="ml-2">{year} Siddharth Borderwala</p>
+            <p className="ml-2">
+              <span className="font-sans">{year}</span> Siddharth Borderwala
+            </p>
           </div>
         </div>
         <div>

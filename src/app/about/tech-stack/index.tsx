@@ -1,11 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import stripIndent from 'strip-indent';
 import FadeInSection from '~/components/fade-in-section';
-import CodeBlock from '~/components/mdx/code/code-block';
 import Text from '~/components/text';
-import { CodeExplorer } from './code-explorer';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const Item = ({ children }: { children: string }) => {
@@ -28,12 +25,14 @@ export const TechStack = () => {
   useMotionValueEvent(scrollY, 'change', latest => {
     const languages = document.getElementById('languages')!;
     const frontend = document.getElementById('frontend')!;
+    const inBetween = document.getElementById('inbetween')!;
     const backend = document.getElementById('backend')!;
     const tools = document.getElementById('tools')!;
 
     const sidebarTop = sidebar.current!.getBoundingClientRect().y;
     const languagesTop = languages.getBoundingClientRect().y;
     const frontendTop = frontend.getBoundingClientRect().y;
+    const inBetweenTop = inBetween.getBoundingClientRect().y;
     const backendTop = backend.getBoundingClientRect().y;
     const toolsTop = tools.getBoundingClientRect().y;
 
@@ -41,24 +40,29 @@ export const TechStack = () => {
     // difference has to be positive
     const diffLanguages = languagesTop - sidebarTop;
     const diffFrontend = frontendTop - sidebarTop;
+    const diffInBetween = inBetweenTop - sidebarTop;
     const diffBackend = backendTop - sidebarTop;
     const diffTools = toolsTop - sidebarTop;
 
     const diffs = [
       {
-        name: 'languages',
+        id: 'languages',
         diff: diffLanguages,
       },
       {
-        name: 'frontend',
+        id: 'frontend',
         diff: diffFrontend,
       },
       {
-        name: 'backend',
+        id: 'inbetween',
+        diff: diffInBetween,
+      },
+      {
+        id: 'backend',
         diff: diffBackend,
       },
       {
-        name: 'tools',
+        id: 'tools',
         diff: diffTools,
       },
     ];
@@ -68,8 +72,8 @@ export const TechStack = () => {
       Math.abs(curr.diff) < Math.abs(prev.diff) ? curr : prev
     );
 
-    if (activeView !== activeViewElem.name) {
-      setActiveView(activeViewElem.name);
+    if (activeView !== activeViewElem.id) {
+      setActiveView(activeViewElem.id);
     }
   });
 
@@ -100,6 +104,13 @@ export const TechStack = () => {
           </h3>
           <h3
             className={`text-xl sm:text-2xl ${
+              activeView === 'inbetween' ? 'text-red-400' : null
+            }`}
+          >
+            In Between
+          </h3>
+          <h3
+            className={`text-xl sm:text-2xl ${
               activeView === 'backend' ? 'text-red-400' : null
             }`}
           >
@@ -125,6 +136,7 @@ export const TechStack = () => {
             <Item>Ruby</Item>
             <Item>Go</Item>
             <Item>Rust</Item>
+            <Item>Protocol Buffers</Item>
           </div>
           <div
             id="frontend"
@@ -138,6 +150,15 @@ export const TechStack = () => {
             <Item>Redux</Item>
           </div>
           <div
+            id="inbetween"
+            className={`bg-white flex flex-col gap-2 rounded-2xl w-full `}
+          >
+            <Item>Rest APIs</Item>
+            <Item>GraphQL</Item>
+            <Item>Websockets</Item>
+            <Item>gRPC</Item>
+          </div>
+          <div
             id="backend"
             className={`bg-white flex flex-col gap-2 rounded-2xl w-full `}
           >
@@ -148,6 +169,7 @@ export const TechStack = () => {
             <Item>PostgreSQL</Item>
             <Item>MySQL</Item>
             <Item>Redis</Item>
+            <Item>Firebase</Item>
           </div>
           <div
             id="tools"

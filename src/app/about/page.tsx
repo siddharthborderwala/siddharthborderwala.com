@@ -7,23 +7,22 @@ import { Metadata } from 'next';
 import Text from '~/components/text';
 import LinkCTA from '~/components/link-cta';
 import Image from 'next/image';
-import Siddharth from '~/images/siddharth-centered.jpg';
+import Siddharth from '~/images/about.jpg';
 import { TechStack } from './tech-stack';
-import { Projects } from './projects';
 
 export const metadata: Metadata = {
-  title: 'Work | Siddharth Borderwala',
+  title: 'About | Siddharth Borderwala',
   description:
-    'Find out about the work I have done so far and what I am interested in.',
+    'Know more about me, the work I have done, my tech stack and what I am interested in.',
   openGraph: {
-    title: 'Work | Siddharth Borderwala',
+    title: 'About | Siddharth Borderwala',
     description:
-      'Find out about the work I have done so far and what I am interested in.',
+      'Know more about me, the work I have done, my tech stack and what I am interested in.',
     url: 'https://siddharthborderwala.com',
     type: 'website',
     images: [
       {
-        url: 'https://siddharthborderwala.com/social-work.png',
+        url: 'https://siddharthborderwala.com/social-about.png',
         width: 1900,
         height: 1000,
         alt: 'Siddharth Borderwala',
@@ -33,12 +32,12 @@ export const metadata: Metadata = {
   twitter: {
     site: '@sidborderwala',
     card: 'summary_large_image',
-    title: 'Work | Siddharth Borderwala',
+    title: 'About | Siddharth Borderwala',
     description:
-      'Find out about the work I have done so far and what I am interested in.',
+      'Know more about me, the work I have done, my tech stack and what I am interested in.',
     images: [
       {
-        url: 'https://siddharthborderwala.com/social-work.png',
+        url: 'https://siddharthborderwala.com/social-about.png',
         width: 1900,
         height: 1000,
         alt: 'Siddharth Borderwala',
@@ -84,7 +83,7 @@ const About = () => {
           <Image
             alt="Siddharth Borderwala"
             src={Siddharth}
-            className="border-none rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
+            className="border-none aspect-square object-cover object-center rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>
       </header>
