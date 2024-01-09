@@ -11,6 +11,14 @@ module.exports = {
       },
     ],
   },
+  additionalPaths: config => {
+    return [
+      {
+        loc: 'https://siddharthborderwala.com/resume.pdf',
+        lastmod: new Date().toISOString(),
+      },
+    ];
+  },
   generateIndexSitemap: false,
   trailingSlash: false,
 };
