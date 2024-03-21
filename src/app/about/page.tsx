@@ -9,6 +9,7 @@ import LinkCTA from '~/components/link-cta';
 import Image from 'next/image';
 import SiddharthAbout from '~/images/siddharth-about.webp';
 import { TechStack } from './tech-stack';
+import blurs from '~/images/blurs.json';
 
 export const metadata: Metadata = {
   title: 'About | Siddharth Borderwala',
@@ -83,6 +84,7 @@ const About = () => {
           <Image
             alt="Siddharth Borderwala"
             src={SiddharthAbout}
+            blurDataURL={blurs['siddharth-about']}
             className="border-none aspect-square object-cover object-center rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>

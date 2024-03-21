@@ -11,6 +11,7 @@ import {
   GlobeSimple,
 } from '@phosphor-icons/react/dist/ssr';
 import { Metadata } from 'next';
+import blurs from '~/images/blurs.json';
 
 export const metadata: Metadata = {
   openGraph: {
@@ -74,6 +75,7 @@ export default function Home() {
           <Image
             alt="Siddharth Borderwala"
             src={Siddharth}
+            blurDataURL={blurs['siddharth-home']}
             className="border-none rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>
