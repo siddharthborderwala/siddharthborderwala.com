@@ -1,8 +1,8 @@
 import zod from 'zod';
-import FormData from 'form-data';
-import Mailgun from 'mailgun.js';
 import stripIndent from 'strip-indent';
 import { json } from '~/utils/server';
+import { Resend } from 'resend';
+import { EmailTemplate } from '~/email-templates/contact';
 
 const contactFormValidator = zod.object({
   name: zod
@@ -42,35 +42,23 @@ const sendContactFormEmail = async (
   email: string,
   message: string
 ) => {
-  const mailgun = new Mailgun(FormData);
-  const mg = mailgun.client({
-    username: 'api',
-    key: process.env.MAILGUN_API_KEY,
-  });
-  return mg.messages.create(process.env.MAILGUN_SENDER_DOMAIN, {
-    'h:Reply-To': email,
-    from: `Website Contact Form <noreply@${process.env.MAILGUN_SENDER_DOMAIN}>`,
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  return resend.emails.send({
+    from: 'Website Contact <contact@tweetr.siddharthborderwala.com>',
     to: 'Siddharth Borderwala <siddharthborderwala@gmail.com>',
     subject: 'Website Contact Form Submission',
     text: stripIndent(`
-      Name: ${name}
-      Email: ${email}
-
-      Message:
+      Message from ${name}
+      ${email}
       ${message}
     `),
-    html: stripIndent(`
-      <p>
-        <strong>Name:</strong> ${name}
-      </p>
-      <p>
-        <strong>Email:</strong> ${email}
-      </p>
-      <p>
-        <strong>Message:</strong>
-      </p>
-      <p>${message}</p>
-    `),
+    react: EmailTemplate({
+      email,
+      message,
+      name,
+    }),
+    reply_to: email,
   });
 };
 
@@ -88,17 +76,18 @@ export const POST = async (req: Request) => {
         parseResult.data.email,
         parseResult.data.message
       );
-      return json(
-        {
-          message: emailResponse.message,
-          status: emailResponse.status,
-        },
-        200
-      );
+      if (emailResponse.error) {
+        return json(
+          {
+            message: emailResponse.error.message,
+          },
+          500
+        );
+      } else {
+        return json(null, 200);
+      }
     }
   } catch (error) {
-    console.log(error);
-
     return new Response('Internal Server Error', { status: 500 });
   }
 };

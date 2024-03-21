@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import Text from '~/components/text';
 import LinkCTA from '~/components/link-cta';
 import Image from 'next/image';
-import Siddharth from '~/images/siddharth-centered.jpg';
+import SiddharthAbout from '~/images/siddharth-about.webp';
 import { TechStack } from './tech-stack';
 
 export const metadata: Metadata = {
@@ -82,7 +82,7 @@ const About = () => {
         >
           <Image
             alt="Siddharth Borderwala"
-            src={Siddharth}
+            src={SiddharthAbout}
             className="border-none aspect-square object-cover object-center rounded-full w-56 sm:w-64 lg:w-72 md:mb-auto shadow-red-100/50 hover:shadow-red-200/50 active:shadow-red-200/50"
           />
         </FadeInSection>
